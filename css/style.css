@@ -136,6 +136,11 @@ header ul li a{
 	height: 140px;
  }
 
+ .col img{
+	height: 200px;
+ }
+
+
  .cap{
 	height: 300px;
  }
