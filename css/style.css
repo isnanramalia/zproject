@@ -205,20 +205,20 @@
      color: black;
  }
 
-  .list-group-vertical-md .list-group-item {
-    background-color: whitesmoke;
-    border: 0.1px solid rgba(0, 0, 0, 0.2);
-  }
+ .list-group-vertical-md .list-group-item {
+     background-color: whitesmoke;
+     border: 0.1px solid rgba(0, 0, 0, 0.2);
+ }
 
-  .list-group-vertical-md .list-group-item:hover {
-    background-color: #3F4726;
-    border: 0.1px solid rgba(0, 0, 0, 0.2);
-    transition: .5s;
-  }
+ .list-group-vertical-md .list-group-item:hover {
+     background-color: #3F4726;
+     border: 0.1px solid rgba(0, 0, 0, 0.2);
+     transition: .5s;
+ }
 
-  .list-group-vertical-md .list-group-item a:hover{
-    color: white;
-  }
+ .list-group-vertical-md .list-group-item a:hover {
+     color: white;
+ }
 
  .card {
      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -275,6 +275,22 @@
      flex-wrap: wrap;
  }
 
+
+ /*------------------------------------------------  || BRAND ||  ------------------------------------------------ */
+ .col a {
+     font-size: 15px;
+     background-color: #3F4726;
+     color: white;
+     padding: 10px 40px 10px 40px;
+ }
+
+ .col a:hover {
+     border:.5px solid rgba(0, 0, 0, 0.5);
+     background-color: #EFF0EC;
+     color: black;
+     transition-timing-function: circle;
+     transition: 0.5s;
+ }
 
 
  /*------------------------------------------------  BEDA DEVICE  ------------------------------------------------ */
