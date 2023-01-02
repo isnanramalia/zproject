@@ -18,6 +18,14 @@
     <!-- link css -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
+    <!-- link js -->
+    <script src="js/script.js"></script>
+
+    <!-- link js bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h355rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
+
     <!-- link icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -29,115 +37,223 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 
+    <link rel="icon" href="atribut/logo/logo.png">
+
     <title>offers - skinker</title>
 </head>
 
-<header>
-    <a href="index.html" class="logo"><span>SKINKER</span></a>
-
-    <ul class="navbar">
-        <li><a href="shop.html">SHOP</a></li>
-        <li><a href="brand.html">BRANDS</a></li>
-        <li><a href="offers.html" class="active">OFFERS</a></li>
-        <li><a href="faq.html">F.A.Q.</a></li>
-        <li><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
-    </ul>
-
-    <div class="main">
-        <a href=""><i class="bi bi-search"></i></a>
-        <a href="#"><b>|</b></a>
-        <a href="#">ACCOUNT <i class="ri-user-fill"></i></a>
-        <a href="#">CART <i class="bi bi-bag"></i></a>
-        <div class="bx bx-menu" id="menu-icon"></div>
-    </div>
-</header>
-
-
-<body style="margin-top: 200px; padding-top: 100px;">
-    <div class="container">
-        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-        <div class="row">
-            <div class="col-6 col-md-4">
-                <h1>SHOP AND SAVE WITH OFFERS</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, repudiandae provident fugiat beatae
-                    sequi adipisci, maiores accusantium molestias dignissimos suscipit debitis. Quis quaerat a
-                    consequuntur accusantium molestiae. Vel, consectetur tenetur.</p>
-            </div>
-            <div class="col-md-8">
-                <iframe style="height: 700px;" src="atribut/video/3.mp4"></iframe>
-            </div>
-        </div>
-</body>
+<body style="margin-top: 90px; padding-top: 80px;">
+    <header>
+        <a href="index.html" class="logo"><span>SKINKER</span></a>
+        <nav>
+            <ul class="navbar">
+                <li><a href="shop.html">SHOP</a></li>
+                <li><a href="brand.html">BRANDS</a></li>
+                <li><a href="offers.html" class="active">OFFERS</a></li>
+                <li><a href="faq.html">F.A.Q.</a></li>
+                <li><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
+            </ul>
+        </nav>
+        <section class="main">
+            <a href=""><i class="bi bi-search"></i></a>
+            <a href="#"><b>|</b></a>
+            <a href="#">ACCOUNT <i class="ri-user-fill"></i></a>
+            <a href="#">CART <i class="bi bi-bag"></i></a>
+            <section class="bx bx-menu" id="menu-icon"></section>
+        </section>
+    </header>
 
 
-<footer class=" text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: #EFF0EC;">
-    <!-- Grid container -->
-    <div class="container p-3">
-        <!--Grid row-->
-        <div class="row">
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-uppercase mb-4">OUR WORLD</h5>
+    <!-- -------------------------------------CONTAINER 1 (shop & saves)-------------------------------------------- -->
+    <main class="container">
+        <section class="row">
+            <img src="atribut/offers/main offer banner.svg" alt="offers banner">
+            <section class="col" style="margin-top: 30px; padding-top: 30px;">
+                <hr style="border: 1px solid black;">
+            </section>
+        </section>
+        <!-- <section class="row">
+            <section>
+                <h1 style="font-size: 60px;">SHOP AND SAVE WITH OFFERS</h1>
+                <article style="font-size: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
+                    repudiandae provident fugiat
+                    beatasequi adipisci, maiores accusantium molestias dignissimos suscipit debitis. Quis quaerat a
+                    quuntur accusantium molestiae. Vel, consectetur tenetur.</article>
+            </section>
+        </section> -->
+    </main>
 
-                <ul class="list-unstyled mb-4">
-                    <li>
-                        <a href="#!" class="text-black">About us</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-black">Collections</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-black">Environmental philosophy</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-black">Artist collaborations</a>
-                    </li>
-                </ul>
-            </div>
-            <!--Grid column-->
 
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-uppercase mb-4">Assistance</h5>
+    <!-- -------------------------------------CONTAINER 2 (all offers)-------------------------------------------- -->
+    <main class="container">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/1.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1>penawaraan 1</h1>
+                <p>Lorem ipsum dolor sirum veritatis obcaecati dolore adipisci autem nobis est quod porro hic nihil
+                    corrupti, aut at neque esse. Non?</p>
+                <button class="btn btn-block">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+        <hr class="hr-offers">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/2.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1>penawaraan 1</h1>
+                <p>Lorem ipsum dolor sirum veritatis obcaecati dolore adipisci autem nobis est quod porro hic nihil
+                    corrupti, aut at neque esse. Non?</p>
+                <button class="btn btn-block">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+        <hr class="hr-offers">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/3.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1>penawaraan 1</h1>
+                <p>Lorem ipsum dolor sirum veritatis obcaecati dolore adipisci autem nobis est quod porro hic nihil
+                    corrupti, aut at neque esse. Non?</p>
+                <button class="btn btn-block">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+        <hr class="hr-offers">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/4.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1>penawaraan 1</h1>
+                <p>Lorem ipsum dolor sirum veritatis obcaecati dolore adipisci autem nobis est quod porro hic nihil
+                    corrupti, aut at neque esse. Non?</p>
+                <button class="btn btn-block">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+        <hr class="hr-offers">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/5.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1>penawaraan 1</h1>
+                <p>Lorem ipsum dolor sirum veritatis obcaecati dolore adipisci autem nobis est quod porro hic nihil
+                    corrupti, aut at neque esse. Non?</p>
+                <button class="btn btn-block">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+        <hr class="hr-offers">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/6.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1>penawaraan 1</h1>
+                <p>Lorem ipsum dolor sirum veritatis obcaecati dolore adipisci autem nobis est quod porro hic nihil
+                    corrupti, aut at neque esse. Non?</p>
+                <button class="btn btn-block">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+        <hr class="hr-offers">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/7.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1>penawaraan 1</h1>
+                <p>Lorem ipsum dolor sirum veritatis obcaecati dolore adipisci autem nobis est quod porro hic nihil
+                    corrupti, aut at neque esse. Non?</p>
+                <button class="btn btn-block">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+    </main>
 
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!" class="text-black">Contact us</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-black">Size Guide</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-black">Shipping Information</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-black">Returns & Exchanges</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-black">Payment</a>
-                    </li>
-                </ul>
-            </div>
-            <!--Grid column-->
 
-            <!--Grid column-->
-            <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-uppercase mb-4">Sign up to our newsletter</h5>
 
-                <div class="form-outline form-black mb-4">
-                    <input type="email" id="form5Example2" class="form-control" />
-                    <label class="form-label" for="form5Example2">Email address</label>
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
+        <!-- Grid container -->
+        <div class="container p-3">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-4 mb-3 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">OUR WORLD</h5>
+
+                    <ul class="list-unstyled mb-4">
+                        <li>
+                            <a href="#!" class="text-black">About us</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-black">Collections</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-black">Environmental philosophy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-black">Artist collaborations</a>
+                        </li>
+                    </ul>
                 </div>
+                <!--Grid column-->
 
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-4 mb-3 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Assistance</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-black">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-black">Size Guide</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-black">Shipping Information</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-black">Returns & Exchanges</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-black">Payment</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-4 mb-3 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Sign up to our newsletter</h5>
+
+                    <div class="form-outline form-black mb-4">
+                        <input type="email" id="form5Example2" class="form-control" />
+                        <label class="form-label" for="form5Example2">Email address</label>
+                    </div>
+
+                </div>
+                <!--Grid column-->
             </div>
-            <!--Grid column-->
+            <!--Grid row-->
         </div>
-        <!--Grid row-->
-    </div>
-    <!-- Grid container -->
+        <!-- Grid container -->
 
-    <!-- payment -->
-    <div class="container p-1">
+        <!-- payment -->
         <div class="container text-center">
             <div class="row">
                 <div class="col">
@@ -164,15 +280,15 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end payment -->
+        <!-- end payment -->
 
 
-    <!-- Copyright -->
-    <div class="text-center p-3 border-top border-white">
-        © 2022 Copyright Skinker
-    </div>
-    <!-- Copyright -->
-</footer>
+        <!-- Copyright -->
+        <div class="text-center p-3 border-top border-white">
+            © 2022 Copyright Skinker
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
 
 </html>
