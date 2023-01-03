@@ -6,8 +6,7 @@ menu.onclick = () => {
 	navbar.classList.toggle('open');
 }
  /*------------------------------------------------  || FAQ ||  ------------------------------------------------ */
-
- /*------------------------------------------------  FORM  ------------------------------------------------ */
+//  FORM
  function validateForm() {
 	var name = document.forms["contactForm"]["name"].value;
 	var email = document.forms["contactForm"]["email"].value;
@@ -18,4 +17,34 @@ menu.onclick = () => {
 	  return false;
 	}
   }
+
+
+ /*------------------------------------------------  || TIPS & ADVANCE ||  ------------------------------------------------ */
+// COUROSEL
+document.addEventListener("DOMContentLoaded", function() {
+	var currentSlide = 0;
+	var slides = document.querySelectorAll('#carousel .slide');
+	var numSlides = slides.length;
+	
+	function showSlide(n) {
+	  slides[currentSlide].style.display = 'none';
+	  slides[n].style.display = 'block';
+	  currentSlide = n;
+	}
+	
+	document.querySelector('#prev').addEventListener('click', function() {
+	  slides[currentSlide].style.opacity = 0;
+	  showSlide((currentSlide - 1 + numSlides) % numSlides);
+	  slides[currentSlide].style.opacity = 1;
+	});
+	
+	document.querySelector('#next').addEventListener('click', function() {
+	  slides[currentSlide].style.opacity = 0;
+	  showSlide((currentSlide + 1) % numSlides);
+	  slides[currentSlide].style.opacity = 1;
+	});
+	
+	showSlide(0);
+  });
+  
   

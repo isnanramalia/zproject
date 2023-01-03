@@ -339,7 +339,7 @@
     width: 100%;
   }
   
-  input[type="text"], input[type="email"], input[type="tel"], textarea, input[type="submit"] {
+  input[type="text"], input[type="email"], input[type="tel"], textarea, input[type="submit"], input[type="password"] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -364,6 +364,28 @@
     border: .3px solid black;
     color: black;
   }
+
+ /*------------------------------------------------  || TIPS & ADVICE ||  ------------------------------------------------ */
+ .href-login{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #EFF0EC;
+    color: black;
+    padding: 12px 15px;
+    cursor:pointer;
+    border-bottom: 1px solid #3F4726;
+ }
+
+ .href-login:hover{
+    background-color: #ccc;
+    border: .3px solid black;
+    color: black;
+ }
+
+ /*------------------------------------------------  || REGISTER.HTML ||  ------------------------------------------------ */
+/* login href */
+
   
  /*------------------------------------------------  BEDA DEVICE  ------------------------------------------------ */
  @media (max-width: 1280px) {
