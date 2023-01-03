@@ -1,4 +1,4 @@
- /*------------------------------------------------   ALL  ------------------------------------------------ */
+ /*------------------------------------------------  || ALL ||  ------------------------------------------------ */
 
  * {
      padding: 0;
@@ -123,6 +123,15 @@
      display: none;
  }
 
+ /*------------------------------------------------  || FOOTER || ------------------------------------------------ */
+ footer {
+     background-color: #EFF0EC;
+ }
+
+ ul li a {
+     text-decoration: none;
+ }
+
  /*------------------------------------------------  || INDEX ||  ------------------------------------------------ */
 
  /*------------------------------------------------   MAIN  ------------------------------------------------ */
@@ -180,20 +189,6 @@
      padding: 0px;
  }
 
- /*------------------------------------------------  BEST SELLER  ------------------------------------------------ */
-
-
-
-
- /*------------------------------------------------  FOOTER ------------------------------------------------ */
- footer {
-     background-color: #EFF0EC;
- }
-
- ul li a {
-     text-decoration: none;
- }
-
  /*------------------------------------------------  || SHOP ||  ------------------------------------------------ */
  .list-group-item {
      padding: 5px;
@@ -233,6 +228,8 @@
  .card:hover {
      box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
      background-color: white;
+     transform: scale(1.08);
+     transition: transform 0.5s;
  }
 
  .card-img-top {
@@ -285,7 +282,7 @@
  }
 
  .col a:hover {
-     border:.5px solid rgba(0, 0, 0, 0.5);
+     border: .5px solid rgba(0, 0, 0, 0.5);
      background-color: #EFF0EC;
      color: black;
      transition-timing-function: circle;
@@ -293,28 +290,81 @@
  }
 
  /*------------------------------------------------  || OFFERS ||  ------------------------------------------------ */
-.row-offers{
-    padding: 20px;
-    margin: 20px;
-}
+ .row-offers {
+     padding: 20px;
+     margin: 20px;
+ }
 
-.col-4 img{
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+ .col-4 img {
+     width: 80%;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
 
-.col-4 img:hover{
-    transform: scale(1.2);
-  transition: transform 0.5s;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40);
-}
+ .col-4 img:hover {
+     transform: scale(1.2);
+     transition: transform 0.5s;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40);
+ }
 
 
-.hr-offers{
-    width: 75%;
-    margin: 0 auto;
-    color: rgba(0, 0, 0, 0.3);
-}
+ .hr-offers {
+     width: 75%;
+     margin: 0 auto;
+     color: rgba(0, 0, 0, 0.3);
+ }
+
+
+ /*------------------------------------------------  || FAQ ||  ------------------------------------------------ */
+ .row .rounded{
+    background-color: #D4DDB7;
+    margin: 30px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+ }
+
+ .row .rounded h1{
+    font-size: 20px;
+ }
+
+ .row .rounded:hover{
+    background-color: #3F4726;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    transition: transform 1s, background-color 2s;
+ }
+
+ /* FORM */
+ form {
+    width: 100%;
+  }
+  
+  input[type="text"], input[type="email"], input[type="tel"], textarea, input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type="submit"] {
+    background-color: #3F4726;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #D4DDB7;
+    border: .3px solid black;
+    color: black;
+  }
+  
  /*------------------------------------------------  BEDA DEVICE  ------------------------------------------------ */
  @media (max-width: 1280px) {
      header {
