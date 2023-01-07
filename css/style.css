@@ -383,8 +383,44 @@
     color: black;
  }
 
- /*------------------------------------------------  || REGISTER.HTML ||  ------------------------------------------------ */
-/* login href */
+ /*------------------------------------------------  || CART ||  ------------------------------------------------ */
+/* Style untuk halaman keranjang belanja */
+#cart {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #cart table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #cart th, #cart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #cart tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #cart tr:hover {
+    background-color: #ddd;
+  }
+  
+  #cart #pay-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #cart #pay-button:hover {
+    background-color: #45a049;
+  }
+  
 
   
  /*------------------------------------------------  BEDA DEVICE  ------------------------------------------------ */

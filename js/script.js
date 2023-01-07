@@ -46,5 +46,51 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	showSlide(0);
   });
+
+
+ /*------------------------------------------------  || TIPS & ADVANCE ||  ------------------------------------------------ */
+// Fungsi untuk menghitung harga total
+function calculateTotal() {
+	// Dapatkan referensi ke semua input jumlah produk
+	var inputs = document.querySelectorAll('#cart input[type="number"]');
+	
+	// Inisialisasi variabel harga total
+	var total = 0;
+	
+	// Loop through each input and calculate total
+	for (var i = 0; i < inputs.length; i++) {
+	  // Dapatkan harga produk dari tabel
+	  var price = parseInt(inputs[i].parentNode.previousSibling.textContent);
+    
+	  // Dapatkan jumlah produk dari input
+	  var quantity = inputs[i].value;
+	  
+	  // Hitung sub total harga produk
+	  var subtotal = price * quantity;
+	  
+	  // Tambahkan sub total ke harga total
+	  total += subtotal;
+	}
+	
+	// Update harga total di halaman
+	document.querySelector('#total').textContent = total;
+  }
+  
+  // Hitung harga total saat halaman pertama kali di load
+  calculateTotal();
+  
+  // Tambahkan event listener ke semua input jumlah produk
+  var inputs = document.querySelectorAll('#cart input[type="number"]');
+  for (var i = 0; i < inputs.length; i++) {
+	inputs[i].addEventListener('change', calculateTotal);
+  }
+  
+  // Tambahkan event listener ke tombol pembayaran
+  document.querySelector('#pay-button').addEventListener('click', function() {
+	// Tampilkan pesan pembayaran berhasil
+	alert('Pembayaran berhasil!');
+  });
+  
+  
   
   
