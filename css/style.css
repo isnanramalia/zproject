@@ -8,6 +8,11 @@
      list-style: none;
  }
 
+ body::selection {
+    background-color: green;
+    color: white;
+ }
+
 
  :root {
      --bg-color: #ffffff;
