@@ -5,7 +5,6 @@
      margin: 0;
      box-sizing: border-box;
      text-decoration: none;
-     list-style: none;
  }
 
  body::selection {
@@ -42,6 +41,7 @@
      background-color: white;
      font-family: 'PT Sans', sans-serif;
      font-size: small;
+     list-style: none;
  }
 
  header ul li a,
@@ -69,6 +69,8 @@
 
  .navbar {
      display: flex;
+     list-style: none;
+
  }
 
  .navbar a {
@@ -410,6 +412,12 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40);
 }
 
+.col-8.artikel{
+    padding: 40px;
+    margin: 60px;
+    background-color: whitesmoke;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+}
  /*------------------------------------------------  || CART ||  ------------------------------------------------ */
 /* Style untuk halaman keranjang belanja */
 #cart {
