@@ -1,6 +1,6 @@
 /* ---------------------------- LARGE SCREEN -------------------------------------------- */
 @media only screen and (min-width: 992px){
-    /* style css */
+  
 }
 
 
@@ -12,12 +12,5 @@
 
 /* ---------------------------- SMALL SCREEN -------------------------------------------- */
 @media only screen and (max-width: 767px){
-    .grid-item {
-        display: block;
-        width: 100%;
-      }
-      .grid-item-large {
-        display: block;
-        width: 100%;
-      }
+    
 }
