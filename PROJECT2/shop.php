@@ -1,5 +1,39 @@
 <?php
 require_once('php/component.php');
+require_once('php/CreateDb.php');
+
+// create instance of CreateDb class
+$database = new CreateDb(dbname: "Productdb", tablename: "Producttb");
+
+if (isset($_POST['add'])) {
+    /// print_r($_POST['product_id']);
+    if (isset($_SESSION['cart'])) {
+
+        $item_array_id = array_column($_SESSION['cart'], "product_id");
+
+        if (in_array($_POST['product_id'], $item_array_id)) {
+            echo "<script>alert('Product is already added in the cart..!')</script>";
+            echo "<script>window.location = 'index.php'</script>";
+        } else {
+
+            $count = count($_SESSION['cart']);
+            $item_array = array(
+                'product_id' => $_POST['product_id']
+            );
+
+            $_SESSION['cart'][$count] = $item_array;
+        }
+    } else {
+
+        $item_array = array(
+            'product_id' => $_POST['product_id']
+        );
+
+        // Create new session variable
+        $_SESSION['cart'][0] = $item_array;
+        print_r($_SESSION['cart']);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,25 +79,9 @@ require_once('php/component.php');
 
 
 <body style="margin-top: 50px; padding-top: 50px;">
-    <header>
-        <a href="index.html" class="logo"><span>SKINKER</span></a>
-        <nav>
-            <ul class="navbar">
-                <li><a href="shop.html" class="active">SHOP</a></li>
-                <li><a href="brand.html">BRANDS</a></li>
-                <li><a href="offers.html">OFFERS</a></li>
-                <li><a href="faq.html">F.A.Q.</a></li>
-                <li><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
-            </ul>
-        </nav>
-        <section class="main">
-            <a href=""><i class="bi bi-search"></i></a>
-            <a href="#"><b>|</b></a>
-            <a href="account/login.html">ACCOUNT <i class="ri-user-fill"></i></a>
-            <a href="cart.html">CART <i class="bi bi-bag"></i></a>
-            <section class="bx bx-menu" id="menu-icon"></section>
-        </section>
-    </header>
+    <?php
+    require_once('php/header.php');
+    ?>
 
 
     <!-- ---------------------------|START CONTAINER|------------------------------ -->
@@ -101,19 +119,12 @@ require_once('php/component.php');
                     <h2 style="font-size: medium; text-align: center;">Moisturizer</h2>
                 </section>
                 <section class="card-deck d-flex justify-content-center">
+
                     <?php
-                    component(productname: "Cerave Moisturizer", productprice: 100000, productimg: "admin/imgProduct/cerave/moisturizer/moisturizer.jpg");
-                    component(productname: "Cethapil Moisturizer", productprice: 100000, productimg: "admin/imgProduct/cetaphil/moisturizer/moisturizer.jpg");
-                    component(productname: "[Best Seller] Cethapil Moisturizer", productprice: 100000, productimg: "atribut/best seller/cetaphil.png");
-                    component(productname: "Cosrx Moisturizer", productprice: 100000, productimg: "admin/imgProduct/cosrx/moisturizer/moisturizer.jpg");
-                    component(productname: "D`alba Moisturizer", productprice: 100000, productimg: "admin/imgProduct/dalba/moisturizer/moisturizer.jpg");
-                    component(productname: "ElseSkin Moisturizer", productprice: 100000, productimg: "admin/imgProduct/elsheskin/moisturizer/moisturizer.jpg");
-                    component(productname: "Estee Lauder Moisturizer", productprice: 100000, productimg: "admin/imgProduct/esteelauder/moisturizer/moisturizer.jpg");
-                    component(productname: "InnisfreeMoisturizer", productprice: 100000, productimg: "admin/imgProduct/innisfree/moisturizer/moisturizer.jpg");
-                    component(productname: "Laneige Moisturizer", productprice: 100000, productimg: "admin/imgProduct/laneige/moisturizer/moisturizer.jpg");
-                    component(productname: "Larocheposay Moisturizer", productprice: 100000, productimg: "admin/imgProduct/larocheposay/moisturizer/moisturizer.jpg");
-                    component(productname: "Scarlett Day Moisturizer", productprice: 100000, productimg: "admin/imgProduct/scarlett/moisturizer/moisturizer.jpg");
-                    component(productname: "Scarlett Night Moisturizer", productprice: 100000, productimg: "admin/imgProduct/scarlett/moisturizer/moisturizer acne night.jpg");
+                    $result = $database->getData();
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        component($row['product_name'], $row['product_price'], $row['product_image'], $row['id']);
+                    }
                     ?>
                 </section>
 
@@ -123,172 +134,81 @@ require_once('php/component.php');
                     <h2 style="font-size: medium; text-align: center;">Sunscreen</h2>
                 </section>
                 <section class="card-deck d-flex justify-content-center">
-                    <?php
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/cerave/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/cetaphil/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/cosrx/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/dalba/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/elsheskin/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/esteelauder/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/innisfree/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/laneige/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/larocheposay/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/sunscreen/sunscreen.jpg");
-                    component(productname: "Sunscreen", productprice: 100000, productimg: "admin/imgProduct/nivea/sunscreen/sunscreen.jpg");
-                    ?>
+                </section>
 
-                    <!------------------------------CLEANSER-------------------------->
-                    <section style="margin: 40px;padding: 40px;"></section>
-                    <section id="cleanser" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
-                        <h2 style="font-size: medium; text-align: center;">Cleanser</h2>
-                    </section>
-                    <section class="card-deck d-flex justify-content-center">
-                        <?php
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/cerave/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/cetaphil/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/cosrx/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/dalba/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/elsheskin/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/esteelauder/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/innisfree/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/laneige/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/larocheposay/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/nivea/cleanser/cleanser.jpg");
-                        component(productname: "Cleanser", productprice: 100000, productimg: "admin/imgProduct/scarlett/cleanser/cleanser.jpg");
-                        ?>
-                    </section>
 
-                    <!------------------------------EXFOLIANT-------------------------->
-                    <section style="margin: 40px;padding: 40px;"></section>
-                    <section id="exfoliant" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
-                        <h2 style="font-size: medium; text-align: center;">Exfoliant</h2>
-                    </section>
-                    <section class="card-deck d-flex justify-content-center">
-                        <?php
-                        component(productname: "Exfoliant", productprice: 100000, productimg: "admin/imgProduct/cetaphil/exfoliant/exfoliant.jpg");
-                        component(productname: "Exfoliant", productprice: 100000, productimg: "admin/imgProduct/innisfree/exfoliant/exfoliant.jpg");
-                        component(productname: "Exfoliant", productprice: 100000, productimg: "admin/imgProduct/laneige/exfoliant/exfoliant.jpg");
-                        component(productname: "Exfoliant", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/exfoliant/exfoliant.jpg");
-                        ?>
-                    </section>
-
-                    <!------------------------------LIP CARE-------------------------->
-                    <section style="margin: 40px;padding: 40px;"></section>
-                    <section id="lipcare" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
-                        <h2 style="font-size: medium; text-align: center;">Lip Care</h2>
-                    </section>
-                    <section class="card-deck d-flex justify-content-center">
-                        <?php
-                        component(productname: "Lip Care", productprice: 100000, productimg: "admin/imgProduct/cerave/lipCare/lip.jpg");
-                        component(productname: "Lip Care", productprice: 100000, productimg: "admin/imgProduct/dalba/lipCare/lip.jpg");
-                        component(productname: "Lip Care", productprice: 100000, productimg: "admin/imgProduct/esteelauder/lipCare/lip.jpg");
-                        component(productname: "Lip Care", productprice: 100000, productimg: "admin/imgProduct/innisfree/lipCare/lip.jpg");
-                        component(productname: "Lip Care", productprice: 100000, productimg: "admin/imgProduct/laneige/lipCare/lip.jpg");
-                        component(productname: "Lip Care", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/lipCare/lip.jpg");
-                        component(productname: "Lip Care", productprice: 100000, productimg: "admin/imgProduct/nivea/lipCare/lip.jpg");
-                        ?>
-                    </section>
-
-                    <!------------------------------MASK-------------------------->
-                    <section style="margin: 40px;padding: 40px;"></section>
-                    <section id="mask" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
-                        <h2 style="font-size: medium; text-align: center;">Mask</h2>
-                    </section>
-                    <section class="card-deck d-flex justify-content-center">
-                        <?php
-                        component(productname: "Mask", productprice: 100000, productimg: "admin/imgProduct/cosrx/mask/mask.jpg");
-                        component(productname: "Mask", productprice: 100000, productimg: "admin/imgProduct/dalba/mask/mask.jpg");
-                        component(productname: "Mask", productprice: 100000, productimg: "admin/imgProduct/innisfree/mask/mask.jpg");
-                        component(productname: "Mask", productprice: 100000, productimg: "admin/imgProduct/laneige/mask/mask cica green.jpg");
-                        component(productname: "Mask", productprice: 100000, productimg: "admin/imgProduct/laneige/mask/mask purple.jpg");
-                        component(productname: "Mask", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/mask/mask.jpg");
-                        ?>
-                    </section>
-
-                    <!------------------------------SERUM/ESSENCE-------------------------->
-                    <section style="margin: 40px;padding: 40px;"></section>
-                    <section id="serum" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
-                        <h2 style="font-size: medium; text-align: center;">Serum and Essence</h2>
-                    </section>
-                    <section class="card-deck d-flex justify-content-center">
-                        <?php
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/cerave/serum/serum.jpg");
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/cetaphil/serum/serum.jpg");
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/cosrx/serum/serum.jpg");
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/dalba/serum/serum.jpg");
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/elsheskin/serum/serum.jpg");
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/esteelauder/serum/serum.jpg");
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/innisfree/serum/serum.jpg");
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/laneige/serum/serum.jpg");
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/larocheposay/serum/serum.jpg");
-                        component(productname: "Serum", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/serum/serum.jpg");
-                        ?>
-                    </section>
-
-                    <!------------------------------EYE TREATMENT-------------------------->
-                    <section style="margin: 40px;padding: 40px;"></section>
-                    <section id="eyetreatment" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
-                        <h2 style="font-size: medium; text-align: center;">Eye Treatment</h2>
-                    </section>
-                    <section class="card-deck d-flex justify-content-center">
-                        <?php
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "admin/imgProduct/cerave/eye treatment/eye.jpg");
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "admin/imgProduct/cosrx/eye treatment/eye hydrogel.jpg");
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "admin/imgProduct/cosrx/eye treatment/eye peptide.jpg");
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "admin/imgProduct/dalba/eye treatment/eye.jpg");
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "admin/imgProduct/esteelauder/eye treatment/eye.jpg");
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "admin/imgProduct/innisfree/eye treatment/eye.jpg");
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "atribut/best seller/kiehls.png");
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "admin/imgProduct/laneige/eye treatment/eye.jpg");
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/eye treatment/eye.jpg");
-                        component(productname: "Eye Treatment", productprice: 100000, productimg: "admin/imgProduct/scarlett/eye treatment/eye.jpg");
-                        ?>
-                    </section>
-
-                    <!------------------------------TONER-------------------------->
-                    <section style="margin: 40px;padding: 40px;"></section>
-                    <section id="toner" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
-                        <h2 style="font-size: medium; text-align: center;">Toner</h2>
-                    </section>
-                    <section class="card-deck d-flex justify-content-center">
-                        <?php
-                        component(productname: "Toner", productprice: 100000, productimg: "admin/imgProduct/cerave/toner/toner.jpg");
-                        component(productname: "Toner", productprice: 100000, productimg: "admin/imgProduct/cosrx/toner/toner.jpg");
-                        component(productname: "Toner", productprice: 100000, productimg: "admin/imgProduct/dalba/toner/toner.jpg");
-                        component(productname: "Toner", productprice: 100000, productimg: "admin/imgProduct/elsheskin/toner/toner.jpg");
-                        component(productname: "Toner", productprice: 100000, productimg: "admin/imgProduct/innisfree/toner/toner.jpg");
-                        component(productname: "Toner", productprice: 100000, productimg: "admin/imgProduct/laneige/toner/toner.jpg");
-                        component(productname: "Toner", productprice: 100000, productimg: "admin/imgProduct/larocheposay/toner/toner.jpg");
-                        component(productname: "Toner", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/toner/toner.jpg");
-                        ?>
-                    </section>
-
-                    <!------------------------------SET BUNDLES-------------------------->
-                    <section style="margin: 40px;padding: 40px;"></section>
-                    <section id="setbundle" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
-                        <h2 style="font-size: medium; text-align: center;">Set Bundle</h2>
-                    </section>
-                    <section class="card-deck d-flex justify-content-center">
-                        <?php
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/innisfree/set bundle/bundles green tea.png");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/set bundle/set bundle coconut body trio.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/mariobadescu/set bundle/set bundle mini mist collection.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/sensatia/set bundle/set bundle combination skin.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/sensatia/set bundle/set bundle dry skin.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/sensatia/set bundle/set bundle normal skin.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/sensatia/set bundle/set bundle sensitive skin.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/sk-ii/set bundle/set bundle pitera aura.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/sk-ii/set bundle/set bundle pitera power.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/sk-ii/set bundle/set bundle pitera welcome.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/skintific/set bundle/set bundle.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "dmin/imgProduct/theBodyShop/set bundle/set bundle.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/theOrdinary/set bundle/set bundle.jpg");
-                        component(productname: "Set Bundle", productprice: 100000, productimg: "admin/imgProduct/yvesrocher/set bundle/set bundle.jpg");
-                        ?>
-                    </section>
+                <!------------------------------CLEANSER-------------------------->
+                <section style="margin: 40px;padding: 40px;"></section>
+                <section id="cleanser" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
+                    <h2 style="font-size: medium; text-align: center;">Cleanser</h2>
+                </section>
+                <section class="card-deck d-flex justify-content-center">
 
                 </section>
+
+                <!------------------------------EXFOLIANT-------------------------->
+                <section style="margin: 40px;padding: 40px;"></section>
+                <section id="exfoliant" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
+                    <h2 style="font-size: medium; text-align: center;">Exfoliant</h2>
+                </section>
+                <section class="card-deck d-flex justify-content-center">
+
+                </section>
+
+                <!------------------------------LIP CARE-------------------------->
+                <section style="margin: 40px;padding: 40px;"></section>
+                <section id="lipcare" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
+                    <h2 style="font-size: medium; text-align: center;">Lip Care</h2>
+                </section>
+                <section class="card-deck d-flex justify-content-center">
+
+                </section>
+
+                <!------------------------------MASK-------------------------->
+                <section style="margin: 40px;padding: 40px;"></section>
+                <section id="mask" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
+                    <h2 style="font-size: medium; text-align: center;">Mask</h2>
+                </section>
+                <section class="card-deck d-flex justify-content-center">
+                </section>
+
+                <!------------------------------SERUM/ESSENCE-------------------------->
+                <section style="margin: 40px;padding: 40px;"></section>
+                <section id="serum" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
+                    <h2 style="font-size: medium; text-align: center;">Serum and Essence</h2>
+                </section>
+                <section class="card-deck d-flex justify-content-center">
+
+                </section>
+
+                <!------------------------------EYE TREATMENT-------------------------->
+                <section style="margin: 40px;padding: 40px;"></section>
+                <section id="eyetreatment" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
+                    <h2 style="font-size: medium; text-align: center;">Eye Treatment</h2>
+                </section>
+                <section class="card-deck d-flex justify-content-center">
+
+                </section>
+
+                <!------------------------------TONER-------------------------->
+                <section style="margin: 40px;padding: 40px;"></section>
+                <section id="toner" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
+                    <h2 style="font-size: medium; text-align: center;">Toner</h2>
+                </section>
+                <section class="card-deck d-flex justify-content-center">
+
+                </section>
+
+                <!------------------------------SET BUNDLES-------------------------->
+                <section style="margin: 40px;padding: 40px;"></section>
+                <section id="setbundle" style="background-color: white; font-size: medium; padding: 30px;margin: 30px; border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
+                    <h2 style="font-size: medium; text-align: center;">Set Bundle</h2>
+                </section>
+                <section class="card-deck d-flex justify-content-center">
+
+                </section>
+
+            </section>
     </main>
 
 
