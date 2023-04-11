@@ -5,7 +5,7 @@ function component($productname, $productprice, $productimg, $productid)
     $element = "
 
 <section class=\"card col-2\" style=\"margin: 10px; padding: 10px; display: inline-block;\">
-    <form action=\"index.php\" method=\"post\">
+    <form action=\"shop.php\" method=\"post\">
         <img class=\"card-img-top\" src=\"$productimg\" alt=\"products\">
         <section class=\"card-body\">
             <h2 class=\"card-title\">$productname</h2>

@@ -12,8 +12,7 @@
     <meta name="author" content="isna nur amalia">
 
     <!-- link bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- link css -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -21,12 +20,8 @@
     <!-- link js -->
     <script src="js/script.js"></script>
 
-    <!-- link jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <!-- link js bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h355rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h355rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
 
     <!-- link icon -->
@@ -41,11 +36,11 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="icon" href="atribut/logo/logo.png">
-    <title>tips & advice - skinker</title>
+    <title>f.a.q. - skinker</title>
 </head>
 
 
-<body style="margin-top: 100px; padding-top: 50px;  background-color: white;">
+<body style="margin-top: 50px; padding-top: 50px;">
     <header>
         <a href="index.html" class="logo"><span>SKINKER</span></a>
         <nav>
@@ -53,8 +48,8 @@
                 <li><a href="shop.html">SHOP</a></li>
                 <li><a href="brand.html">BRANDS</a></li>
                 <li><a href="offers.html">OFFERS</a></li>
-                <li><a href="faq.html">F.A.Q.</a></li>
-                <li><a href="tipsNadvice.html" class="active">TIPS & ADVICE</a></li>
+                <li><a href="faq.html" class="active">F.A.Q.</a></li>
+                <li><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
             </ul>
         </nav>
         <section class="main">
@@ -66,79 +61,93 @@
         </section>
     </header>
 
-
-    <!-- ----------------------------------------- PROLOG ------------------------------------- -->
-    <main>
-        <h1 style="text-align: center;">All About Skin</h1><br>
-        <section class="cotainer" style="display: flex;">
+    <!-- ----------------------------------------- FAQ ------------------------------------- -->
+    <main class="container">
+        <section class="row">
+            <section class="col-3 justify-content-center">
+                <h1 class="mx-auto text-center" style="padding-right: 50%;
+                padding-top: 50%;
+                padding-bottom: 50%;
+                margin-right: 50%;
+                margin-top: 50%;
+                margin-bottom: 50%;">
+                    F.A.Q</h1>
+            </section>
             <section class="col-7">
-                <img src="admin tipsNadvice/img banner/main-banner.svg" style="height: 600px;" alt="poster">
+                <!-- ini adalah container didalam container (main dari FAQ) -->
+                <section class="container">
+                    <section class="row rounded">
+                        <h1>SKINKER adalah website apa?</h1>
+                        <hr>
+                        <p>SKINKER adalah sebuah e-commerce yang dibuat sendiri oleh ISNA GROUP. Sudah berdiri sejak
+                            Januari 2022, Web Aplikasi yang digunakan untuk menjual dan membeli produk </p>
+                    </section>
+                    <section class="row rounded">
+                        <h1>Bahasa yang digunakan dalam SKINKER bahasa apa?</h1>
+                        <hr>
+                        <p>Bahasa utama dari SKINKER adalah Bahasa Inggris. Kenapa Bahasa Inggris? Karena SKINKER
+                            bertujuan untuk berkontribusi sebagai e-commerce internasional sehingga seluruh dunia bisa
+                            mengakses dan memahami SKINKER dengan mudah</p>
+                    </section>
+                    <section class="row rounded">
+                        <h1>Apa saja yang dapat didapat saat mengakses website SKINKER?</h1>
+                        <p>SKINKER dengan kemampuan utama sebagai website untuk membeli skincare terbaik yang ada di
+                            dunia, menampilkan produk high end hingga low end.
+                        </p>
+                    </section>
+                    <section class="row rounded">
+                        <h1>Apakah produk yang ada di SKINKER semuanya tersertifikasi GLUTEN-FREE?</h1>
+                        <hr>
+                        <p>Yes, Satya is 100% gluten-free.
+                            <br><br>
+                            At Satya, we only use PROVEN safe, gluten-free oats for our colloidal oatmeal. Most oats are
+                            cross-contaminated with wheat and it can be hard to know if they contain gluten or not.
+                            <br><br>
+                            For our Satya family with celiac conditions, gluten intolerance, or allergies associated
+                            with eczema, you can be rest assured that the Satya formula is 100% gluten-free!
+                        </p>
+                    </section>
+                    <section class="row rounded">
+                        <h1>Apakah harus sign in akun?</h1>
+                        <hr>
+                        <p>Tidak, kamu tidak harus melakukan sign in pada website ini. Saat ingin membeli tanpa sign in
+                            sah-sah saja namun, tidak akan ada riwayat pembelian kamu.</p>
+                    </section>
+                </section>
+                <!-- end container didalam container (main dari FAQ) -->
             </section>
-            <section class="col-1"></section>
-            <section class="col-3" style="display: grid; place-items: center;">
-                <h2 style="font-size: 30px;">Learn About Skin</h2>
-                <p style="font-size: 23px;">
-                    Skin has three layers: The epidermis, the outermost layer of skin, provides a waterproof barrier and
-                    creates our skin tone. The dermis, beneath the epidermis, contains tough connective tissue, hair
-                    follicles, and sweat glands. The deeper subcutaneous tissue (hypodermis) is made of fat and
-                    connective tissue.</p>
-                <p>
-                    Ini this page you can read all about beauty, if you want your face to shine
-                    clean and get rid of acne scars or other skin problem. You can get out newest product and see the
-                    glow up from this website. Enjoy it.</p>
-            </section>
-            <section class="col-1">
-            </section>
+            <section class="col-2"></section>
         </section>
     </main>
 
-    <!-- ----------------------------------------- BLOGS ------------------------------------- -->
-    <main style="background-color: #EFF0EC; ;">
+
+    <!-- ------------------------------------- CONTACT US ---------------------------------- -->
+    <main style="background-color: white;">
         <hr>
-        <br><br><br><br><br>
-        <section class=" container">
+        <h1 style="text-align: center; margin: 50px;" id="contactUs">Contact Us</h1>
+        <section class="container">
             <section class="row">
-                <section class="col">
-                    <img src="admin tipsNadvice/img tips&advice/1.jpg" alt="tips 1" class="artikelTipsnAdvice"
-                        onclick="window.location.href='admin tipsNadvice/a1.html'">
-                    <p>5 Manfaat Tea Tree Oil untuk Wajah</p>
+                <section class="col-1"></section>
+                <section class="col-10">
+                    <form name="contactForm" onsubmit="return validateForm()">
+                        <section style="display: flex;">
+                            <input type="text" id="name" name="name" placeholder="Your name" style=" margin-right: 15px;"><br>
+                            <input type="email" id="email" name="email" placeholder="Your email" style=" margin-left: 15px;"><br>
+                        </section>
+                        <input type="tel" id="phone" name="phone" placeholder="Your phone"><br>
+                        <textarea id="message" name="message" rows="4" cols="50" placeholder="Your message"></textarea><br>
+                        <input type="submit" value="SEND MESSAGE">
+                    </form>
                 </section>
-                <section class="col">
-                    <img src="admin tipsNadvice/img tips&advice/2.jpg" alt="tips 2" class="artikelTipsnAdvice"
-                        onclick="window.location.href='admin tipsNadvice/a2.html'">
-                    <p>Edelweiss Steam Cells From Italy</p>
-                </section>
-                <section class=" col">
-                    <img src="admin tipsNadvice/img tips&advice/3.jpg" alt="tips 3" class="artikelTipsnAdvice"
-                        onclick=" window.location.href='admin tipsNadvice/a3.html'">
-                    <p>Ketahui Tipe Kulitmu Melalui Cara Ini</p>
-                </section>
-            </section><br><br><br>
-            <section class=" row">
-                <section class="col">
-                    <img src="admin tipsNadvice/img tips&advice/4.jpg" alt="tips 3" class="artikelTipsnAdvice"
-                        onclick=" window.location.href='admin tipsNadvice/a4.html'">
-                    <p>Step By Step dalam Basic Skincare</p>
-                </section>
-                <section class=" col">
-                    <img src="admin tipsNadvice/img tips&advice/5.jpg" alt="tips 3" class="artikelTipsnAdvice"
-                        onclick=" window.location.href='admin tipsNadvice/a5.html'">
-                    <p>Mulai Lakukan Basic Skincare Saat Ini</p>
-                </section>
-                <section class=" col">
-                    <img src="admin tipsNadvice/img tips&advice/6.jpg" alt="tips 3" class="artikelTipsnAdvice"
-                        onclick=" window.location.href='admin tipsNadvice/a6.html'">
-                    <p>Kulit Rentan Berjerawat</p>
-                </section>
+                <section class="col-1"></section>
             </section>
-            <br>
+            <section class="row" style="height: 50px;"></section>
         </section>
-        <hr>
     </main>
 
 
     <!-- ----------------------------------|FOOTER|------------------------------ -->
-    <footer class=" text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: #EFF0EC;">
         <!-- Grid container -->
         <section class="container p-3">
             <!--Grid row-->
@@ -194,8 +203,7 @@
 
                     <section class="form-outline form-black mb-4">
                         <section style="display: flex;">
-                            <input type="email" id="form5Example2" class="form-control"
-                                placeholder="Enter your email" />
+                            <input type="email" id="form5Example2" class="form-control" placeholder="Enter your email" />
                             <button class="btn btn-dark" type="button">Submit</button>
                         </section>
                     </section>

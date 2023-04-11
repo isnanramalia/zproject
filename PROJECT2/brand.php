@@ -12,8 +12,7 @@
     <meta name="author" content="isna nur amalia">
 
     <!-- link bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- link css -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -21,12 +20,8 @@
     <!-- link js -->
     <script src="js/script.js"></script>
 
-    <!-- link jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <!-- link js bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h355rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h355rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
 
     <!-- link icon -->
@@ -41,8 +36,10 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="icon" href="atribut/logo/logo.png">
-    <title>your cart - skinker</title>
+
+    <title>brands - skinker</title>
 </head>
+
 
 <body style="margin-top: 60px; padding-top: 60px; background-color: #D4DDB7;">
     <header>
@@ -50,7 +47,7 @@
         <nav>
             <ul class="navbar">
                 <li><a href="shop.html">SHOP</a></li>
-                <li><a href="brand.html">BRANDS</a></li>
+                <li><a href="brand.html" class="active">BRANDS</a></li>
                 <li><a href="offers.html">OFFERS</a></li>
                 <li><a href="faq.html">F.A.Q.</a></li>
                 <li><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
@@ -60,48 +57,104 @@
             <a href=""><i class="bi bi-search"></i></a>
             <a><b>|</b></a>
             <a href="account/login.html">ACCOUNT <i class="ri-user-fill"></i></a>
-            <a href="cart.html" class="active">CART <i class="bi bi-bag"></i></a>
-            <section class="bx bx-menu" id="menu-icon"></section>
+            <a href="cart.html">CART <i class="bi bi-bag"></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
         </section>
     </header>
 
-    <!-- ----------------------------------------- FORM SIGN IN ------------------------------------- -->
-    <!-- Halaman Keranjang Belanja -->
-    <main>
-        <section id="cart">
-            <h1>Your Cart</h1>
 
-            <!-- Tabel Produk -->
-            <table>
-                <tr>
-                    <th>Nama Produk</th>
-                    <th>Harga</th>
-                    <th>Jumlah</th>
-                    <th>Subtotal</th>
-                </tr>
-                <tr>
-                    <td>Produk 1</td>
-                    <td>Rp. 100.000</td>
-                    <td><input type="number" value="1"></td>
-                    <td>Rp. 100.000</td>
-                </tr>
-                <tr>
-                    <td>Produk 2</td>
-                    <td>Rp. 200.000</td>
-                    <td><input type="number" value="1"></td>
-                    <td>Rp. 200.000</td>
-                </tr>
-                <!-- Tambahkan baris lain untuk setiap produk yang ada di keranjang belanja -->
-            </table>
-
-            <!-- Harga Total -->
-            <p>Total: <span id="total">Rp. 300.000</span></p>
-
-            <!-- Tombol Pembayaran -->
-            <button id="pay-button">Bayar Sekarang</button>
+    <!-- ----------------------------------|ALL BRAND|------------------------------ -->
+    <main class="container text-center">
+        <h1>Brands</h1>
+        <section class="row row-cols-4">
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/cosrx.png" alt="cosrx">
+                <a href="admin/cosrx.html" type="button" class="btn btn-round">Cosrx</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/dalba.png" alt="dalba">
+                <a href="admin/dalba.html" type="button" class="btn btn-round">Dalba</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/estee lauder.png" alt="este lauder">
+                <a href="admin/esteelauder.html" type="button" class="btn btn-round">Estee
+                    Lauder</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/kiehls.png" alt="kiehls">
+                <a href="admin/kiehls.html" type="button" class="btn btn-round">Keihl`s</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/la roche-posay.png" alt="roche-posay">
+                <a href="admin/larocheposay.html" type="button" class="btn btn-round">La
+                    Roche-posay</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/laneige.png" alt="laneige">
+                <a href="admin/laneige.html" type="button" class="btn btn-round">Laneige</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/maraobadescu.png" alt="maraobadescu">
+                <a href="admin/mariobadescu.html" type="button" class="btn btn-round">Maraobadescu</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/sensatia.png" alt="sensatia">
+                <a href="admin/sensatia.html" type="button" class="btn btn-round">Sensatia</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/skii.png" alt="skii">
+                <a href="admin/sk-ii.html" type="button" class="btn btn-round">SK-II</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/the body shop.png" alt="the body shop">
+                <a href="admin/theBodyShop.html" type="button" class="btn btn-round">The
+                    Body Shop</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/skintific.png" alt="skintific">
+                <a href="admin/skintific.html" type="button" class="btn btn-round">Skintific</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/the ordinary.png" alt="the ordinary">
+                <a href="admin/theOrdinary.html" type="button" class="btn btn-round">The
+                    Ordinary</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/wardah.png" alt="wardah">
+                <a href="admin/wardah.html" type="button" class="btn btn-round">Wardah
+                    Beauty</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/yves rocher.png" alt="yves rocher">
+                <a href="admin/yvesrocher.html" type="button" class="btn btn-round">yves
+                    rocher</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/cerave.png" alt="cerave">
+                <a href="admin/cerave.html" type="button" class="btn btn-round">Cerave</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/nivea.png" alt="nivea">
+                <a href="admin/nivea.html" type="button" class="btn btn-round">nivea</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/innisfree.png" alt="innisfree">
+                <a href="admin/innisfree.html" type="button" class="btn btn-round">innisfree</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/cetaphil.png" alt="cetaphil">
+                <a href="admin/cetaphil.html" type="button" class="btn btn-round">Cetaphil</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/scarlett.png" alt="yves rocher">
+                <a href="admin/yvesrocher.html" type="button" class="btn btn-round">Scarlett</a>
+            </section>
+            <section class="col">
+                <img class="img-brand" src="atribut/brand/elsheskin.png" alt="elsheskin">
+                <a href="admin/elsheskin.html" type="button" class="btn btn-round">ElsheSkin</a>
+            </section>
         </section>
     </main>
-
 
 
     <!-- ----------------------------------|FOOTER|------------------------------ -->
@@ -161,8 +214,7 @@
 
                     <section class="form-outline form-black mb-4">
                         <section style="display: flex;">
-                            <input type="email" id="form5Example2" class="form-control"
-                                placeholder="Enter your email" />
+                            <input type="email" id="form5Example2" class="form-control" placeholder="Enter your email" />
                             <button class="btn btn-dark" type="button">Submit</button>
                         </section>
                     </section>

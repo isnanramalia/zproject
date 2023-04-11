@@ -12,8 +12,7 @@
     <meta name="author" content="isna nur amalia">
 
     <!-- link bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- link css -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -22,8 +21,7 @@
     <script src="js/script.js"></script>
 
     <!-- link js bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h355rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h355rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
 
     <!-- link icon -->
@@ -38,19 +36,19 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="icon" href="atribut/logo/logo.png">
-    <title>f.a.q. - skinker</title>
+
+    <title>offers - skinker</title>
 </head>
 
-
-<body style="margin-top: 50px; padding-top: 50px;">
+<body style="margin-top: 90px; padding-top: 80px;">
     <header>
         <a href="index.html" class="logo"><span>SKINKER</span></a>
         <nav>
             <ul class="navbar">
                 <li><a href="shop.html">SHOP</a></li>
                 <li><a href="brand.html">BRANDS</a></li>
-                <li><a href="offers.html">OFFERS</a></li>
-                <li><a href="faq.html" class="active">F.A.Q.</a></li>
+                <li><a href="offers.html" class="active">OFFERS</a></li>
+                <li><a href="faq.html">F.A.Q.</a></li>
                 <li><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
             </ul>
         </nav>
@@ -63,95 +61,89 @@
         </section>
     </header>
 
-    <!-- ----------------------------------------- FAQ ------------------------------------- -->
+
+    <!-- -------------------------------------CONTAINER 1 (shop & saves)-------------------------------------------- -->
     <main class="container">
         <section class="row">
-            <section class="col-3 justify-content-center">
-                <h1 class="mx-auto text-center" style="padding-right: 50%;
-                padding-top: 50%;
-                padding-bottom: 50%;
-                margin-right: 50%;
-                margin-top: 50%;
-                margin-bottom: 50%;">
-                    F.A.Q</h1>
+            <img src="atribut/offers/main offer banner.svg" alt="offers banner">
+            <section class="col" style="margin-top: 30px; padding-top: 30px;">
+                <hr style="border: 1px solid black;">
             </section>
-            <section class="col-7">
-                <!-- ini adalah container didalam container (main dari FAQ) -->
-                <section class="container">
-                    <section class="row rounded">
-                        <h1>SKINKER adalah website apa?</h1>
-                        <hr>
-                        <p>SKINKER adalah sebuah e-commerce yang dibuat sendiri oleh ISNA GROUP. Sudah berdiri sejak
-                            Januari 2022, Web Aplikasi yang digunakan untuk menjual dan membeli produk </p>
-                    </section>
-                    <section class="row rounded">
-                        <h1>Bahasa yang digunakan dalam SKINKER bahasa apa?</h1>
-                        <hr>
-                        <p>Bahasa utama dari SKINKER adalah Bahasa Inggris. Kenapa Bahasa Inggris? Karena SKINKER
-                            bertujuan untuk berkontribusi sebagai e-commerce internasional sehingga seluruh dunia bisa
-                            mengakses dan memahami SKINKER dengan mudah</p>
-                    </section>
-                    <section class="row rounded">
-                        <h1>Apa saja yang dapat didapat saat mengakses website SKINKER?</h1>
-                        <p>SKINKER dengan kemampuan utama sebagai website untuk membeli skincare terbaik yang ada di
-                            dunia, menampilkan produk high end hingga low end.
-                        </p>
-                    </section>
-                    <section class="row rounded">
-                        <h1>Apakah produk yang ada di SKINKER semuanya tersertifikasi GLUTEN-FREE?</h1>
-                        <hr>
-                        <p>Yes, Satya is 100% gluten-free.
-                            <br><br>
-                            At Satya, we only use PROVEN safe, gluten-free oats for our colloidal oatmeal. Most oats are
-                            cross-contaminated with wheat and it can be hard to know if they contain gluten or not.
-                            <br><br>
-                            For our Satya family with celiac conditions, gluten intolerance, or allergies associated
-                            with eczema, you can be rest assured that the Satya formula is 100% gluten-free!</p>
-                    </section>
-                    <section class="row rounded">
-                        <h1>Apakah harus sign in akun?</h1>
-                        <hr>
-                        <p>Tidak, kamu tidak harus melakukan sign in pada website ini. Saat ingin membeli tanpa sign in
-                            sah-sah saja namun, tidak akan ada riwayat pembelian kamu.</p>
-                    </section>
-                </section>
-                <!-- end container didalam container (main dari FAQ) -->
-            </section>
-            <section class="col-2"></section>
         </section>
+        <!-- <section class="row">
+            <section>
+                <h1 style="font-size: 60px;">SHOP AND SAVE WITH OFFERS</h1>
+                <article style="font-size: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
+                    repudiandae provident fugiat
+                    beatasequi adipisci, maiores accusantium molestias dignissimos suscipit debitis. Quis quaerat a
+                    quuntur accusantium molestiae. Vel, consectetur tenetur.</article>
+            </section>
+        </section> -->
     </main>
 
 
-    <!-- ------------------------------------- CONTACT US ---------------------------------- -->
-    <main style="background-color: white;">
-        <hr>
-        <h1 style="text-align: center; margin: 50px;" id="contactUs">Contact Us</h1>
-        <section class="container">
-            <section class="row">
-                <section class="col-1"></section>
-                <section class="col-10">
-                    <form name="contactForm" onsubmit="return validateForm()">
-                        <section style="display: flex;">
-                            <input type="text" id="name" name="name" placeholder="Your name"
-                                style=" margin-right: 15px;"><br>
-                            <input type="email" id="email" name="email" placeholder="Your email"
-                                style=" margin-left: 15px;"><br>
-                        </section>
-                        <input type="tel" id="phone" name="phone" placeholder="Your phone"><br>
-                        <textarea id="message" name="message" rows="4" cols="50"
-                            placeholder="Your message"></textarea><br>
-                        <input type="submit" value="SEND MESSAGE">
-                    </form>
-                </section>
-                <section class="col-1"></section>
+    <!-- -------------------------------------CONTAINER 2 (all offers)-------------------------------------------- -->
+    <main class="container">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/1.jpg" alt="">
             </section>
-            <section class="row" style="height: 50px;"></section>
+            <section class="col-6">
+                <h1>GET THE 5 SIGNS OF RESILIENT SKIN FROM <span style="color: #CCC1B7;">THE BODY SHOP</span></h1>
+                <p>Kembalikan kekuatan kulitmu dengan rangkaian Edelweiss</p>
+                <button class="btn btn-block" onclick="location.href='admin/theBodyShop.html'">Take
+                    It</button>
+            </section>
+            <section class="col-1"></section>
         </section>
+        <hr class="hr-offers">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/2.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1>START ANEW WITH EDELWEISS SKINCARE </h1>
+                <p>Dengan Edelweiss Bundle yang bikin kamu lebih hemat! </p>
+                <button class="btn btn-block" onclick="location.href='shop.html'">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+        <hr class="hr-offers">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/3.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1>SPECIAL OFFERS JUST FOR YOU! JUST FOR <span style="color: #79A3DD;">INNISFREE</span></h1>
+                <p>Dapatkan potongan harga Rp50.000 untuk setiap pembelanjaan produk The Body Shop® dengan transaksi
+                    menggunakan kartu BSI*. Periode:1 Desember 2022 – 28 Februari 2023.</p>
+                <button class="btn btn-block" onclick="location.href='admin/innisfree.html'">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+        <hr class="hr-offers">
+        <section class="row row-offers">
+            <section class="col-1"></section>
+            <section class="col-4">
+                <img src="atribut/offers/4.jpg" alt="">
+            </section>
+            <section class="col-6">
+                <h1><span style="color: #848E1C;">YVES ROCHER</span> OFFERS THIS WEEK</h1>
+                <p>Promo Bundle Skincare terbaik untuk minggu ini</p>
+                <button class="btn btn-block" onclick="location.href='/admin/yvesrocher.html'">Take It</button>
+            </section>
+            <section class="col-1"></section>
+        </section>
+        <hr class="hr-offers">
     </main>
+
 
 
     <!-- ----------------------------------|FOOTER|------------------------------ -->
-    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: #EFF0EC;">
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
         <!-- Grid container -->
         <section class="container p-3">
             <!--Grid row-->
@@ -207,8 +199,7 @@
 
                     <section class="form-outline form-black mb-4">
                         <section style="display: flex;">
-                            <input type="email" id="form5Example2" class="form-control"
-                                placeholder="Enter your email" />
+                            <input type="email" id="form5Example2" class="form-control" placeholder="Enter your email" />
                             <button class="btn btn-dark" type="button">Submit</button>
                         </section>
                     </section>

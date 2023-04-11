@@ -12,8 +12,7 @@
     <meta name="author" content="isna nur amalia">
 
     <!-- link bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- link css -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -21,9 +20,11 @@
     <!-- link js -->
     <script src="js/script.js"></script>
 
+    <!-- link jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- link js bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h355rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h355rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
 
     <!-- link icon -->
@@ -38,20 +39,20 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="icon" href="atribut/logo/logo.png">
-
-    <title>offers - skinker</title>
+    <title>tips & advice - skinker</title>
 </head>
 
-<body style="margin-top: 90px; padding-top: 80px;">
+
+<body style="margin-top: 100px; padding-top: 50px;  background-color: white;">
     <header>
         <a href="index.html" class="logo"><span>SKINKER</span></a>
         <nav>
             <ul class="navbar">
                 <li><a href="shop.html">SHOP</a></li>
                 <li><a href="brand.html">BRANDS</a></li>
-                <li><a href="offers.html" class="active">OFFERS</a></li>
+                <li><a href="offers.html">OFFERS</a></li>
                 <li><a href="faq.html">F.A.Q.</a></li>
-                <li><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
+                <li><a href="tipsNadvice.html" class="active">TIPS & ADVICE</a></li>
             </ul>
         </nav>
         <section class="main">
@@ -64,88 +65,72 @@
     </header>
 
 
-    <!-- -------------------------------------CONTAINER 1 (shop & saves)-------------------------------------------- -->
-    <main class="container">
-        <section class="row">
-            <img src="atribut/offers/main offer banner.svg" alt="offers banner">
-            <section class="col" style="margin-top: 30px; padding-top: 30px;">
-                <hr style="border: 1px solid black;">
+    <!-- ----------------------------------------- PROLOG ------------------------------------- -->
+    <main>
+        <h1 style="text-align: center;">All About Skin</h1><br>
+        <section class="cotainer" style="display: flex;">
+            <section class="col-7">
+                <img src="admin tipsNadvice/img banner/main-banner.svg" style="height: 600px;" alt="poster">
+            </section>
+            <section class="col-1"></section>
+            <section class="col-3" style="display: grid; place-items: center;">
+                <h2 style="font-size: 30px;">Learn About Skin</h2>
+                <p style="font-size: 23px;">
+                    Skin has three layers: The epidermis, the outermost layer of skin, provides a waterproof barrier and
+                    creates our skin tone. The dermis, beneath the epidermis, contains tough connective tissue, hair
+                    follicles, and sweat glands. The deeper subcutaneous tissue (hypodermis) is made of fat and
+                    connective tissue.</p>
+                <p>
+                    Ini this page you can read all about beauty, if you want your face to shine
+                    clean and get rid of acne scars or other skin problem. You can get out newest product and see the
+                    glow up from this website. Enjoy it.</p>
+            </section>
+            <section class="col-1">
             </section>
         </section>
-        <!-- <section class="row">
-            <section>
-                <h1 style="font-size: 60px;">SHOP AND SAVE WITH OFFERS</h1>
-                <article style="font-size: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-                    repudiandae provident fugiat
-                    beatasequi adipisci, maiores accusantium molestias dignissimos suscipit debitis. Quis quaerat a
-                    quuntur accusantium molestiae. Vel, consectetur tenetur.</article>
-            </section>
-        </section> -->
     </main>
 
-
-    <!-- -------------------------------------CONTAINER 2 (all offers)-------------------------------------------- -->
-    <main class="container">
-        <section class="row row-offers">
-            <section class="col-1"></section>
-            <section class="col-4">
-                <img src="atribut/offers/1.jpg" alt="">
+    <!-- ----------------------------------------- BLOGS ------------------------------------- -->
+    <main style="background-color: #EFF0EC; ;">
+        <hr>
+        <br><br><br><br><br>
+        <section class=" container">
+            <section class="row">
+                <section class="col">
+                    <img src="admin tipsNadvice/img tips&advice/1.jpg" alt="tips 1" class="artikelTipsnAdvice" onclick="window.location.href='admin tipsNadvice/a1.html'">
+                    <p>5 Manfaat Tea Tree Oil untuk Wajah</p>
+                </section>
+                <section class="col">
+                    <img src="admin tipsNadvice/img tips&advice/2.jpg" alt="tips 2" class="artikelTipsnAdvice" onclick="window.location.href='admin tipsNadvice/a2.html'">
+                    <p>Edelweiss Steam Cells From Italy</p>
+                </section>
+                <section class=" col">
+                    <img src="admin tipsNadvice/img tips&advice/3.jpg" alt="tips 3" class="artikelTipsnAdvice" onclick=" window.location.href='admin tipsNadvice/a3.html'">
+                    <p>Ketahui Tipe Kulitmu Melalui Cara Ini</p>
+                </section>
+            </section><br><br><br>
+            <section class=" row">
+                <section class="col">
+                    <img src="admin tipsNadvice/img tips&advice/4.jpg" alt="tips 3" class="artikelTipsnAdvice" onclick=" window.location.href='admin tipsNadvice/a4.html'">
+                    <p>Step By Step dalam Basic Skincare</p>
+                </section>
+                <section class=" col">
+                    <img src="admin tipsNadvice/img tips&advice/5.jpg" alt="tips 3" class="artikelTipsnAdvice" onclick=" window.location.href='admin tipsNadvice/a5.html'">
+                    <p>Mulai Lakukan Basic Skincare Saat Ini</p>
+                </section>
+                <section class=" col">
+                    <img src="admin tipsNadvice/img tips&advice/6.jpg" alt="tips 3" class="artikelTipsnAdvice" onclick=" window.location.href='admin tipsNadvice/a6.html'">
+                    <p>Kulit Rentan Berjerawat</p>
+                </section>
             </section>
-            <section class="col-6">
-                <h1>GET THE 5 SIGNS OF RESILIENT SKIN FROM <span style="color: #CCC1B7;">THE BODY SHOP</span></h1>
-                <p>Kembalikan kekuatan kulitmu dengan rangkaian Edelweiss</p>
-                <button class="btn btn-block" onclick="location.href='admin/theBodyShop.html'">Take
-                    It</button>
-            </section>
-            <section class="col-1"></section>
+            <br>
         </section>
-        <hr class="hr-offers">
-        <section class="row row-offers">
-            <section class="col-1"></section>
-            <section class="col-4">
-                <img src="atribut/offers/2.jpg" alt="">
-            </section>
-            <section class="col-6">
-                <h1>START ANEW WITH EDELWEISS SKINCARE </h1>
-                <p>Dengan Edelweiss Bundle yang bikin kamu lebih hemat! </p>
-                <button class="btn btn-block" onclick="location.href='shop.html'">Take It</button>
-            </section>
-            <section class="col-1"></section>
-        </section>
-        <hr class="hr-offers">
-        <section class="row row-offers">
-            <section class="col-1"></section>
-            <section class="col-4">
-                <img src="atribut/offers/3.jpg" alt="">
-            </section>
-            <section class="col-6">
-                <h1>SPECIAL OFFERS JUST FOR YOU! JUST FOR <span style="color: #79A3DD;">INNISFREE</span></h1>
-                <p>Dapatkan potongan harga Rp50.000 untuk setiap pembelanjaan produk The Body Shop® dengan transaksi
-                    menggunakan kartu BSI*. Periode:1 Desember 2022 – 28 Februari 2023.</p>
-                <button class="btn btn-block" onclick="location.href='admin/innisfree.html'">Take It</button>
-            </section>
-            <section class="col-1"></section>
-        </section>
-        <hr class="hr-offers">
-        <section class="row row-offers">
-            <section class="col-1"></section>
-            <section class="col-4">
-                <img src="atribut/offers/4.jpg" alt="">
-            </section>
-            <section class="col-6">
-                <h1><span style="color: #848E1C;">YVES ROCHER</span> OFFERS THIS WEEK</h1>
-                <p>Promo Bundle Skincare terbaik untuk minggu ini</p>
-                <button class="btn btn-block" onclick="location.href='/admin/yvesrocher.html'">Take It</button>
-            </section>
-            <section class="col-1"></section>
-        </section>
-        <hr class="hr-offers">
+        <hr>
     </main>
-
 
 
     <!-- ----------------------------------|FOOTER|------------------------------ -->
-    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
+    <footer class=" text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
         <!-- Grid container -->
         <section class="container p-3">
             <!--Grid row-->
@@ -201,8 +186,7 @@
 
                     <section class="form-outline form-black mb-4">
                         <section style="display: flex;">
-                            <input type="email" id="form5Example2" class="form-control"
-                                placeholder="Enter your email" />
+                            <input type="email" id="form5Example2" class="form-control" placeholder="Enter your email" />
                             <button class="btn btn-dark" type="button">Submit</button>
                         </section>
                     </section>

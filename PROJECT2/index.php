@@ -12,8 +12,7 @@
     <meta name="author" content="isna nur amalia">
 
     <!-- link bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- link css -->
     <link rel="stylesheet" type="text/css" href="css/index.css">
@@ -23,8 +22,7 @@
     <script src="js/script.js"></script>
 
     <!-- link js bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
 
     <!-- link icon -->
@@ -75,10 +73,10 @@
                     that will be shaped using the best skincare from the world. Let's start by purchasing skincare from
                     SKINKER to get the best results.
                     <br><br>
-                    CHOOSE YOUR SKIN NOW!</article><br><br>
+                    CHOOSE YOUR SKIN NOW!
+                </article><br><br>
                 <center>
-                    <a href="shop.html" type="button" class="btn btn-round-lg btn-lg"
-                        style="font-size: 25px; background-color: #3F4726; color: white; padding: 13px 100px 13px 100px;">SHOP
+                    <a href="shop.html" type="button" class="btn btn-round-lg btn-lg" style="font-size: 25px; background-color: #3F4726; color: white; padding: 13px 100px 13px 100px;">SHOP
                         NOW</a>
                 </center>
             </section>
@@ -107,8 +105,7 @@
                 <section class="col"></section>
             </section><br><br><br>
             <center>
-                <a href="brand.html" type="button" class="btn btn-round"
-                    style="font-size: 25px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">See
+                <a href="brand.html" type="button" class="btn btn-round" style="font-size: 25px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">See
                     All
                     Brand</a>
             </center>
@@ -123,33 +120,27 @@
             <section class="row">
                 <section class="col"></section>
                 <section class="col">
-                    <a href="shop.html#cleanser"><img class="popularBrand" src="atribut/category/cleanser.png"
-                            alt="cleanser"></a>
+                    <a href="shop.html#cleanser"><img class="popularBrand" src="atribut/category/cleanser.png" alt="cleanser"></a>
                     <p>Cleanser</p>
                 </section>
                 <section class="col">
-                    <a href="shop.html#exfoliant"><img class="popularBrand" src="atribut/category/exfoliant.png"
-                            alt="exfoliant"></a>
+                    <a href="shop.html#exfoliant"><img class="popularBrand" src="atribut/category/exfoliant.png" alt="exfoliant"></a>
                     <p>Exfoliant</p>
                 </section>
                 <section class="col">
-                    <a href="shop.html#lipcare"><img class="popularBrand" src="atribut/category/lip care.png"
-                            alt="lip care"></a>
+                    <a href="shop.html#lipcare"><img class="popularBrand" src="atribut/category/lip care.png" alt="lip care"></a>
                     <p>Lip Care</p>
                 </section>
-                <section class="col"><a href="shop.html#mask"><img class="popularBrand" src="atribut/category/mask.png"
-                            alt="mask"></a>
+                <section class="col"><a href="shop.html#mask"><img class="popularBrand" src="atribut/category/mask.png" alt="mask"></a>
                     <p>Mask</p>
                 </section>
                 <section class="col">
-                    <a href="shop.html#moisturizer"><img class="popularBrand" src="atribut/category/moiturizer.png"
-                            alt="Moisturizer">
+                    <a href="shop.html#moisturizer"><img class="popularBrand" src="atribut/category/moiturizer.png" alt="Moisturizer">
                     </a>
                     <p>Moisturizer</p>
                 </section>
                 <section class="col">
-                    <a href="shop.html#serum"><img class="popularBrand" src="atribut/category/serum _ essence.png"
-                            alt="Serum & Essence">
+                    <a href="shop.html#serum"><img class="popularBrand" src="atribut/category/serum _ essence.png" alt="Serum & Essence">
                     </a>
                     <p>Serum</p>
                 </section>
@@ -176,8 +167,7 @@
                         <h4 class="card-title text-center">Intensive Moisturizer - Cetaphil </h4>
                         <h5 class="card-title text-center">IDR 210.000 </h5>
                         <center>
-                            <a href="admin/cetaphil.html" type="button" class="btn btn-round"
-                                style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
+                            <a href="admin/cetaphil.html" type="button" class="btn btn-round" style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
                                 now</a>
                         </center>
                     </section>
@@ -190,8 +180,7 @@
                         <h4 class="card-title text-center">Eye Cream - Keihl`s </h4>
                         <h5 class="card-title text-center">IDR 300.000 </h5>
                         <center>
-                            <a href="admin/kiehls.html" type="button" class="btn btn-round"
-                                style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
+                            <a href="admin/kiehls.html" type="button" class="btn btn-round" style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
                                 now</a>
                         </center>
                     </section>
@@ -204,8 +193,7 @@
                         <h4 class="card-title text-center">Serum Sun Screen - Skintific </h4>
                         <h5 class="card-title text-center">IDR 120.000 </h5>
                         <center>
-                            <a href="admin/skintific.html" type="button" class="btn btn-round"
-                                style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
+                            <a href="admin/skintific.html" type="button" class="btn btn-round" style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
                                 now</a>
                         </center>
                     </section>
@@ -218,8 +206,7 @@
                         <h4 class="card-title text-center">Serum - The Ordinary</h4>
                         <h5 class="card-title text-center">IDR 200.000</h5>
                         <center>
-                            <a href="admin/theOrdinary.html" type="button" class="btn btn-round"
-                                style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
+                            <a href="admin/theOrdinary.html" type="button" class="btn btn-round" style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
                                 now</a>
                         </center>
                     </section>
@@ -317,8 +304,7 @@
 
                     <section class="form-outline form-black mb-4">
                         <section style="display: flex;">
-                            <input type="email" id="form5Example2" class="form-control"
-                                placeholder="Enter your email" />
+                            <input type="email" id="form5Example2" class="form-control" placeholder="Enter your email" />
                             <button class="btn btn-dark" type="button">Submit</button>
                         </section>
                     </section>
