@@ -43,14 +43,14 @@
 
 <body style="margin-top: 60px; padding-top: 60px; background-color: #D4DDB7;">
     <header>
-        <a href="index.html" class="logo"><span>SKINKER</span></a>
+        <a href="index.php" class="logo"><span>SKINKER</span></a>
         <nav>
             <ul class="navbar">
-                <li><a href="shop.html">SHOP</a></li>
-                <li><a href="brand.html" class="active">BRANDS</a></li>
-                <li><a href="offers.html">OFFERS</a></li>
-                <li><a href="faq.html">F.A.Q.</a></li>
-                <li><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
+                <li><a href="shop.php">SHOP</a></li>
+                <li><a href="brand.php" class="active">BRANDS</a></li>
+                <li><a href="offers.php">OFFERS</a></li>
+                <li><a href="faq.php">F.A.Q.</a></li>
+                <li><a href="tipsNadvice.php">TIPS & ADVICE</a></li>
             </ul>
         </nav>
         <section class="main">
@@ -107,7 +107,7 @@
             </section>
             <section class="col">
                 <img class="img-brand" src="atribut/brand/the body shop.png" alt="the body shop">
-                <a href="admin/theBodyShop.html" type="button" class="btn btn-round">The
+                <a href="admin/theBodyshop.php" type="button" class="btn btn-round">The
                     Body Shop</a>
             </section>
             <section class="col">
@@ -169,16 +169,16 @@
 
                     <ul class="list-unstyled mb-4">
                         <li>
-                            <a href="shop.html" class="text-black">Shoping now</a>
+                            <a href="shop.php" class="text-black">Shoping now</a>
                         </li>
                         <li>
-                            <a href="offers.html" class="text-black">Offers for you</a>
+                            <a href="offers.php" class="text-black">Offers for you</a>
                         </li>
                         <li>
-                            <a href="faq.html" class="text-black">More about me</a>
+                            <a href="faq.php" class="text-black">More about me</a>
                         </li>
                         <li>
-                            <a href="brand.html" class="text-black">Brands collaborations</a>
+                            <a href="brand.php" class="text-black">Brands collaborations</a>
                         </li>
                     </ul>
                 </section>
@@ -190,13 +190,13 @@
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="faq.html#contactUs" class="text-black">Contact us</a>
+                            <a href="faq.php#contactUs" class="text-black">Contact us</a>
                         </li>
                         <li>
-                            <a href="shop.html" class="text-black">Skincare base on category</a>
+                            <a href="shop.php" class="text-black">Skincare base on category</a>
                         </li>
                         <li>
-                            <a href="brand.html" class="text-black">Skincare base on brand</a>
+                            <a href="brand.php" class="text-black">Skincare base on brand</a>
                         </li>
                         <li>
                             <a href="account/login.html" class="text-black">Login</a>

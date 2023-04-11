@@ -42,14 +42,14 @@
 
 <body style="padding-top: 15px; margin-top: 15px;">
     <header>
-        <a href="index.html" class="logo"><span>SKINKER</span></a>
+        <a href="index.php" class="logo"><span>SKINKER</span></a>
         <nav>
             <ul class="navbar">
-                <li><a href="shop.html">SHOP</a></li>
-                <li><a href="brand.html">BRANDS</a></li>
-                <li><a href="offers.html">OFFERS</a></li>
-                <li><a href="faq.html">F.A.Q.</a></li>
-                <li><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
+                <li><a href="shop.php">SHOP</a></li>
+                <li><a href="brand.php">BRANDS</a></li>
+                <li><a href="offers.php">OFFERS</a></li>
+                <li><a href="faq.php">F.A.Q.</a></li>
+                <li><a href="tipsNadvice.php">TIPS & ADVICE</a></li>
             </ul>
         </nav>
         <section class="main">
@@ -76,7 +76,7 @@
                     CHOOSE YOUR SKIN NOW!
                 </article><br><br>
                 <center>
-                    <a href="shop.html" type="button" class="btn btn-round-lg btn-lg" style="font-size: 25px; background-color: #3F4726; color: white; padding: 13px 100px 13px 100px;">SHOP
+                    <a href="shop.php" type="button" class="btn btn-round-lg btn-lg" style="font-size: 25px; background-color: #3F4726; color: white; padding: 13px 100px 13px 100px;">SHOP
                         NOW</a>
                 </center>
             </section>
@@ -105,7 +105,7 @@
                 <section class="col"></section>
             </section><br><br><br>
             <center>
-                <a href="brand.html" type="button" class="btn btn-round" style="font-size: 25px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">See
+                <a href="brand.php" type="button" class="btn btn-round" style="font-size: 25px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">See
                     All
                     Brand</a>
             </center>
@@ -120,27 +120,27 @@
             <section class="row">
                 <section class="col"></section>
                 <section class="col">
-                    <a href="shop.html#cleanser"><img class="popularBrand" src="atribut/category/cleanser.png" alt="cleanser"></a>
+                    <a href="shop.php#cleanser"><img class="popularBrand" src="atribut/category/cleanser.png" alt="cleanser"></a>
                     <p>Cleanser</p>
                 </section>
                 <section class="col">
-                    <a href="shop.html#exfoliant"><img class="popularBrand" src="atribut/category/exfoliant.png" alt="exfoliant"></a>
+                    <a href="shop.php#exfoliant"><img class="popularBrand" src="atribut/category/exfoliant.png" alt="exfoliant"></a>
                     <p>Exfoliant</p>
                 </section>
                 <section class="col">
-                    <a href="shop.html#lipcare"><img class="popularBrand" src="atribut/category/lip care.png" alt="lip care"></a>
+                    <a href="shop.php#lipcare"><img class="popularBrand" src="atribut/category/lip care.png" alt="lip care"></a>
                     <p>Lip Care</p>
                 </section>
-                <section class="col"><a href="shop.html#mask"><img class="popularBrand" src="atribut/category/mask.png" alt="mask"></a>
+                <section class="col"><a href="shop.php#mask"><img class="popularBrand" src="atribut/category/mask.png" alt="mask"></a>
                     <p>Mask</p>
                 </section>
                 <section class="col">
-                    <a href="shop.html#moisturizer"><img class="popularBrand" src="atribut/category/moiturizer.png" alt="Moisturizer">
+                    <a href="shop.php#moisturizer"><img class="popularBrand" src="atribut/category/moiturizer.png" alt="Moisturizer">
                     </a>
                     <p>Moisturizer</p>
                 </section>
                 <section class="col">
-                    <a href="shop.html#serum"><img class="popularBrand" src="atribut/category/serum _ essence.png" alt="Serum & Essence">
+                    <a href="shop.php#serum"><img class="popularBrand" src="atribut/category/serum _ essence.png" alt="Serum & Essence">
                     </a>
                     <p>Serum</p>
                 </section>
@@ -259,16 +259,16 @@
 
                     <ul class="list-unstyled mb-4">
                         <li>
-                            <a href="shop.html" class="text-black">Shoping now</a>
+                            <a href="shop.php" class="text-black">Shoping now</a>
                         </li>
                         <li>
-                            <a href="offers.html" class="text-black">Offers for you</a>
+                            <a href="offers.php" class="text-black">Offers for you</a>
                         </li>
                         <li>
-                            <a href="faq.html" class="text-black">More about me</a>
+                            <a href="faq.php" class="text-black">More about me</a>
                         </li>
                         <li>
-                            <a href="brand.html" class="text-black">Brands collaborations</a>
+                            <a href="brand.php" class="text-black">Brands collaborations</a>
                         </li>
                     </ul>
                 </section>
@@ -280,13 +280,13 @@
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="faq.html#contactUs" class="text-black">Contact us</a>
+                            <a href="faq.php#contactUs" class="text-black">Contact us</a>
                         </li>
                         <li>
-                            <a href="shop.html" class="text-black">Skincare base on category</a>
+                            <a href="shop.php" class="text-black">Skincare base on category</a>
                         </li>
                         <li>
-                            <a href="brand.html" class="text-black">Skincare base on brand</a>
+                            <a href="brand.php" class="text-black">Skincare base on brand</a>
                         </li>
                         <li>
                             <a href="account/login.html" class="text-black">Login</a>
