@@ -41,25 +41,9 @@
 </head>
 
 <body style="margin-top: 90px; padding-top: 80px;">
-    <header>
-        <a href="index.php" class="logo"><span>SKINKER</span></a>
-        <nav>
-            <ul class="navbar">
-                <li><a href="shop.php">SHOP</a></li>
-                <li><a href="brand.php">BRANDS</a></li>
-                <li><a href="offers.php" class="active">OFFERS</a></li>
-                <li><a href="faq.php">F.A.Q.</a></li>
-                <li><a href="tipsNadvice.php">TIPS & ADVICE</a></li>
-            </ul>
-        </nav>
-        <section class="main">
-            <a href=""><i class="bi bi-search"></i></a>
-            <a><b>|</b></a>
-            <a href="account/login.html">ACCOUNT <i class="ri-user-fill"></i></a>
-            <a href="cart.html">CART <i class="bi bi-bag"></i></a>
-            <section class="bx bx-menu" id="menu-icon"></section>
-        </section>
-    </header>
+    <?php
+    require_once('php/header.php');
+    ?>
 
 
     <!-- -------------------------------------CONTAINER 1 (shop & saves)-------------------------------------------- -->

@@ -3,6 +3,7 @@
 
 <!-- link css -->
 <link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <!-- link js -->
 <script src="js/script.js"></script>
@@ -24,21 +25,42 @@
 
 <link rel="icon" href="atribut/logo/logo.png">
 <header>
-    <a href="index.html" class="logo"><span>SKINKER</span></a>
+    <a href="index.php" class="logo"><span>SKINKER</span></a>
     <nav>
         <ul class="navbar">
-            <li<?php if (strpos($_SERVER['PHP_SELF'], 'shop.php') !== false) echo ' class="active"'; ?>><a href="shop.html">SHOP</a></li>
-                <li<?php if (strpos($_SERVER['PHP_SELF'], 'brand.php') !== false) echo ' class="active"'; ?>><a href="brand.html">BRANDS</a></li>
-                    <li<?php if (strpos($_SERVER['PHP_SELF'], 'offers.php') !== false) echo ' class="active"'; ?>><a href="offers.html">OFFERS</a></li>
-                        <li<?php if (strpos($_SERVER['PHP_SELF'], 'faq.php') !== false) echo ' class="active"'; ?>><a href="faq.html">F.A.Q.</a></li>
-                            <li<?php if (strpos($_SERVER['PHP_SELF'], 'tipsNadvice.php') !== false) echo ' class="active"'; ?>><a href="tipsNadvice.html">TIPS & ADVICE</a></li>
+            <li><a href="index.php" <?php if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+                                        echo ' class="active"';
+                                    } ?>>HOME</a></li>
+            <li><a href="shop.php" <?php if (basename($_SERVER['PHP_SELF']) == 'shop.php') {
+                                        echo ' class="active"';
+                                    } ?>>SHOP</a></li>
+            <li><a href="brand.php" <?php if (basename($_SERVER['PHP_SELF']) == 'brand.php') {
+                                        echo ' class="active"';
+                                    } ?>>BRANDS</a></li>
+            <li><a href="offers.php" <?php if (basename($_SERVER['PHP_SELF']) == 'offers.php') {
+                                            echo ' class="active"';
+                                        } ?>>OFFERS</a></li>
+            <li><a href="faq.php" <?php if (basename($_SERVER['PHP_SELF']) == 'faq.php') {
+                                        echo ' class="active"';
+                                    } ?>>F.A.Q.</a></li>
+            <li><a href="tipsNadvice.php" <?php if (basename($_SERVER['PHP_SELF']) == 'tipsNadvice.php') {
+                                                echo ' class="active"';
+                                            } ?>>TIPS & ADVICE</a></li>
         </ul>
     </nav>
     <section class="main">
-        <a href=""><i class="bi bi-search"></i></a>
-        <a href="#"><b>|</b></a>
-        <a href="account/login.html">ACCOUNT <i class="ri-user-fill"></i></a>
-        <a href="cart.php">CART <i class="bi bi-bag"></i>
+        <a href="#" <?php if (basename($_SERVER['PHP_SELF']) == '#') {
+                        echo ' class="active"';
+                    } ?>><i class="bi bi-search"></i></a>
+        <a href="#" <?php if (basename($_SERVER['PHP_SELF']) == '#') {
+                        echo ' class="active"';
+                    } ?>><b>|</b></a>
+        <a href="account/login.html" <?php if (basename($_SERVER['PHP_SELF']) == 'account/login.html') {
+                                            echo ' class="active"';
+                                        } ?>>ACCOUNT <i class="ri-user-fill"></i></a>
+        <a href="cart.php" <?php if (basename($_SERVER['PHP_SELF']) == 'cart.php') {
+                                echo ' class="active"';
+                            } ?>>CART <i class="bi bi-bag"></i>
             <?php
 
             if (isset($_SESSION['cart'])) {
