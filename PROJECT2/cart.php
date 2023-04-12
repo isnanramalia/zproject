@@ -7,10 +7,11 @@ require_once("php/CreateDb.php");
 require_once("php/component.php");
 
 $db = new CreateDb("Productdb", "Producttb");
+
 $total = 0;
 if (isset($_SESSION['cart'])) {
     // query ke database untuk mengambil data produk berdasarkan id produk yang ada di session cart
-    $db = new mysqli('localhost', 'root', '', 'Productdb');
+    $db = new mysqli('localhost', 'root', '', 'Newdb');
     $ids = implode(",", array_column($_SESSION['cart'], 'product_id'));
     $result = $db->query("SELECT * FROM products WHERE id IN ($ids)");
     while ($row = $result->fetch_assoc()) {
