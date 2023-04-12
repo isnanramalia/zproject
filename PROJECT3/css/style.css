@@ -1,0 +1,548 @@
+ /*------------------------------------------------  || ALL ||  ------------------------------------------------ */
+
+ * {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     text-decoration: none;
+     background-attachment: fixed;
+ }
+
+ body::selection {
+    background-color: green;
+    color: white;
+ }
+
+
+ :root {
+     --bg-color: #ffffff;
+     --text-color: rgb(17, 17, 17);
+     --main-color: #898F73;
+ }
+
+ body {
+     min-height: 100vh;
+     background: var(--bg-color);
+     color: var(--text-color);
+     background-color: #EFF0EC;
+ }
+
+ header {
+     position: fixed;
+     width: 100%;
+     top: 0;
+     right: 0;
+     z-index: 1000;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     background: transparent;
+     padding: 15px 12%;
+     transition: all .30s ease;
+     background-color: white;
+     font-family: 'PT Sans', sans-serif;
+     font-size: small;
+     list-style: none;
+ }
+
+ header ul li a,
+ .main a {
+     text-decoration: none;
+ }
+
+ .logo {
+     display: flex;
+     align-items: center;
+     text-decoration: none;
+ }
+
+ .logo i {
+     color: var(--main-color);
+     font-size: 28px;
+     margin-right: 3px;
+ }
+
+ .logo span {
+     color: black;
+     font-size: 1.7rem;
+     font-weight: 600;
+ }
+
+ .navbar {
+     display: flex;
+     list-style: none;
+
+ }
+
+ .navbar a {
+     color: var(--text-color);
+     font-size: 1.1rem;
+     font-weight: 500;
+     padding: 5px 0;
+     margin: 0px 30px;
+     transition: all .5s ease;
+ }
+
+ .navbar a.active {
+     border-bottom: 1px solid black;
+ }
+
+ .main a.active {
+     border-bottom: 1px solid black;
+ }
+
+ nav ul li a:hover {
+     border-bottom: 1.5px solid;
+     /*underline*/
+ }
+
+ .main {
+     display: flex;
+     align-items: center;
+ }
+
+ .main a:hover {
+     border-bottom: 2px solid black;
+     /*underline*/
+     font-weight: bold;
+ }
+
+ .main a {
+     margin-right: 25px;
+     margin-left: 10px;
+     color: var(--text-color);
+     font-size: 1.1rem;
+     font-weight: 500;
+     transition: all .50s ease;
+ }
+
+ /* .user {
+     display: flex;
+     align-items: center;
+ }
+
+ .user i {
+     color: var(--main-color);
+     font-size: 28px;
+     margin-right: 7px;
+ } */
+
+ #menu-icon {
+     font-size: 35px;
+     color: var(--text-color);
+     cursor: pointer;
+     z-index: 10001;
+     display: none;
+ }
+
+ /*------------------------------------------------  || FOOTER || ------------------------------------------------ */
+ footer {
+     background-color: #EFF0EC;
+ }
+
+ ul li a {
+     text-decoration: none;
+ }
+
+ /*------------------------------------------------  || INDEX ||  ------------------------------------------------ */
+
+ /*------------------------------------------------   MAIN  ------------------------------------------------ */
+ #main-1 {
+     padding-top: 100px;
+     padding-bottom: 50px;
+ }
+
+ .grid-main-1 {
+     display: flex;
+     align-items: center;
+ }
+
+ .grid-item {
+     width: 20%;
+ }
+
+ .grid-item-large {
+     width: 60%;
+     min-width: 400px;
+ }
+
+ #main-kedua {
+     padding: 50px 80px 50px 80px;
+ }
+
+ .popularBrand {
+     height: 140px;
+ }
+
+ .img-brand {
+     height: 200px;
+ }
+
+
+ .cap {
+     height: 200px;
+ }
+
+ .carousel-inner {
+     padding: 1em;
+ }
+
+ .card {
+     margin: 0 0.5em;
+     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+     border: none;
+ }
+
+ /*------------------------------------------------   SHOP BY CATEGORY  ------------------------------------------------ */
+
+ .col p {
+     text-align: center;
+     margin: 0px;
+     padding: 0px;
+ }
+
+ /*------------------------------------------------  || SHOP ||  ------------------------------------------------ */
+ .list-group-item {
+     padding: 5px;
+     margin: 5px;
+ }
+
+ .list-group-item a {
+     text-decoration: none;
+     color: black;
+ }
+
+ .list-group-vertical-md .list-group-item {
+     background-color: whitesmoke;
+     border: 0.1px solid rgba(0, 0, 0, 0.2);
+ }
+
+ .list-group-vertical-md .list-group-item:hover {
+     background-color: #3F4726;
+     border: 0.1px solid rgba(0, 0, 0, 0.2);
+     transition: .5s;
+ }
+
+ .list-group-vertical-md .list-group-item a:hover {
+     color: white;
+ }
+
+ .card {
+     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+     transition: 0.2s;
+     border-radius: 5px;
+     width: 235px;
+     height: 400px;
+     overflow: hidden;
+     background-color: whitesmoke;
+ }
+
+ .card:hover {
+     box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
+     background-color: white;
+     transform: scale(1.08);
+     transition: transform 0.5s;
+ }
+
+ .card-img-top {
+     height: 100%;
+     width: 100%;
+     object-fit: contain;
+ }
+
+ .card-body {
+     padding: 20px;
+     text-align: center;
+ }
+
+ .card-title {
+     font-size: 17px;
+     margin-bottom: 10px;
+ }
+
+ .card-text {
+     font-size: 15px;
+ }
+
+ .btn.btn-block {
+     background-color: #3F4726;
+     border-radius: auto;
+     color: white;
+ }
+
+ .btn.btn-block:hover {
+     background-color: #EFF0EC;
+     color: black;
+ }
+
+ .card-img-top {
+     object-fit: cover;
+ }
+
+ .card-deck {
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+
+ /*------------------------------------------------  || BRAND ||  ------------------------------------------------ */
+ .col a {
+     font-size: 15px;
+     background-color: #3F4726;
+     color: white;
+     padding: 10px 40px 10px 40px;
+ }
+
+ .col a:hover {
+     border: .5px solid rgba(0, 0, 0, 0.5);
+     background-color: #EFF0EC;
+     color: black;
+     transition-timing-function: circle;
+     transition: 0.5s;
+ }
+
+ /*------------------------------------------------  || OFFERS ||  ------------------------------------------------ */
+ .row-offers {
+     padding: 20px;
+     margin: 20px;
+ }
+
+ .col-4 img {
+     width: 80%;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
+
+ .col-4 img:hover {
+     transform: scale(1.2);
+     transition: transform 0.5s;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40);
+ }
+
+
+ .hr-offers {
+     width: 75%;
+     margin: 0 auto;
+     color: rgba(0, 0, 0, 0.3);
+ }
+
+ .col-6 p{
+    font-size: larger;
+ }
+
+ .col-6 h1{
+    font-size: larger;
+ }
+
+
+ /*------------------------------------------------  || FAQ ||  ------------------------------------------------ */
+ .row .rounded{
+    background-color: #D4DDB7;
+    margin: 30px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+ }
+
+ .row .rounded h1{
+    font-size: 20px;
+ }
+
+ .row .rounded:hover{
+    background-color: #3F4726;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    transition: transform 1s, background-color 2s;
+ }
+
+ /* FORM */
+ form {
+    width: 100%;
+  }
+  
+  input[type="text"], input[type="email"], input[type="tel"], textarea, input[type="submit"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type="submit"] {
+    background-color: #3F4726;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #D4DDB7;
+    border: .3px solid black;
+    color: black;
+  }
+
+ /*------------------------------------------------  || TIPS & ADVICE ||  ------------------------------------------------ */
+ .href-login{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #EFF0EC;
+    color: black;
+    padding: 12px 15px;
+    cursor:pointer;
+    border-bottom: 1px solid #3F4726;
+ }
+
+ .href-login:hover{
+    background-color: #ccc;
+    border: .3px solid black;
+    color: black;
+ }
+
+
+.artikelTipsnAdvice{
+    border: 1px solid white;
+}
+
+.artikelTipsnAdvice:hover{
+    filter: brightness(70%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40);
+}
+
+.col-8.artikel{
+    padding: 40px;
+    margin: 60px;
+    background-color: whitesmoke;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+}
+
+.col-8.artikel h2{
+    text-align: center;
+}
+ /*------------------------------------------------  || CART ||  ------------------------------------------------ */
+/* Style untuk halaman keranjang belanja */
+#cart {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #cart table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #cart th, #cart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #cart tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #cart tr:hover {
+    background-color: #ddd;
+  }
+  
+  #cart #pay-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #cart #pay-button:hover {
+    background-color: #45a049;
+  }
+
+  
+ /*------------------------------------------------  BEDA DEVICE  ------------------------------------------------ */
+ @media (max-width: 1280px) {
+     header {
+         padding: 14px 2%;
+         transition: .2s;
+     }
+
+     .navbar a {
+         padding: 5px 0;
+         margin: 0px 20px;
+     }
+ }
+
+ @media (max-width: 1090px) {
+     #menu-icon {
+         display: block;
+     }
+
+     .navbar {
+         position: absolute;
+         top: 100%;
+         right: -100%;
+         width: 270px;
+         height: 29vh;
+         background: var(--main-color);
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+         border-radius: 10px;
+         transition: all .50s ease;
+     }
+
+     .navbar a {
+         display: block;
+         margin: 12px 0;
+         padding: 0px 25px;
+         transition: all .50s ease;
+     }
+
+     .navbar a:hover {
+         color: var(--text-color);
+         transform: translateY(5px);
+     }
+
+     .navbar a.active {
+         color: var(--text-color);
+     }
+
+     .navbar.open {
+         right: 2%;
+     }
+ }
+
+ @media (min-width: 768px) {
+     .carousel-item {
+         margin-right: 0;
+         flex: 0 0 33.333333%;
+         display: block;
+     }
+
+     .carousel-inner {
+         display: flex;
+     }
+ }
+
+ .card .img-wrapper {
+     max-width: 100%;
+     height: 13em;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .card img {
+     max-height: 100%;
+ }
+
+ @media (max-width: 767px) {
+     .card .img-wrapper {
+         height: 17em;
+     }
+ }
+
+ /*------------------------------------------------ END BEDA DEVICE  ------------------------------------------------ */
