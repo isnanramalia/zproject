@@ -5,35 +5,46 @@ require_once('php/CreateDb.php');
 // create instance of CreateDb class
 $database = new CreateDb(dbname: "Productdb", tablename: "Producttb");
 
-if (isset($_POST['add'])) {
-    /// print_r($_POST['product_id']);
+session_start();
+// pastikan session_start() sudah dipanggil sebelum kode ini
+if (isset($_POST['add_to_cart'])) {
     if (isset($_SESSION['cart'])) {
-
+        // jika session cart sudah ada
         $item_array_id = array_column($_SESSION['cart'], "product_id");
 
-        if (in_array($_POST['product_id'], $item_array_id)) {
-            echo "<script>alert('Product is already added in the cart..!')</script>";
-            echo "<script>window.location = 'index.php'</script>";
+        if (in_array($_GET['id'], $item_array_id)) {
+            // jika produk sudah ada di dalam cart, tingkatkan jumlahnya
+            foreach ($_SESSION['cart'] as $key => $value) {
+                if ($value['product_id'] == $_GET['id']) {
+                    $_SESSION['cart'][$key]['quantity'] += 1;
+                }
+            }
         } else {
-
+            // jika produk belum ada di dalam cart, tambahkan produk baru
             $count = count($_SESSION['cart']);
             $item_array = array(
-                'product_id' => $_POST['product_id']
+                'product_id' => $_GET['id'],
+                'product_name' => $_POST['hidden_name'],
+                'product_price' => $_POST['hidden_price'],
+                'product_image' => $_POST['hidden_image'],
+                'quantity' => 1
             );
-
             $_SESSION['cart'][$count] = $item_array;
         }
     } else {
-
+        // jika session cart belum ada, tambahkan produk baru
         $item_array = array(
-            'product_id' => $_POST['product_id']
+            'product_id' => $_GET['id'],
+            'product_name' => $_POST['hidden_name'],
+            'product_price' => $_POST['hidden_price'],
+            'product_image' => $_POST['hidden_image'],
+            'quantity' => 1
         );
-
-        // Create new session variable
         $_SESSION['cart'][0] = $item_array;
-        print_r($_SESSION['cart']);
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +103,31 @@ if (isset($_POST['add'])) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         component($row['product_name'], $row['product_price'], $row['product_image'], $row['id']);
                     }
+
+                    if (isset($_POST['add'])) {
+                        print_r($_POST['product_id']);
+                    }
                     ?>
+                    <script>
+                        function addToCart(productId) {
+                            // kirim permintaan AJAX ke halaman keranjang belanja
+                            // dengan menggunakan ID produk yang dipilih
+                            var xhr = new XMLHttpRequest();
+                            xhr.open('POST', 'cart.php');
+                            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                            xhr.onload = function() {
+                                if (xhr.status === 200) {
+                                    // respons sukses
+                                    alert('Product added to cart!');
+                                } else {
+                                    // respons gagal
+                                    alert('Failed to add product to cart!');
+                                }
+                            };
+                            xhr.send('product_id=' + productId);
+                        }
+                    </script>
+
                 </section>
 
                 <!------------------------------SUNSCREEN-------------------------->

@@ -10,7 +10,7 @@ function component($productname, $productprice, $productimg, $productid)
         <section class=\"card-body\">
             <h2 class=\"card-title\">$productname</h2>
             <p class=\"card-text price\">IDR $productprice</p>
-            <button class=\"btn btn-block\" type=\"submit\" name=\"add\">Add to Cart</button>
+            <button class=\"btn btn-block\" type=\"submit\" name=\"add\" onclick=\"addToCart($productid)\">Add to Cart</button>
             <input type=\"hidden\" name=\"product_id\" value='$productid'>
         </section>
     </form>

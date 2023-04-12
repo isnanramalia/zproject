@@ -42,12 +42,24 @@ class CreateDb
             $this->con = mysqli_connect($servername, $username, $password, $dbname);
 
             // sql to create new table
-            $sql = " CREATE TABLE IF NOT EXISTS $tablename
-                            (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            $sql = "CREATE TABLE IF NOT EXISTS $tablename (
+                            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                              product_name VARCHAR (25) NOT NULL,
                              product_price FLOAT,
                              product_image VARCHAR (100)
-                            );";
+                            )";
+
+            if (!mysqli_query($this->con, $sql)) {
+                echo "Error creating table : " . mysqli_error($this->con);
+            }
+
+            // SQL query to create cart table
+            $sql = "CREATE TABLE IF NOT EXISTS cart (
+                            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                            product_id INT(11) NOT NULL,
+                            quantity INT(11) NOT NULL DEFAULT 1,
+                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                            )";
 
             if (!mysqli_query($this->con, $sql)) {
                 echo "Error creating table : " . mysqli_error($this->con);

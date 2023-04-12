@@ -2,10 +2,26 @@
 
 session_start();
 
+
 require_once("php/CreateDb.php");
 require_once("php/component.php");
 
 $db = new CreateDb("Productdb", "Producttb");
+$total = 0;
+if (isset($_SESSION['cart'])) {
+    // query ke database untuk mengambil data produk berdasarkan id produk yang ada di session cart
+    $db = new mysqli('localhost', 'root', '', 'Productdb');
+    $ids = implode(",", array_column($_SESSION['cart'], 'product_id'));
+    $result = $db->query("SELECT * FROM products WHERE id IN ($ids)");
+    while ($row = $result->fetch_assoc()) {
+        $quantity = $_SESSION['cart'][$row['id']]['quantity'];
+        cartElement($row['product_image'], $row['product_name'], $row['product_price'], $row['id'], $quantity);
+        $total = $total + (int)$row['product_price'] * $quantity;
+    }
+} else {
+    echo "<h5>Cart is Empty</h5>";
+}
+
 
 if (isset($_POST['remove'])) {
     if ($_GET['action'] == 'remove') {
@@ -27,7 +43,6 @@ if (isset($_POST['remove'])) {
 
 <head>
     <?php require_once('php/head.php'); ?><!-- fungsi meta dan link source -->
-    <title>cart - skinker</title>
 </head>
 
 <body class="bg-light" style="margin-top: 50px; padding-top: 50px;">
