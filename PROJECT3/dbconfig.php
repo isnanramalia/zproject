@@ -10,7 +10,6 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $status = $db->getAttribute(PDO::ATTR_CONNECTION_STATUS);
-    echo "Koneksi ke database berhasil! Status: $status";
 } catch (PDOException $e) {
     echo "Koneksi ke database gagal: " . $e->getMessage();
 }
