@@ -1,7 +1,5 @@
 <?php
 session_start();
-require_once "dbconfig.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -10,53 +8,6 @@ require_once "dbconfig.php";
 <head>
     <?php require_once('php/head.php'); ?><!-- fungsi meta dan link source -->
     <title>cart - skinker</title>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(document).on("click", "#addItem", function(e) {
-                e.preventDefault();
-                var form = $(this).closest(".form-submit");
-                var id = form.find(".pid").val();
-                var name = form.find(".pname").val();
-                var price = form.find(".pprice").val();
-                var image = form.find(".pimage").val();
-                var code = form.find(".pcode").val();
-
-                $.ajax({
-                    url: "action.php",
-                    method: "post",
-                    data: {
-                        pid: id,
-                        pname: name,
-                        pprice: price,
-                        pimage: image,
-                        pcode: code
-                    },
-                    success: function(response) {
-                        $(".alert-message").html(response);
-                        window.scrollTo(0, 0);
-                        load_cart_item_number();
-                    }
-                });
-            });
-
-            load_cart_item_number();
-
-            function load_cart_item_number() {
-                $.ajax({
-                    url: "action.php",
-                    method: "get",
-                    data: {
-                        cartItem: "cart_item"
-                    },
-                    success: function(response) {
-                        $("#cart-item").html(response);
-                    }
-
-                });
-            }
-        });
-    </script>
 </head>
 
 
@@ -64,6 +15,24 @@ require_once "dbconfig.php";
     <?php
     require_once('php/header.php');
     ?>
+
+    <!-- utk menampilkan pop-up alert -->
+    <div style="display:<?php if (isset($_SESSION["showAlert"])) {
+                            echo $_SESSION["showAlert"];
+                        } else {
+                            echo "none";
+                        }
+                        unset($_SESSION["showAlert"]) ?>" class="alert alert-success alert-dismissible mt-2">
+
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+        <strong><?php if (isset($_SESSION["message"])) {
+                    echo $_SESSION["message"];
+                }
+                unset($_SESSION["showAlert"]); ?></strong>
+
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -147,6 +116,55 @@ require_once "dbconfig.php";
         </div>
 
     </div>
+
+    <!-- ----------------------------------|FOOTER|------------------------------ -->
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
+        <?php require_once('php/footer.php') ?>
+    </footer>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $(".itemQty").on("change", function() {
+
+                var hide = $(this).closest("tr");
+
+                var id = hide.find(".pid").val();
+                var price = hide.find(".pprice").val();
+                var qty = hide.find(".itemQty").val();
+                location.reload(true);
+                $.ajax({
+                    url: "action.php",
+                    method: "post",
+                    cache: false,
+                    data: {
+                        pqty: qty,
+                        pid: id,
+                        pprice: price
+                    },
+                    success: function(response) {
+                        console.log(response);
+                    }
+                });
+            });
+
+            load_cart_item_number();
+
+            function load_cart_item_number() {
+                $.ajax({
+                    url: "action.php",
+                    method: "get",
+                    data: {
+                        cartItem: "cart_item"
+                    },
+                    success: function(response) {
+                        $("#cart-item").html(response);
+                    }
+                });
+            }
+        });
+    </script>
+
 </body>
 
 </html>
