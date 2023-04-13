@@ -97,6 +97,10 @@
 
     <!-- Copyright -->
     <section class="text-center p-3 border-top border-white">
-        © 2022 Copyright Skinker
+        <p>&copy;<span id="tahun-copyright"></span> create with <i class="bi bi-emoji-smile"></i></i>.</p>
     </section>
+    <script>
+        document.getElementById("tahun-copyright").innerHTML =
+            new Date().getFullYear();
+    </script>
     <!-- Copyright -->
