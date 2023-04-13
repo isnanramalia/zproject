@@ -36,11 +36,11 @@
                             } ?>>CART <i class="bi bi-bag"></i>
             <?php
 
-            if (isset($_SESSION['cart'])) {
-                $count = count($_SESSION['cart']);
-                echo "<span id=\"cart_count\" class=\"text-black\">$count</span>";
-            } else {
-                echo "<span id=\"cart_count\" class=\"text-black\">0</span>";
+            if (isset($_GET["cartItem"]) && isset($_GET["cartItem"]) == "cart_item") {
+                $select_stmt = $db->prepare("SELECT * FROM cart");
+                $select_stmt->execute();
+                $row = $select_stmt->rowCount();
+                echo $row;
             }
 
             ?></a>

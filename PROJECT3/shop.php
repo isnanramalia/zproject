@@ -1,15 +1,90 @@
-<?php
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php require_once('php/head.php'); ?><!-- fungsi meta dan link source -->
     <title>shop - skinker</title>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on("click", "#addItem", function(e) {
+                e.preventDefault();
+                var form = $(this).closest(".form-submit");
+                var id = form.find(".pid").val();
+                var name = form.find(".pname").val();
+                var price = form.find(".pprice").val();
+                var image = form.find(".pimage").val();
+                var code = form.find(".pcode").val();
+
+                $.ajax({
+                    url: "action.php",
+                    method: "post",
+                    data: {
+                        pid: id,
+                        pname: name,
+                        pprice: price,
+                        pimage: image,
+                        pcode: code
+                    },
+                    success: function(response) {
+                        $(".alert-message").html(response);
+                        window.scrollTo(0, 0);
+                        load_cart_item_number();
+                    }
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on("click", "#addItem", function(e) {
+                e.preventDefault();
+                var form = $(this).closest(".form-submit");
+                var id = form.find(".pid").val();
+                var name = form.find(".pname").val();
+                var price = form.find(".pprice").val();
+                var image = form.find(".pimage").val();
+                var code = form.find(".pcode").val();
+
+                $.ajax({
+                    url: "action.php",
+                    method: "post",
+                    data: {
+                        pid: id,
+                        pname: name,
+                        pprice: price,
+                        pimage: image,
+                        pcode: code
+                    },
+                    success: function(response) {
+                        $(".alert-message").html(response);
+                        window.scrollTo(0, 0);
+                        load_cart_item_number();
+                    }
+                });
+            });
+
+            load_cart_item_number();
+
+            function load_cart_item_number() {
+                $.ajax({
+                    url: "action.php",
+                    method: "get",
+                    data: {
+                        cartItem: "cart_item"
+                    },
+                    success: function(response) {
+                        $("#cart-item").html(response);
+                    }
+
+                });
+            }
+        });
+    </script>
+
+
+
+
 </head>
 
 
@@ -64,6 +139,7 @@
                         $product_name = $row['product_name'];
                         $product_price = $row['product_price'];
                         $product_image = $row['product_image'];
+                        $product_code = $row['product_code'];
                     ?>
                         <section class="card col-lg-4 col-md-6 mb-4">
                             <form class="form-submit">
@@ -71,10 +147,11 @@
                                 <input type="hidden" class="pname" value="<?php echo $product_name ?>">
                                 <input type="hidden" class="pprice" value="<?php echo $product_price ?>">
                                 <input type="hidden" class="pimage" value="<?php echo $product_image ?>">
+                                <input type="hidden" class="pcode" value="<?php echo $product_code ?>">
                                 <div class="card-body">
                                     <img class="card-img-top" src="images/<?php echo $product_image ?>" alt="products">
                                     <h2 class="card-title"><?php echo $product_name ?></h2>
-                                    <p class="card-text price">IDR <?php echo $product_price ?></p>
+                                    <p class="card-text price">IDR <?php echo number_format($product_price, 2) ?></p>
                                     <button id="addItem" class="btn btn-block">Add to Cart</button>
                                 </div>
                             </form>
@@ -84,6 +161,7 @@
                     ?>
 
                 </section>
+
 
 
 
