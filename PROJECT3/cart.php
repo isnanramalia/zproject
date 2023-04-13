@@ -17,12 +17,12 @@ session_start();
     ?>
 
     <!-- utk menampilkan pop-up alert -->
-    <div style="display:<?php if (isset($_SESSION["showAlert"])) {
-                            echo $_SESSION["showAlert"];
-                        } else {
-                            echo "none";
-                        }
-                        unset($_SESSION["showAlert"]) ?>" class="alert alert-success alert-dismissible mt-2">
+    <section style="display:<?php if (isset($_SESSION["showAlert"])) {
+                                echo $_SESSION["showAlert"];
+                            } else {
+                                echo "none";
+                            }
+                            unset($_SESSION["showAlert"]) ?>" class="alert alert-success alert-dismissible mt-2">
 
         <button type="button" class="close" data-dismiss="alert">&times;</button>
 
@@ -31,12 +31,12 @@ session_start();
                 }
                 unset($_SESSION["showAlert"]); ?></strong>
 
-    </div>
+    </section>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="table-responsive">
+    <section class="container">
+        <section class="row">
+            <section class="col-12">
+                <section class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -101,69 +101,29 @@ session_start();
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-            <div class="col mb-2">
-                <div class="row">
-                    <div class="col-sm-12  col-md-6">
-                        <a href="shop.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
-                    </div>
-                    <div class="col-sm-12 col-md-6 text-right">
+                </section>
+            </section>
+            <section class="col mb-2">
+                <section class="row">
+                    <section class="col-sm-12  col-md-6">
+                        <a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
+                    </section>
+                    <section class="col-sm-12 col-md-6 text-right">
                         <a href="checkout.php" class="btn btn-md btn-block btn-success text-uppercase <?= ($grand_total > 1) ? "" : "disabled"; ?>"> Checkout </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </section>
+                </section>
+            </section>
+        </section>
 
-    </div>
+    </section>
 
     <!-- ----------------------------------|FOOTER|------------------------------ -->
     <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
         <?php require_once('php/footer.php') ?>
+        <?php require_once('php/cartAmount.php') ?>
     </footer>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
 
-            $(".itemQty").on("change", function() {
-
-                var hide = $(this).closest("tr");
-
-                var id = hide.find(".pid").val();
-                var price = hide.find(".pprice").val();
-                var qty = hide.find(".itemQty").val();
-                location.reload(true);
-                $.ajax({
-                    url: "action.php",
-                    method: "post",
-                    cache: false,
-                    data: {
-                        pqty: qty,
-                        pid: id,
-                        pprice: price
-                    },
-                    success: function(response) {
-                        console.log(response);
-                    }
-                });
-            });
-
-            load_cart_item_number();
-
-            function load_cart_item_number() {
-                $.ajax({
-                    url: "action.php",
-                    method: "get",
-                    data: {
-                        cartItem: "cart_item"
-                    },
-                    success: function(response) {
-                        $("#cart-item").html(response);
-                    }
-                });
-            }
-        });
-    </script>
 
 </body>
 

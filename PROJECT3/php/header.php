@@ -33,17 +33,17 @@
                                         } ?>>ACCOUNT <i class="ri-user-fill"></i></a>
         <a href="cart.php" <?php if (basename($_SERVER['PHP_SELF']) == 'cart.php') {
                                 echo ' class="active"';
-                            } ?>>CART <i class="bi bi-bag"></i>
-            <?php
+                            } ?>>CART <i class="bi bi-bag"></i>&nbsp&nbsp<span id="cart-item"></span></a>
+        <?php
 
-            if (isset($_GET["cartItem"]) && isset($_GET["cartItem"]) == "cart_item") {
-                $select_stmt = $db->prepare("SELECT * FROM cart");
-                $select_stmt->execute();
-                $row = $select_stmt->rowCount();
-                echo $row;
-            }
+        if (isset($_GET["cartItem"]) && isset($_GET["cartItem"]) == "cart_item") {
+            $select_stmt = $db->prepare("SELECT * FROM cart");
+            $select_stmt->execute();
+            $row = $select_stmt->rowCount();
+            echo $row;
+        }
 
-            ?></a>
+        ?></a>
         <section class="bx bx-menu" id="menu-icon"></section>
     </section>
 </header>

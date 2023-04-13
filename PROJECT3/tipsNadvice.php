@@ -80,6 +80,7 @@
     <!-- ----------------------------------|FOOTER|------------------------------ -->
     <footer class=" text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
         <?php require_once('php/footer.php') ?>
+        <?php require_once('php/cartAmount.php') ?>
     </footer>
 </body>
 

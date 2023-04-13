@@ -87,44 +87,12 @@ $allItems = implode(", ", $items);
     <!-- ----------------------------------|FOOTER|------------------------------ -->
     <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
         <?php require_once('php/footer.php') ?>
+        <?php require_once('php/cartAmount.php') ?>
     </footer>
 
 
     <!-- kirim form secara dinamis -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#placeOrder").submit(function(e) {
 
-                e.preventDefault();
-
-                $.ajax({
-                    url: "action.php",
-                    method: "post",
-                    data: $("form").serialize() + "&action=order",
-                    success: function(response) {
-                        $("#showOrder").html(response);
-                    }
-                });
-            });
-
-            load_cart_item_number();
-
-            function load_cart_item_number() {
-                $.ajax({
-                    url: "action.php",
-                    method: "get",
-                    data: {
-                        cartItem: "cart_item"
-                    },
-                    success: function(response) {
-                        $("#cart-item").html(response);
-                    }
-
-                });
-            }
-
-        });
-    </script>
 
 </body>
 
