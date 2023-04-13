@@ -40,35 +40,16 @@ $allItems = implode(", ", $items);
 
 </head>
 
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">Home</a>
-            <a class="navbar-brand active" href="https://www.onlyxcodes.com/2020/10/add-to-cart-and-checkout-in-php.html">Back to Tutorial</a>
+<head>
+    <?php require_once('php/head.php'); ?><!-- fungsi meta dan link source -->
+    <title>shop - skinker</title>
+</head>
 
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="checkout.php">Checkout</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="btn btn-success btn-sm mt-1" href="cart.php">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span class="badge badge-light" id="cart-item"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body style="margin-top: 50px; padding-top: 50px;">
+    <?php
+    require_once('php/header.php');
+    ?>
 
     <!-- Page Content -->
 
@@ -125,19 +106,10 @@ $allItems = implode(", ", $items);
     </div>
     <!-- /.container -->
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Onlyxcodes 2020</p>
-        </div>
-        <!-- /.container -->
+    <!-- ----------------------------------|FOOTER|------------------------------ -->
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
+        <?php require_once('php/footer.php') ?>
     </footer>
-
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="jquery/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
