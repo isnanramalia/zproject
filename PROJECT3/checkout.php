@@ -1,7 +1,6 @@
 <?php
 require_once "dbconfig.php";
 
-// ambil data dr tabel cart
 $grand_total = 0;
 $allItems = "";
 $items = array();
@@ -20,23 +19,65 @@ $allItems = implode(", ", $items);
 <html lang="en">
 
 <head>
-    <?php require_once('php/head.php'); ?><!-- fungsi meta dan link source -->
-    <title>checkout - skinker</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Checkout</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- Template Custom CSS -->
+    <style type="text/css">
+        body {
+            padding-top: 56px;
+        }
+    </style>
+
 </head>
 
-<body style="margin-top: 50px; padding-top: 50px;">
-    <?php
-    require_once('php/header.php');
-    ?>
+<body>
 
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">Home</a>
+            <a class="navbar-brand active" href="https://www.onlyxcodes.com/2020/10/add-to-cart-and-checkout-in-php.html">Back to Tutorial</a>
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="checkout.php">Checkout</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="btn btn-success btn-sm mt-1" href="cart.php">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="badge badge-light" id="cart-item"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Page Content -->
+
     <div class="container">
 
         <div class="row justify-content-center">
             <div class="col-lg-6 px-4 pb-4" id="showOrder">
 
-                <h4 class="text-center p-2" style="color: green;">Complete your order!</h4>
+                <h4 class="text-center text-info p-2">Complete your order!</h4>
                 <div class="jumbotron p-3 mb-2 text-center">
                     <h6 class="load"><b>Product(s) : </b> <?php echo $allItems; ?></h6>
                     <h6 class="lead"><b>Delivery Charge : </b>Free</h6>
@@ -84,15 +125,54 @@ $allItems = implode(", ", $items);
     </div>
     <!-- /.container -->
 
-    <!-- ----------------------------------|FOOTER|------------------------------ -->
-    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
-        <?php require_once('php/footer.php') ?>
-        <?php require_once('php/cartAmount.php') ?>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Onlyxcodes 2020</p>
+        </div>
+        <!-- /.container -->
     </footer>
 
 
-    <!-- kirim form secara dinamis -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#placeOrder").submit(function(e) {
+
+                e.preventDefault();
+
+                $.ajax({
+                    url: "action.php",
+                    method: "post",
+                    data: $("form").serialize() + "&action=order",
+                    success: function(response) {
+                        $("#showOrder").html(response);
+                    }
+                });
+            });
+
+            load_cart_item_number();
+
+            function load_cart_item_number() {
+                $.ajax({
+                    url: "action.php",
+                    method: "get",
+                    data: {
+                        cartItem: "cart_item"
+                    },
+                    success: function(response) {
+                        $("#cart-item").html(response);
+                    }
+
+                });
+            }
+
+        });
+    </script>
 
 </body>
 
