@@ -1,48 +1,5 @@
 <?php
-require_once('php/component.php');
-require_once('php/CreateDb.php');
 
-// create instance of CreateDb class
-$database = new CreateDb(dbname: "Productdb", tablename: "Producttb");
-
-session_start();
-// pastikan session_start() sudah dipanggil sebelum kode ini
-if (isset($_POST['add_to_cart'])) {
-    if (isset($_SESSION['cart'])) {
-        // jika session cart sudah ada
-        $item_array_id = array_column($_SESSION['cart'], "product_id");
-
-        if (in_array($_GET['id'], $item_array_id)) {
-            // jika produk sudah ada di dalam cart, tingkatkan jumlahnya
-            foreach ($_SESSION['cart'] as $key => $value) {
-                if ($value['product_id'] == $_GET['id']) {
-                    $_SESSION['cart'][$key]['quantity'] += 1;
-                }
-            }
-        } else {
-            // jika produk belum ada di dalam cart, tambahkan produk baru
-            $count = count($_SESSION['cart']);
-            $item_array = array(
-                'product_id' => $_GET['id'],
-                'product_name' => $_POST['hidden_name'],
-                'product_price' => $_POST['hidden_price'],
-                'product_image' => $_POST['hidden_image'],
-                'quantity' => 1
-            );
-            $_SESSION['cart'][$count] = $item_array;
-        }
-    } else {
-        // jika session cart belum ada, tambahkan produk baru
-        $item_array = array(
-            'product_id' => $_GET['id'],
-            'product_name' => $_POST['hidden_name'],
-            'product_price' => $_POST['hidden_price'],
-            'product_image' => $_POST['hidden_image'],
-            'quantity' => 1
-        );
-        $_SESSION['cart'][0] = $item_array;
-    }
-}
 
 
 ?>
@@ -99,36 +56,36 @@ if (isset($_POST['add_to_cart'])) {
                 <section class="card-deck d-flex justify-content-center">
 
                     <?php
-                    $result = $database->getData();
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        component($row['product_name'], $row['product_price'], $row['product_image'], $row['id']);
-                    }
-
-                    if (isset($_POST['add'])) {
-                        print_r($_POST['product_id']);
+                    require_once "dbconfig.php";
+                    $select_stmt = $db->prepare("SELECT * FROM product");
+                    $select_stmt->execute();
+                    while ($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $product_id = $row['product_id'];
+                        $product_name = $row['product_name'];
+                        $product_price = $row['product_price'];
+                        $product_image = $row['product_image'];
+                    ?>
+                        <section class="card col-lg-4 col-md-6 mb-4">
+                            <form class="form-submit">
+                                <input type="hidden" class="pid" value="<?php echo $product_id ?>">
+                                <input type="hidden" class="pname" value="<?php echo $product_name ?>">
+                                <input type="hidden" class="pprice" value="<?php echo $product_price ?>">
+                                <input type="hidden" class="pimage" value="<?php echo $product_image ?>">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="images/<?php echo $product_image ?>" alt="products">
+                                    <h2 class="card-title"><?php echo $product_name ?></h2>
+                                    <p class="card-text price">IDR <?php echo $product_price ?></p>
+                                    <button id="addItem" class="btn btn-block">Add to Cart</button>
+                                </div>
+                            </form>
+                        </section>
+                    <?php
                     }
                     ?>
-                    <script>
-                        function addToCart(productId) {
-                            // kirim permintaan AJAX ke halaman keranjang belanja
-                            // dengan menggunakan ID produk yang dipilih
-                            var xhr = new XMLHttpRequest();
-                            xhr.open('POST', 'cart.php');
-                            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                            xhr.onload = function() {
-                                if (xhr.status === 200) {
-                                    // respons sukses
-                                    alert('Product added to cart!');
-                                } else {
-                                    // respons gagal
-                                    alert('Failed to add product to cart!');
-                                }
-                            };
-                            xhr.send('product_id=' + productId);
-                        }
-                    </script>
 
                 </section>
+
+
 
                 <!------------------------------SUNSCREEN-------------------------->
                 <section style="margin: 40px;padding: 40px;"></section>
