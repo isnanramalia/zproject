@@ -5,7 +5,7 @@
     <?php require_once('../php/head2.php'); ?>
 
     <link rel="icon" href="../atribut/logo/logo.png">
-    <title>ESTE LAUDER - skinker</title>
+    <title>ESTEE LAUDER - skinker</title>
 </head>
 
 
@@ -14,20 +14,20 @@
         <?php require_once('../php/header2.php'); ?>
     </header>
 
-    <!------------------------------ESTE LAUDER PRODUCTS-------------------------->
+    <!------------------------------ESTEE LAUDER PRODUCTS-------------------------->
     <section class="col-10 py-5 mx-auto">
         <section>
-            <img src="../atribut/brand/esteelauder.png" alt="cosrx logo" style="height: 300px;display: block; margin: auto;">
+            <img src="../atribut/brand/estee lauder.png" alt="cosrx logo" style="height: 300px;display: block; margin: auto;">
         </section>
         <section style="background-color: white; font-size: medium; padding: 10px;margin: 10px;border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
-            <h1 style="font-size: medium; text-align: center;">ESTE LAUDER</h1>
+            <h1 style="font-size: medium; text-align: center;">ESTEE LAUDER</h1>
         </section>
 
         <!-- Start of Card Deck Layout -->
         <section class="card-deck d-flex justify-content-center">
             <?php
             require_once "../dbconfig.php";
-            $select_stmt = $db->prepare("SELECT * FROM product WHERE brand_category = 'estelauder'");
+            $select_stmt = $db->prepare("SELECT * FROM product WHERE brand_category = 'estee lauder'");
             $select_stmt->execute();
             while ($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
                 $product_id = $row['product_id'];
@@ -62,6 +62,6 @@
     <!-- ----------------------------------|FOOTER|------------------------------ -->
     <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
         <?php require_once('../php/footer2.php') ?>
-        <?php require_once('../php/cartAmount.php') ?>
+        <?php require_once('../php/cartAmount2.php') ?>
     </footer>
 </body>
