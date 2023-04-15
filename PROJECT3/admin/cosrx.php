@@ -3,7 +3,7 @@
 
 <head>
     <?php
-    require_once('../php/head.php');
+    require_once('../php/head2.php');
     ?>
 
     <link rel="icon" href="../atribut/logo/logo.png">
@@ -12,9 +12,9 @@
 
 
 <body style="background-color: #D4DDB7;">
-    <?php require_once('../php/header.php'); ?>
-
-
+    <header>
+        <?php require_once('../php/header2.php'); ?>
+    </header>
 
     <!------------------------------COSRX PRODUCTS-------------------------->
     <section class="col-10 py-5 mx-auto">
