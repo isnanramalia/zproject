@@ -12,9 +12,11 @@ session_start();
 
 
 <body style="margin-top: 50px; padding-top: 50px;">
-    <?php
-    require_once('php/header.php');
-    ?>
+    <header>
+        <?php
+        require_once('php/header.php');
+        ?>
+    </header>
 
     <!-- utk menampilkan pop-up alert -->
     <section style="display:<?php if (isset($_SESSION["showAlert"])) {

@@ -8,9 +8,11 @@
 
 
 <body style="margin-top: 60px; padding-top: 60px; background-color: #D4DDB7;">
-    <?php
-    require_once('php/header.php');
-    ?>
+    <header>
+        <?php
+        require_once('php/header.php');
+        ?>
+    </header>
 
 
     <!-- ----------------------------------|ALL BRAND|------------------------------ -->

@@ -1,4 +1,3 @@
-<header>
     <a href="index.php" class="logo" <?php if (basename($_SERVER['PHP_SELF']) == 'index.php') {
                                             echo ' class="active"';
                                         } ?>><span>SKINKER</span></a>
@@ -46,4 +45,3 @@
         ?></a>
         <section class="bx bx-menu" id="menu-icon"></section>
     </section>
-</header>

@@ -8,9 +8,11 @@
 
 
 <body style="margin-top: 100px; padding-top: 50px;  background-color: white;">
-    <?php
-    require_once('php/header.php');
-    ?>
+    <header>
+        <?php
+        require_once('php/header.php');
+        ?>
+    </header>
 
 
     <!-- ----------------------------------------- PROLOG ------------------------------------- -->

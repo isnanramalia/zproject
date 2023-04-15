@@ -7,9 +7,11 @@
 </head>
 
 <body style="margin-top: 90px; padding-top: 80px;">
-    <?php
-    require_once('php/header.php');
-    ?>
+    <header>
+        <?php
+        require_once('php/header.php');
+        ?>
+    </header>
 
 
     <!-- -------------------------------------CONTAINER 1 (shop & saves)-------------------------------------------- -->

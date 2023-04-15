@@ -7,9 +7,11 @@
 </head>
 
 <body style="padding-top: 15px; margin-top: 15px;">
-    <?php
-    require_once('php/header.php');
-    ?>
+    <header>
+        <?php
+        require_once('php/header.php');
+        ?>
+    </header>
 
     <!-- BAGIAN 1 -->
     <main id="main-1">

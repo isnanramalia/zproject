@@ -8,9 +8,12 @@
 
 
 <body style="margin-top: 50px; padding-top: 50px;">
-    <?php
-    require_once('php/header.php');
-    ?>
+    <header>
+        <?php
+        require_once('php/header.php');
+        ?>
+    </header>
+
 
 
     <!-- ---------------------------|START CONTAINER|------------------------------ -->
