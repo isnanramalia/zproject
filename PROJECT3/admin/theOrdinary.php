@@ -17,7 +17,7 @@
     <!------------------------------THE ORDINARY PRODUCTS-------------------------->
     <section class="col-10 py-5 mx-auto">
         <section>
-            <img src="../atribut/brand/cosrx.png" alt="cosrx logo" style="height: 300px;display: block; margin: auto;">
+            <img src="../atribut/brand/the ordinary.png" alt="cosrx logo" style="height: 300px;display: block; margin: auto;">
         </section>
         <section style="background-color: white; font-size: medium; padding: 10px;margin: 10px;border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
             <h1 style="font-size: medium; text-align: center;">THE ORDINARY</h1>
