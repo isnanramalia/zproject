@@ -109,89 +109,36 @@
             something that meets your needs and preferences. From high-end skincare products to low-end, we ensure that
             all the products we offer are of high quality and meet industry standards.
         </article><br><br><br>
-        <section class="row row-cols-1 row-cols-md-4 g-4">
-            <section class="col">
-                <section class="card h-100">
-                    <img src="atribut/best seller/cetaphil.png" class="card-img-top" alt="moiturizer cetaphil">
-                    <section class="card-body">
-                        <h4 class="card-title text-center">Intensive Moisturizer - Cetaphil </h4>
-                        <h5 class="card-title text-center">IDR 210.000 </h5>
-                        <center>
-                            <a href="admin/cetaphil.html" type="button" class="btn btn-round" style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
-                                now</a>
-                        </center>
-                    </section>
+        <section class="card-deck d-flex justify-content-center">
+            <?php
+            require_once "dbconfig.php";
+            $select_stmt = $db->prepare("SELECT * FROM product WHERE other_category = 'bestSeller'");
+            $select_stmt->execute();
+            while ($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+                $product_id = $row['product_id'];
+                $product_name = $row['product_name'];
+                $product_price = $row['product_price'];
+                $product_image = $row['product_image'];
+                $product_code = $row['product_code'];
+            ?>
+                <section class="card col-lg-4 col-md-6 mb-4">
+                    <form class="form-submit">
+                        <input type="hidden" class="pid" value="<?php echo $product_id ?>">
+                        <input type="hidden" class="pname" value="<?php echo $product_name ?>">
+                        <input type="hidden" class="pprice" value="<?php echo $product_price ?>">
+                        <input type="hidden" class="pimage" value="<?php echo $product_image ?>">
+                        <input type="hidden" class="pcode" value="<?php echo $product_code ?>">
+                        <div class="card-body">
+                            <img class="card-img-top" src="<?php echo $product_image ?>" alt="<?php echo $product_name ?>">
+                            <h2 class="card-title"><?php echo $product_name ?></h2>
+                            <p class="card-text price">IDR <?php echo number_format($product_price, 2) ?></p>
+                            <button id="addItem" class="btn btn-block">Add to Cart</button>
+                        </div>
+                    </form>
                 </section>
-            </section>
-            <section class="col">
-                <section class="card h-100">
-                    <img src="atribut/best seller/kiehls.png" class="card-img-top" alt="kiehls product">
-                    <section class="card-body">
-                        <h4 class="card-title text-center">Eye Cream - Keihl`s </h4>
-                        <h5 class="card-title text-center">IDR 300.000 </h5>
-                        <center>
-                            <a href="admin/kiehls.html" type="button" class="btn btn-round" style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
-                                now</a>
-                        </center>
-                    </section>
-                </section>
-            </section>
-            <section class="col">
-                <section class="card h-100">
-                    <img src="atribut/best seller/skitific.png" class="card-img-top" alt="sun screen skintific">
-                    <section class="card-body">
-                        <h4 class="card-title text-center">Serum Sun Screen - Skintific </h4>
-                        <h5 class="card-title text-center">IDR 120.000 </h5>
-                        <center>
-                            <a href="admin/skintific.html" type="button" class="btn btn-round" style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
-                                now</a>
-                        </center>
-                    </section>
-                </section>
-            </section>
-            <section class="col">
-                <section class="card h-100">
-                    <img src="atribut/best seller/the ordianry.png" class="card-img-top" alt="the ordianry">
-                    <section class="card-body">
-                        <h4 class="card-title text-center">Serum - The Ordinary</h4>
-                        <h5 class="card-title text-center">IDR 200.000</h5>
-                        <center>
-                            <a href="admin/theOrdinary.html" type="button" class="btn btn-round" style="font-size: 15px; background-color: #3F4726; color: white; padding: 10px 40px 10px 40px;">buy
-                                now</a>
-                        </center>
-                    </section>
-                </section>
-            </section>
-        </section>
-    </main>
-    <!-- END BAGAIAN 4 BEST SELLER -->
-
-    <!-- BAGIAN 5 ALWAYS FOR YOU -->
-    <main style="background-color: white; padding-top: 50px; padding-bottom: 50px;">
-        <section class="container text-center">
-            <section class="row">
-                <section class="col">
-                    <h1><span style="color: #868D6E;">Skinker</span> is Always For You</h1><br><br>
-                </section>
-            </section>
-            <section class="row">
-                <section class="col">
-                </section>
-                <section class="col">
-                    <img class="cap" src="atribut/cap/crueltyfree.png" alt="crueltyfree">
-                </section>
-                <section class="col">
-                    <img class="cap" src="atribut/cap/sustainable.png" alt="sustainable">
-                </section>
-                <section class="col">
-                    <img class="cap" src="atribut/cap/chemicalfree.png" alt="chemicalfree">
-                </section>
-                <section class="col">
-                    <img class="cap" src="atribut/cap/womanowned.png" alt="womanowned">
-                </section>
-                <section class="col">
-                </section>
-            </section>
+            <?php
+            }
+            ?>
         </section>
     </main>
     <!-- END BAGAIAN ALWAYS FOR YOU -->
