@@ -66,7 +66,7 @@
         <?php
         require_once('../php/footer2.php');
         require_once('../php/cartAmount2.php');
-        require_once('../php/addCart.php');
+        require_once('../php/addCart2.php');
         ?>
     </footer>
 </body>
