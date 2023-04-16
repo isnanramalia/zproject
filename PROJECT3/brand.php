@@ -96,8 +96,8 @@
                 <a href="admin/cetaphil.php" type="button" class="btn btn-round">Cetaphil</a>
             </section>
             <section class="col">
-                <img class="img-brand" src="atribut/brand/scarlett.png" alt="yves rocher">
-                <a href="admin/yvesrocher.php" type="button" class="btn btn-round">Scarlett</a>
+                <img class="img-brand" src="atribut/brand/scarlett.png" alt="scarlett">
+                <a href="admin/scarlett.php" type="button" class="btn btn-round">Scarlett</a>
             </section>
             <section class="col">
                 <img class="img-brand" src="atribut/brand/elsheskin.png" alt="elsheskin">

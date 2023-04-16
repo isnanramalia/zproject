@@ -28,10 +28,10 @@
                     echo ' class="active"';
                 } ?>><b>|</b></a>
     <?php
-    $active_pages = ['../account/login.php', '../account/register.php'];
+    $active_pages = ['login.php', 'register.php'];
     $current_page = basename($_SERVER['PHP_SELF']);
 
-    echo '<a href="../account/login.php"';
+    echo '<a href="login.php"';
     if (in_array($current_page, $active_pages)) {
         echo ' class="active"';
     }

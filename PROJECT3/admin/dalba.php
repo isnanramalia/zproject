@@ -14,6 +14,7 @@
         <?php require_once('../php/header2.php'); ?>
     </header>
 
+    <div class="alert-message"></div>
     <style>
         .alert-message {
             position: fixed;

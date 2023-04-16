@@ -48,29 +48,29 @@
             <section class="row">
                 <section class="col">
                     <img src="admin tipsNadvice/img tips&advice/1.jpg" alt="tips 1" class="artikelTipsnAdvice" onclick="window.location.href='admin tipsNadvice/a1.html'">
-                    <p>5 Manfaat Tea Tree Oil untuk Wajah</p>
+                    <h5>5 Manfaat Tea Tree Oil untuk Wajah</h5>
                 </section>
                 <section class="col">
                     <img src="admin tipsNadvice/img tips&advice/2.jpg" alt="tips 2" class="artikelTipsnAdvice" onclick="window.location.href='admin tipsNadvice/a2.html'">
-                    <p>Edelweiss Steam Cells From Italy</p>
+                    <h5>Edelweiss Steam Cells From Italy</h5>
                 </section>
                 <section class=" col">
                     <img src="admin tipsNadvice/img tips&advice/3.jpg" alt="tips 3" class="artikelTipsnAdvice" onclick=" window.location.href='admin tipsNadvice/a3.html'">
-                    <p>Ketahui Tipe Kulitmu Melalui Cara Ini</p>
+                    <h5>Ketahui Tipe Kulitmu Melalui Cara Ini</h5>
                 </section>
             </section><br><br><br>
             <section class=" row">
                 <section class="col">
                     <img src="admin tipsNadvice/img tips&advice/4.jpg" alt="tips 3" class="artikelTipsnAdvice" onclick=" window.location.href='admin tipsNadvice/a4.html'">
-                    <p>Step By Step dalam Basic Skincare</p>
+                    <h5>Step By Step dalam Basic Skincare</h5>
                 </section>
                 <section class=" col">
                     <img src="admin tipsNadvice/img tips&advice/5.jpg" alt="tips 3" class="artikelTipsnAdvice" onclick=" window.location.href='admin tipsNadvice/a5.html'">
-                    <p>Mulai Lakukan Basic Skincare Saat Ini</p>
+                    <h5>Mulai Lakukan Basic Skincare Saat Ini</h5>
                 </section>
                 <section class=" col">
                     <img src="admin tipsNadvice/img tips&advice/6.jpg" alt="tips 3" class="artikelTipsnAdvice" onclick=" window.location.href='admin tipsNadvice/a6.html'">
-                    <p>Kulit Rentan Berjerawat</p>
+                    <h5>Kulit Rentan Berjerawat</h5>
                 </section>
             </section>
             <br>
@@ -84,6 +84,12 @@
         <?php require_once('php/footer.php') ?>
         <?php require_once('php/cartAmount.php') ?>
     </footer>
+
+    <style>
+        .col h5 {
+            text-align: center;
+        }
+    </style>
 </body>
 
 </html>

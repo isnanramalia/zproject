@@ -72,7 +72,7 @@
                 <h1>SPECIAL OFFERS JUST FOR YOU! JUST FOR <span style="color: #79A3DD;">INNISFREE</span></h1>
                 <p>Dapatkan potongan harga Rp50.000 untuk setiap pembelanjaan produk The Body Shop® dengan transaksi
                     menggunakan kartu BSI*. Periode:1 Desember 2022 – 28 Februari 2023.</p>
-                <button class="btn btn-block" onclick="location.href='admin/innisfree.html'">Take It</button>
+                <button class="btn btn-block" onclick="location.href='admin/innisfree.php'">Take It</button>
             </section>
             <section class="col-1"></section>
         </section>
@@ -85,7 +85,7 @@
             <section class="col-6">
                 <h1><span style="color: #848E1C;">YVES ROCHER</span> OFFERS THIS WEEK</h1>
                 <p>Promo Bundle Skincare terbaik untuk minggu ini</p>
-                <button class="btn btn-block" onclick="location.href='/admin/yvesrocher.html'">Take It</button>
+                <button class="btn btn-block" onclick="location.href='/admin/yvesrocher.php'">Take It</button>
             </section>
             <section class="col-1"></section>
         </section>
