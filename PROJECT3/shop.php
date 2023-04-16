@@ -14,6 +14,19 @@
         ?>
     </header>
 
+    <!-- utk menampilkan pop-up alert -->
+    <div class="alert-message"></div>
+    <style>
+        .alert-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            max-width: 300px;
+            z-index: 9999;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+    </style>
 
 
     <!-- ---------------------------|START CONTAINER|------------------------------ -->

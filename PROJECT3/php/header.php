@@ -27,9 +27,9 @@
         <a href="#" <?php if (basename($_SERVER['PHP_SELF']) == '#') {
                         echo ' class="active"';
                     } ?>><b>|</b></a>
-        <a href="account/login.html" <?php if (basename($_SERVER['PHP_SELF']) == 'account/login.html') {
-                                            echo ' class="active"';
-                                        } ?>>ACCOUNT <i class="ri-user-fill"></i></a>
+        <a href="account/login.php" <?php if (basename($_SERVER['PHP_SELF']) == 'account/login.php') {
+                                        echo ' class="active"';
+                                    } ?>>ACCOUNT <i class="ri-user-fill"></i></a>
         <a href="cart.php" <?php if (basename($_SERVER['PHP_SELF']) == 'cart.php') {
                                 echo ' class="active"';
                             } ?>>CART <i class="bi bi-bag"></i>&nbsp&nbsp<span id="cart-item"></span></a>

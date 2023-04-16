@@ -14,10 +14,22 @@
         <?php require_once('../php/header2.php'); ?>
     </header>
 
+    <style>
+        .alert-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            max-width: 300px;
+            z-index: 9999;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+    </style>
+
     <!------------------------------ELSHESKIN PRODUCTS-------------------------->
     <section class="col-10 py-5 mx-auto">
         <section>
-            <img src="../atribut/elsheskin/cosrx.png" alt="cosrx logo" style="height: 300px;display: block; margin: auto;">
+            <img src="../atribut/brand/elsheskin.png" alt="elsheskin logo" style="height: 300px;display: block; margin: auto;">
         </section>
         <section style="background-color: white; font-size: medium; padding: 10px;margin: 10px;border: 0.3px solid  rgba(0, 0, 0, 0.3); border-top-left-radius: 50%; border-bottom-right-radius: 50%;">
             <h1 style="font-size: medium; text-align: center;">ELSHESKIN</h1>

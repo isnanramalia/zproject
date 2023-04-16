@@ -32,7 +32,6 @@ session_start();
                     echo $_SESSION["message"];
                 }
                 unset($_SESSION["showAlert"]); ?></strong>
-
     </section>
 
     <section class="container">

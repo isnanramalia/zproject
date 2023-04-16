@@ -14,6 +14,18 @@
         <?php require_once('../php/header2.php'); ?>
     </header>
 
+    <style>
+        .alert-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            max-width: 300px;
+            z-index: 9999;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+    </style>
+
     <!------------------------------SK-II PRODUCTS-------------------------->
     <section class="col-10 py-5 mx-auto">
         <section>
