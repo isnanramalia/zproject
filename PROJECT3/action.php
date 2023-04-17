@@ -141,7 +141,7 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "order") {
 	echo $data;
 }
 
-// cek apakah ada data yang dikirimkan dari form
+// form faq.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// ambil nilai dari form
 	$name = $_POST["name"];

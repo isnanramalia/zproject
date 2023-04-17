@@ -82,7 +82,7 @@
             <section class="row">
                 <section class="col-1"></section>
                 <section class="col-10">
-                    <form name="contactForm" onsubmit="return validateForm()" action="action.php" method="post">
+                    <form name="contactForm" onsubmit="return validateForm()" method="post">
                         <section style="display: flex;">
                             <input type="text" id="pname" name="name" placeholder="Your name" style=" margin-right: 15px;"><br>
                             <input type="email" id="pemail" name="email" placeholder="Your email" style=" margin-left: 15px;"><br>
@@ -91,6 +91,12 @@
                         <textarea id="pmessage" name="message" rows="4" cols="50" placeholder="Your message"></textarea><br>
                         <input type="submit" value="SEND MESSAGE">
                     </form>
+                    <center>
+                        <div class="alert alert-success" role="alert" style="display: none;">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Your message has been sent!</strong>
+                        </div>
+                    </center>
                 </section>
                 <section class="col-1"></section>
             </section>
@@ -104,6 +110,34 @@
         <?php require_once('php/footer.php') ?>
         <?php require_once('php/cartAmount.php') ?>
     </footer>
+
+    <script>
+        // menangkap event submit pada form
+        $("form").submit(function(event) {
+            // mencegah form untuk melakukan submit secara normal
+            event.preventDefault();
+
+            // mengambil data dari form
+            var formData = $(this).serialize();
+
+            // mengirimkan data ke server menggunakan AJAX
+            $.ajax({
+                url: "action.php",
+                type: "POST",
+                data: formData,
+                success: function(data) {
+                    // menampilkan pesan sukses
+                    $(".alert-success").html("<button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Your message has been sent!</strong>");
+                    $(".alert-success").show();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    // menampilkan pesan error
+                    $(".alert").html("<button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Error:</strong> " + errorThrown);
+                    $(".alert").show();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
