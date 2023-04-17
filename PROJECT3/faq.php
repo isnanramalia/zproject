@@ -82,13 +82,13 @@
             <section class="row">
                 <section class="col-1"></section>
                 <section class="col-10">
-                    <form name="contactForm" onsubmit="return validateForm()">
+                    <form name="contactForm" onsubmit="return validateForm()" action="action.php" method="post">
                         <section style="display: flex;">
-                            <input type="text" id="name" name="name" placeholder="Your name" style=" margin-right: 15px;"><br>
-                            <input type="email" id="email" name="email" placeholder="Your email" style=" margin-left: 15px;"><br>
+                            <input type="text" id="pname" name="name" placeholder="Your name" style=" margin-right: 15px;"><br>
+                            <input type="email" id="pemail" name="email" placeholder="Your email" style=" margin-left: 15px;"><br>
                         </section>
-                        <input type="tel" id="phone" name="phone" placeholder="Your phone"><br>
-                        <textarea id="message" name="message" rows="4" cols="50" placeholder="Your message"></textarea><br>
+                        <input type="tel" id="pphone" name="phone" placeholder="Your phone" pattern="[0-9]{0,13}" title="Please enter only numbers with a maximum length of 13 digits" maxlength="13"><br>
+                        <textarea id="pmessage" name="message" rows="4" cols="50" placeholder="Your message"></textarea><br>
                         <input type="submit" value="SEND MESSAGE">
                     </form>
                 </section>
