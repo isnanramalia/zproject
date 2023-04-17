@@ -93,8 +93,6 @@
                     </form>
                     <center>
                         <div class="alert alert-success" role="alert" style="display: none;">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>Your message has been sent!</strong>
                         </div>
                     </center>
                 </section>
@@ -122,12 +120,12 @@
 
             // mengirimkan data ke server menggunakan AJAX
             $.ajax({
-                url: "action.php",
+                url: "action2.php",
                 type: "POST",
                 data: formData,
                 success: function(data) {
                     // menampilkan pesan sukses
-                    $(".alert-success").html("<button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Your message has been sent!</strong>");
+                    $(".alert-success").html("<button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Your message has been sent😊!</strong>");
                     $(".alert-success").show();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {

@@ -107,7 +107,7 @@ session_start();
             <section class="col mb-2">
                 <section class="row">
                     <section class="col-sm-12  col-md-6">
-                        <a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
+                        <a href="shop.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
                     </section>
                     <section class="col-sm-12 col-md-6 text-right">
                         <a href="checkout.php" class="btn btn-md btn-block btn-success text-uppercase <?= ($grand_total > 1) ? "" : "disabled"; ?>"> Checkout </a>

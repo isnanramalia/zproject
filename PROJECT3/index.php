@@ -13,6 +13,20 @@
         ?>
     </header>
 
+    <!-- utk menampilkan pop-up alert -->
+    <div class="alert-message"></div>
+    <style>
+        .alert-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            max-width: 300px;
+            z-index: 9999;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+    </style>
+
     <!-- BAGIAN 1 -->
     <main id="main-1">
         <section class="grid-main-1">
@@ -150,6 +164,7 @@
     <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: #EFF0EC;">
         <?php require_once('php/footer.php') ?>
         <?php require_once('php/cartAmount.php') ?>
+        <?php require_once('php/addCart.php'); ?>
     </footer>
 </body>
 

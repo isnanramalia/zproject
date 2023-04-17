@@ -40,12 +40,13 @@ if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) &&
 
 		echo '<div class="alert alert-success alert-dismissible mt-2">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Item added to your cart</strong> 
+				<strong>Item added to your cart🛒</strong> 
 			  </div>';
 	} else {
 		echo '<div class="alert alert-danger alert-dismissible mt-2">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Item already added to your cart!</strong> 
+				<strong>Item already added to your cart😉! </strong>
+				<br>check your cart to add item 
 			  </div>';
 	}
 }
@@ -142,27 +143,27 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "order") {
 }
 
 // form faq.php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	// ambil nilai dari form
-	$name = $_POST["name"];
-	$email = $_POST["email"];
-	$phone = $_POST["phone"];
-	$message = $_POST["message"];
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// 	// ambil nilai dari form
+// 	$name = $_POST["name"];
+// 	$email = $_POST["email"];
+// 	$phone = $_POST["phone"];
+// 	$message = $_POST["message"];
 
-	try {
-		// buat statement SQL untuk insert data ke tabel contacts
-		$stmt = $db->prepare("INSERT INTO contacts (name, email, phone, message) VALUES (:name, :email, :phone, :message)");
-		$stmt->bindParam(':name', $name);
-		$stmt->bindParam(':email', $email);
-		$stmt->bindParam(':phone', $phone);
-		$stmt->bindParam(':message', $message);
+// 	try {
+// 		// buat statement SQL untuk insert data ke tabel contacts
+// 		$stmt = $db->prepare("INSERT INTO contacts (name, email, phone, message) VALUES (:name, :email, :phone, :message)");
+// 		$stmt->bindParam(':name', $name);
+// 		$stmt->bindParam(':email', $email);
+// 		$stmt->bindParam(':phone', $phone);
+// 		$stmt->bindParam(':message', $message);
 
-		// eksekusi statement SQL
-		$stmt->execute();
+// 		// eksekusi statement SQL
+// 		$stmt->execute();
 
-		// tampilkan pesan sukses
-		echo "Data berhasil disimpan.";
-	} catch (PDOException $e) {
-		echo "Error: " . $e->getMessage();
-	}
-}
+// 		// tampilkan pesan sukses
+// 		echo "Data berhasil disimpan.";
+// 	} catch (PDOException $e) {
+// 		echo "Error: " . $e->getMessage();
+// 	}
+// }
