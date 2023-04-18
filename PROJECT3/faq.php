@@ -83,7 +83,7 @@
             <section class="row">
                 <section class="col-1"></section>
                 <section class="col-10">
-                    <form name="contactForm" onsubmit="return validateForm()" method="post">
+                    <form name="contactForm" onsubmit="return validateForm()" method="post" id="form-contact">
                         <section style="display: flex;">
                             <input type="text" id="pname" name="name" placeholder="Your name" style=" margin-right: 15px;"><br>
                             <input type="email" id="pemail" name="email" placeholder="Your email" style=" margin-left: 15px;"><br>
@@ -91,11 +91,8 @@
                         <input type="tel" id="pphone" name="phone" placeholder="Your phone" pattern="[0-9]{0,13}" title="Please enter only numbers with a maximum length of 13 digits" maxlength="13"><br>
                         <textarea id="pmessage" name="message" rows="4" cols="50" placeholder="Your message"></textarea><br>
                         <input type="submit" value="SEND MESSAGE">
+                        <div class="alert alert-success" role="alert" style="display: none;"></div>
                     </form>
-                    <center>
-                        <div class="alert alert-success" role="alert" style="display: none;">
-                        </div>
-                    </center>
                 </section>
                 <section class="col-1"></section>
             </section>
@@ -112,7 +109,7 @@
 
     <script>
         // menangkap event submit pada form
-        $("form").submit(function(event) {
+        $("form#form-contact").submit(function(event) {
             // mencegah form untuk melakukan submit secara normal
             event.preventDefault();
 
@@ -128,6 +125,9 @@
                     // menampilkan pesan sukses
                     $(".alert-success").html("<button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Your message has been sent😊!</strong>");
                     $(".alert-success").show();
+
+                    // reset form
+                    $("#form-contact")[0].reset();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     // menampilkan pesan error
