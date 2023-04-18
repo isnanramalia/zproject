@@ -44,6 +44,7 @@
                     </section>
                     <section class="row rounded">
                         <h1>Apa saja yang dapat didapat saat mengakses website SKINKER?</h1>
+                        <hr>
                         <p>SKINKER dengan kemampuan utama sebagai website untuk membeli skincare terbaik yang ada di
                             dunia, menampilkan produk high end hingga low end.
                         </p>
