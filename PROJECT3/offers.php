@@ -85,7 +85,7 @@
             <section class="col-6">
                 <h1><span style="color: #848E1C;">YVES ROCHER</span> OFFERS THIS WEEK</h1>
                 <p>Promo Bundle Skincare terbaik untuk minggu ini</p>
-                <button class="btn btn-block" onclick="location.href='/admin/yvesrocher.php'">Take It</button>
+                <button class="btn btn-block" onclick="location.href='admin/yvesrocher.php'">Take It</button>
             </section>
             <section class="col-1"></section>
         </section>

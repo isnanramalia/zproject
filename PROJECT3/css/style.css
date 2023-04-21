@@ -359,7 +359,7 @@
     width: 100%;
   }
   
-  input[type="text"], input[type="email"], input[type="tel"], textarea, button[type="submit"], input[type="password"] {
+  input[type="text"], input[type="email"], input[type="tel"], textarea, input[type="submit"], input[type="password"] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -370,7 +370,7 @@
     resize: vertical;
   }
   
-  button[type="submit"] {
+  input[type="submit"] {
     background-color: #3F4726;
     color: white;
     padding: 12px 20px;
@@ -379,7 +379,7 @@
     cursor: pointer;
   }
   
-  button[type="submit"]:hover {
+  input[type="submit"]:hover {
     background-color: #D4DDB7;
     border: .3px solid black;
     color: black;

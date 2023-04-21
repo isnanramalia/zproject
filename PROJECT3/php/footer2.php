@@ -110,7 +110,7 @@
 
     <!-- script newsletter -->
     <script>
-        $("#submit-btn").click(function(event) {
+        $("form#form-reset").submit(function(event) {
             event.preventDefault(); // mencegah form untuk submit secara bawaan
 
             // mengambil data dari form
