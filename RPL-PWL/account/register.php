@@ -20,7 +20,7 @@
             <section class="row">
                 <section class="col-3"></section>
                 <section class="col-6">
-                    <form action="">
+                    <form action="actionReg.php" method="POST">
                         <input type="text" id="first-name" name="first-name" placeholder="First name">
                         <input type="text" id="last-name" name="last-name" placeholder="Last name">
                         <input type="email" id="email" name="email" placeholder="Email">
@@ -37,8 +37,6 @@
             </section>
         </section>
     </main>
-
-
 
     <!-- ----------------------------------|FOOTER|------------------------------ -->
     <footer class=" text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
