@@ -1,5 +1,4 @@
 <!-- action untuk newsletter -->
-
 <?php
 session_start();
 require_once "dbconfig.php";

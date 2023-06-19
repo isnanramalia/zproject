@@ -6,7 +6,11 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('auth/login');
+        $config = config('Auth');
+
+        return view($config->views['login'], [
+            'config' => $config,
+        ]);
     }
     public function register()
     {

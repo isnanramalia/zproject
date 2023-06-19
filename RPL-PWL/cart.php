@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+// // Memeriksa apakah pengguna sudah login atau belum
+// if (!isset($_SESSION['user_id'])) {
+//     // Pengguna belum login, atur keranjang bernilai 0
+//     $_SESSION['cart'] = 0;
+// }
+
 ?>
 
 <!DOCTYPE html>

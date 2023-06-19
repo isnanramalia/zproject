@@ -1,5 +1,4 @@
 <!-- ation untuk FAQ -->
-
 <?php
 session_start();
 require_once "dbconfig.php";

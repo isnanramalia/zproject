@@ -2,12 +2,15 @@
 session_start();
 require_once "dbconfig.php";
 
-if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) && isset($_POST["pimage"]) && isset($_POST["pcode"])) {
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) && isset($_POST["pimage"]) && isset($_POST["pcode"]) && isset($_POST["puser_id"])) {
 	$id		= $_POST["pid"];
 	$name 	= $_POST["pname"];
 	$price 	= $_POST["pprice"];
 	$image 	= $_POST["pimage"];
 	$code 	= $_POST["pcode"];
+	$user_id 	= $_POST["puser_id"];
 	$qty = 1;
 
 	$select_stmt = $db->prepare("SELECT product_code FROM cart WHERE product_code=:code");
@@ -22,20 +25,23 @@ if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) &&
 													product_image, 
 													quantity,
 													total_price,
-													product_code) 
+													product_code,
+													user_id) 
 												VALUES
 													(:name,
 													:price,
 													:image,
 													:qty,
 													:ttl_price,
-													:code)");
+													:code,
+													:user_id)");
 		$insert_stmt->bindParam(":name", $name);
 		$insert_stmt->bindParam(":price", $price);
 		$insert_stmt->bindParam(":image", $image);
 		$insert_stmt->bindParam(":qty", $qty);
 		$insert_stmt->bindParam(":ttl_price", $price);
 		$insert_stmt->bindParam(":code", $code);
+		$insert_stmt->bindParam(':user_id', $user_id);
 		$insert_stmt->execute();
 
 		echo '<div class="alert alert-success alert-dismissible mt-2">
@@ -125,6 +131,7 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "order") {
 	$insert_stmt->bindParam(":pmode", $pmode);
 	$insert_stmt->bindParam(":products", $products);
 	$insert_stmt->bindParam(":pamount", $grand_total);
+	$insert_stmt->bindParam(':user_id', $user_id);
 	$insert_stmt->execute();
 
 	$data .= '<div class="text-center">

@@ -1,4 +1,7 @@
 <!-- nambah item ke keranjang scr dinamis -->
+<?php
+session_start();
+?>
 <script type="text/javascript">
     $(document).ready(function() {
         $(document).on("click", "#addItem", function(e) {
@@ -9,6 +12,7 @@
             var price = form.find(".pprice").val();
             var image = form.find(".pimage").val();
             var code = form.find(".pcode").val();
+            var user_id = form.find(".puser_id").val();
 
             $.ajax({
                 url: "action.php",
@@ -18,7 +22,8 @@
                     pname: name,
                     pprice: price,
                     pimage: image,
-                    pcode: code
+                    pcode: code,
+                    puser_id: user_id
                 },
                 success: function(response) {
                     $(".alert-message").html(response);

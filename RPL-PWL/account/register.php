@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +9,7 @@
     <?php require_once('../php/head2.php'); ?>
 
     <link rel="icon" href="../atribut/logo/logo.png">
-    <title>sign in - skinker</title>
+    <title>Sign In - Skinker</title>
 </head>
 
 <body style="margin-top: 50px; padding-top: 290px;">
@@ -25,6 +29,7 @@
                         <input type="text" id="last-name" name="last-name" placeholder="Last name">
                         <input type="email" id="email" name="email" placeholder="Email">
                         <input type="password" id="password" name="password" placeholder="Create password" minlength="8" maxlength="15">
+                        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm password">
                         <input type="submit" value="SUBMIT">
                     </form>
                     <!-- link form add for sign in -->
@@ -39,7 +44,7 @@
     </main>
 
     <!-- ----------------------------------|FOOTER|------------------------------ -->
-    <footer class=" text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4" style="background-color: white;">
         <?php
         require_once('../php/footer2.php');
         require_once('../php/cartAmount2.php');
