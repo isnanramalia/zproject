@@ -139,6 +139,7 @@ session_start();
                 $product_price = $row['product_price'];
                 $product_image = $row['product_image'];
                 $product_code = $row['product_code'];
+                $product_berat = $row['product_berat'];
             ?>
                 <section class="card col-lg-4 col-md-6 mb-4">
                     <form class="form-submit">
@@ -147,9 +148,11 @@ session_start();
                         <input type="hidden" class="pprice" value="<?php echo $product_price ?>">
                         <input type="hidden" class="pimage" value="<?php echo $product_image ?>">
                         <input type="hidden" class="pcode" value="<?php echo $product_code ?>">
+                        <input type="hidden" class="pberat" value="<?php echo $product_berat ?>">
                         <div class="card-body">
                             <img class="card-img-top" src="<?php echo $product_image ?>" alt="<?php echo $product_name ?>">
                             <h2 class="card-title"><?php echo $product_name ?></h2>
+                            <p class="card-title"><?php echo $product_berat ?> ml</p>
                             <p class="card-text price">IDR <?php echo number_format($product_price, 2) ?></p>
                             <button id="addItem" class="btn btn-block">Add to Cart</button>
                         </div>
