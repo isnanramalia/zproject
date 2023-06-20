@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Ambil data pengguna dari database
-    $userId = $_SESSION['user_id'];
-    $sql = "SELECT * FROM user WHERE id = '$userId'";
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM user WHERE id = '$user_id'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

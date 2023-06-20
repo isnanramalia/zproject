@@ -2,15 +2,15 @@
 session_start();
 require_once "dbconfig.php";
 
-$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+// $id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
-if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) && isset($_POST["pimage"]) && isset($_POST["pcode"]) && isset($_POST["puser_id"])) {
+if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) && isset($_POST["pimage"]) && isset($_POST["pcode"])) { // && isset($_POST["puser_id"]
 	$id		= $_POST["pid"];
 	$name 	= $_POST["pname"];
 	$price 	= $_POST["pprice"];
 	$image 	= $_POST["pimage"];
 	$code 	= $_POST["pcode"];
-	$user_id 	= $_POST["puser_id"];
+	// $user_id 	= $_POST["puser_id"];
 	$qty = 1;
 
 	$select_stmt = $db->prepare("SELECT product_code FROM cart WHERE product_code=:code");
@@ -25,23 +25,23 @@ if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) &&
 													product_image, 
 													quantity,
 													total_price,
-													product_code,
-													user_id) 
+													product_code)
+													-- user_id) 
 												VALUES
 													(:name,
 													:price,
 													:image,
 													:qty,
 													:ttl_price,
-													:code,
-													:user_id)");
+													:code)");
+		// -- :user_id
 		$insert_stmt->bindParam(":name", $name);
 		$insert_stmt->bindParam(":price", $price);
 		$insert_stmt->bindParam(":image", $image);
 		$insert_stmt->bindParam(":qty", $qty);
 		$insert_stmt->bindParam(":ttl_price", $price);
 		$insert_stmt->bindParam(":code", $code);
-		$insert_stmt->bindParam(':user_id', $user_id);
+		// $insert_stmt->bindParam(':user_id', $id);
 		$insert_stmt->execute();
 
 		echo '<div class="alert alert-success alert-dismissible mt-2">
@@ -105,6 +105,7 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "order") {
 	$address = $_POST["address"];
 	$pmode = $_POST["pmode"];
 	$products = $_POST["products"];
+	// $user_id = $_POST["user_id"];
 	$grand_total = $_POST["grand_total"];
 
 	$data = "";
@@ -115,7 +116,8 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "order") {
 												  address,
 												  payment_mode,
 												  products,
-												  paid_amount) 
+												  paid_amount)
+												--   user_id) 
 											VALUES
 												 (:uname,
 												  :email,
@@ -124,6 +126,7 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "order") {
 												  :pmode,
 												  :products,
 												  :pamount)");
+	//   :puser_id)");
 	$insert_stmt->bindParam(":uname", $name);
 	$insert_stmt->bindParam(":email", $email);
 	$insert_stmt->bindParam(":phone", $phone);
@@ -131,7 +134,7 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "order") {
 	$insert_stmt->bindParam(":pmode", $pmode);
 	$insert_stmt->bindParam(":products", $products);
 	$insert_stmt->bindParam(":pamount", $grand_total);
-	$insert_stmt->bindParam(':user_id', $user_id);
+	// $insert_stmt->bindParam(':user_id', $user_id);
 	$insert_stmt->execute();
 
 	$data .= '<div class="text-center">

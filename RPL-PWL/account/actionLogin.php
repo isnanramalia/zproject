@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (password_verify($password, $hashedPassword)) {
         $_SESSION['user_id'] = $userId;
         $_SESSION['success'] = 'Logged in successfully.';
-        header('Location: ../index.php'); // Redirect to the dashboard page or any other page you want
+        header('Location: profile.php'); // Redirect to the dashboard page or any other page you want
         exit;
     } else {
         $_SESSION['error'] = 'Email or password is incorrect.';

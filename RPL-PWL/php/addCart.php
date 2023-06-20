@@ -12,7 +12,7 @@ session_start();
             var price = form.find(".pprice").val();
             var image = form.find(".pimage").val();
             var code = form.find(".pcode").val();
-            var user_id = form.find(".puser_id").val();
+            // var user_id = form.find(".puser_id").val();
 
             $.ajax({
                 url: "action.php",
@@ -23,7 +23,7 @@ session_start();
                     pprice: price,
                     pimage: image,
                     pcode: code,
-                    puser_id: user_id
+                    // puser_id: user_id
                 },
                 success: function(response) {
                     $(".alert-message").html(response);
