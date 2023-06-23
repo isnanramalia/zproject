@@ -14,7 +14,7 @@
                         <a href="offers.php" class="text-black">Offers for you</a>
                     </li>
                     <li>
-                        <a href="faq.php" class="text-black">More about me</a>
+                        <a href="faq.php" class="text-black">More about us</a>
                     </li>
                     <li>
                         <a href="brand.php" class="text-black">Brands collaborations</a>
@@ -76,7 +76,10 @@
                 <img class="cap" style="height: 100px;" src="atribut/payment method/bca.png" alt="bca">
             </section>
             <section class="col">
-                <img class="cap" style="height: 100px;" src="atribut/payment method/mandiri.png" alt="manidiri">
+                <img class="cap" style="height: 100px;" src="atribut/payment method/bni.png" alt="bni">
+            </section>
+            <section class="col">
+                <img class="cap" style="height: 100px;" src="atribut/payment method/linebank.png" alt="line bank">
             </section>
             <section class="col">
                 <img class="cap" style="height: 100px;" src="atribut/payment method/dana.png" alt="dana">

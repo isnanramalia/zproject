@@ -3,7 +3,6 @@ session_start();
 require_once "dbconfig.php";
 
 // $id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
-
 if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) && isset($_POST["pimage"]) && isset($_POST["pcode"])) { // && isset($_POST["puser_id"]
 	$id		= $_POST["pid"];
 	$name 	= $_POST["pname"];
@@ -56,6 +55,34 @@ if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) &&
 			  </div>';
 	}
 }
+
+
+// -------------ini masih masalah, soalnya yg kekurang stoknya cm data nmr 1 tok
+if (isset($_POST["action"]) && $_POST["action"] == "order") {
+	// ...
+
+	// Kode untuk mengurangi stok produk
+
+	// Mendapatkan daftar produk yang dibeli dari string $products
+	$product = isset($_POST["products"]) ? $_POST["products"] : '';
+	$productList = explode(", ", $product);
+
+	// Mengurangi stok setiap produk yang dibeli
+	foreach ($productList as $product) {
+		$productInfo = explode("(", $product);
+		if (isset($productInfo[0]) && isset($productInfo[1])) {
+			$productName = trim($productInfo[0]);
+			$productQuantity = intval(filter_var($productInfo[1], FILTER_SANITIZE_NUMBER_INT));
+
+			// Mengupdate stok di tabel product
+			$updateStockStmt = $db->prepare("UPDATE product SET product_stock = product_stock - :quantity WHERE product_name = :name");
+			$updateStockStmt->bindParam(":quantity", $productQuantity);
+			$updateStockStmt->bindParam(":name", $productName);
+			$updateStockStmt->execute();
+		}
+	}
+}
+
 
 if (isset($_GET["cartItem"]) && isset($_GET["cartItem"]) == "cart_item") {
 	$select_stmt = $db->prepare("SELECT * FROM cart");
@@ -140,9 +167,8 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "order") {
 	$data .= '<div class="text-center">
 				<h1 class="display-4 mt-2 text-danger">Thank You!</h1>
 				<h2>Your Order Placed Successfully!</h2>
-				<h4 class="bg-danger text-light rounded p-2">Items Purchased : ' . $products . '</h4>
+				<h4 class="bg-danger text-light rounded p-2">Items Purchased : <br><br>' . $products . '</h4>
 				<h4>Your Name : ' . $name . ' </h4>			
-				<h4>Your E-mail : ' . $email . ' </h4>			
 				<h4>Your Phone : ' . $phone . '  </h4>			
 				<h4>Total Amount Paid : ' . number_format($grand_total, 2) . ' </h4>			
 				<h4>Payment Mode : ' . $pmode . ' </h4>			
