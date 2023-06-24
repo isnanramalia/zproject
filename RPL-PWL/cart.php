@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-// // Memeriksa apakah pengguna sudah login atau belum
-// if (!isset($_SESSION['user_id'])) {
-//     // Pengguna belum login, atur keranjang bernilai 0
-//     $_SESSION['cart'] = 0;
-// }
-
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +48,7 @@ session_start();
                                 <th scope="col" class="text-center">Quantity</th>
                                 <th scope="col" class="text-right">Total Price</th>
                                 <th scope="col" class="text-right">
-                                    <a href="action.php?clear=all" onClick="return confirm('Are you sure to clear you cart?');" class="btn btn-sm btn-danger">Empty Cart</a>
+                                    <a href="action.php?clear=all" onClick="return confirm('Are you sure to clear your cart?');" class="btn btn-sm btn-danger">Empty Cart</a>
                                 </th>
                             </tr>
                         </thead>
@@ -104,8 +98,17 @@ session_start();
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td>PPN 10%</td>
+                                <td class="text-right"><?php echo number_format($grand_total * 0.1, 2); ?></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td><strong>Total</strong></td>
-                                <td class="text-right"><strong><?php echo number_format($grand_total, 2); ?></strong></td>
+                                <td class="text-right"><strong><?php echo number_format($grand_total + ($grand_total * 0.1), 2); ?></strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -172,8 +175,6 @@ session_start();
             }
         });
     </script>
-
-
 
 </body>
 

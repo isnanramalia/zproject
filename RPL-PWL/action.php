@@ -2,8 +2,9 @@
 session_start();
 require_once "dbconfig.php";
 
+// --------------- NAMBAH PRODUK KE CART ---------------
 // $id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
-if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) && isset($_POST["pimage"]) && isset($_POST["pcode"])) { // && isset($_POST["puser_id"]
+if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) && isset($_POST["pimage"]) && isset($_POST["pcode"]) && isset($_POST["pcode"])) { // && isset($_POST["puser_id"]
 	$id		= $_POST["pid"];
 	$name 	= $_POST["pname"];
 	$price 	= $_POST["pprice"];
@@ -56,11 +57,9 @@ if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) &&
 	}
 }
 
-
+// --------------- MENGURANGI STOCK DI TB PRODUK SETELAH PRODUK DI CHECKOUT ---------------
 // -------------ini masih masalah, soalnya yg kekurang stoknya cm data nmr 1 tok
-if (isset($_POST["action"]) && $_POST["action"] == "order") {
-	// ...
-
+if (isset($_POST["action"]) && $_POST["action"] == "orders") {
 	// Kode untuk mengurangi stok produk
 
 	// Mendapatkan daftar produk yang dibeli dari string $products
@@ -70,20 +69,33 @@ if (isset($_POST["action"]) && $_POST["action"] == "order") {
 	// Mengurangi stok setiap produk yang dibeli
 	foreach ($productList as $product) {
 		$productInfo = explode("(", $product);
-		if (isset($productInfo[0]) && isset($productInfo[1])) {
-			$productName = trim($productInfo[0]);
+		if (isset($productInfo[1])) {
+			$productName = trim($productInfo[1]);
 			$productQuantity = intval(filter_var($productInfo[1], FILTER_SANITIZE_NUMBER_INT));
-
-			// Mengupdate stok di tabel product
-			$updateStockStmt = $db->prepare("UPDATE product SET product_stock = product_stock - :quantity WHERE product_name = :name");
-			$updateStockStmt->bindParam(":quantity", $productQuantity);
-			$updateStockStmt->bindParam(":name", $productName);
-			$updateStockStmt->execute();
+		} else {
+			$productName = '';
+			$productQuantity = 0;
 		}
+
+		// Mengupdate stok di tabel product
+		$updateStockStmt = $db->prepare("UPDATE product SET product_stock = product_stock - :quantity WHERE product_name = :name");
+		$updateStockStmt->bindParam(":quantity", $productQuantity);
+		$updateStockStmt->bindParam(":name", $productName);
+		$updateStockStmt->execute();
 	}
+
+	// Setelah berhasil melakukan pemesanan, hapus semua item di keranjang
+	$deleteCartStmt = $db->prepare("DELETE FROM cart");
+	$deleteCartStmt->execute();
+
+	// Set session alert dan message untuk menampilkan pesan sukses di halaman cart.php
+	$_SESSION["showAlert"] = "block";
+	$_SESSION["message"] = "Order has been placed successfully!";
+	header("Location: cart.php");
+	exit();
 }
 
-
+// --------------- MENGHITUNG BRP YG ADA DI CART ---------------
 if (isset($_GET["cartItem"]) && isset($_GET["cartItem"]) == "cart_item") {
 	$select_stmt = $db->prepare("SELECT * FROM cart");
 	$select_stmt->execute();
@@ -91,6 +103,7 @@ if (isset($_GET["cartItem"]) && isset($_GET["cartItem"]) == "cart_item") {
 	echo $row;
 }
 
+// --------------- HAPUS PRODUK DI CART ---------------
 if (isset($_GET["remove"])) {
 	$id = $_GET["remove"];
 	$delete_stmt = $db->prepare("DELETE FROM cart WHERE cart_id =:cid");
@@ -101,6 +114,7 @@ if (isset($_GET["remove"])) {
 	header("location:cart.php");
 }
 
+// --------------- HAPUS SEMUA PRODUK DI CART ---------------
 if (isset($_GET["clear"])) {
 	$id = $_GET["clear"];
 	$delete_stmt = $db->prepare("DELETE FROM cart");
@@ -111,6 +125,7 @@ if (isset($_GET["clear"])) {
 	header("location:cart.php");
 }
 
+// --------------- UPDATE TABEL CART (jika nambah produk ke cart) ---------------
 if (isset($_POST["pqty"])) {
 	$qty	= $_POST["pqty"];
 	$id		= $_POST["pid"];
@@ -125,55 +140,56 @@ if (isset($_POST["pqty"])) {
 		":cid" => $id
 	));
 }
-if (isset($_POST["action"]) && isset($_POST["action"]) == "order") {
+
+// --------------- NAMBAHKAN DATA CART KE TABEL ORDERS ---------------
+if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$name = $_POST["name"];
-	$email = $_POST["email"];
 	$phone = $_POST["phone"];
 	$address = $_POST["address"];
 	$pmode = $_POST["pmode"];
 	$products = $_POST["products"];
-	// $user_id = $_POST["user_id"];
 	$grand_total = $_POST["grand_total"];
 
 	$data = "";
 
+	$ppn_percentage = 0.1;
+	$grand_total_with_ppn = $grand_total + ($grand_total * $ppn_percentage);
+
 	$insert_stmt = $db->prepare("INSERT INTO orders(username,
-												  email,
-												  phone, 
-												  address,
-												  payment_mode,
-												  products,
-												  paid_amount)
-												--   user_id) 
-											VALUES
-												 (:uname,
-												  :email,
-												  :phone,
-											      :address,
-												  :pmode,
-												  :products,
-												  :pamount)");
-	//   :puser_id)");
+											  phone, 
+											  address,
+											  payment_mode,
+											  products,
+											  paid_amount)
+										VALUES
+											 (:uname,
+											  :phone,
+										      :address,
+											  :pmode,
+											  :products,
+											  :pamount)");
 	$insert_stmt->bindParam(":uname", $name);
-	$insert_stmt->bindParam(":email", $email);
 	$insert_stmt->bindParam(":phone", $phone);
 	$insert_stmt->bindParam(":address", $address);
 	$insert_stmt->bindParam(":pmode", $pmode);
 	$insert_stmt->bindParam(":products", $products);
-	$insert_stmt->bindParam(":pamount", $grand_total);
-	// $insert_stmt->bindParam(':user_id', $user_id);
+	$insert_stmt->bindParam(":pamount", $grand_total_with_ppn); // Menggunakan grand_total_with_ppn
 	$insert_stmt->execute();
 
+	$delete_cart_stmt = $db->prepare("DELETE FROM cart");
+	$delete_cart_stmt->execute();
+
 	$data .= '<div class="text-center">
-				<h1 class="display-4 mt-2 text-danger">Thank You!</h1>
-				<h2>Your Order Placed Successfully!</h2>
-				<h4 class="bg-danger text-light rounded p-2">Items Purchased : <br><br>' . $products . '</h4>
-				<h4>Your Name : ' . $name . ' </h4>			
-				<h4>Your Phone : ' . $phone . '  </h4>			
-				<h4>Total Amount Paid : ' . number_format($grand_total, 2) . ' </h4>			
-				<h4>Payment Mode : ' . $pmode . ' </h4>			
-				
-			</div>';
+			<h1 class="display-4 mt-2 text-danger">Thank You!</h1>
+			<h2>Your Order Placed Successfully!</h2>
+			<h4 class="bg-danger text-light rounded p-2">Items Purchased : <br><br>' . $products . '</h4>
+			<h4>Your Name : ' . $name . ' </h4>			
+			<h4>Your Phone : ' . $phone . '  </h4>			
+			<h4>Total Amount Paid : Rp' . number_format($grand_total_with_ppn, 2) . ' </h4>			
+			<h4>Payment Mode : ' . $pmode . ' </h4>
+			<br>
+			<a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
+		</div>';
 
 	echo $data;
 }
