@@ -141,11 +141,14 @@ if (isset($_POST["pqty"])) {
 	));
 }
 
-// --------------- NAMBAHKAN DATA CART KE TABEL ORDERS ---------------
+
 if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$name = $_POST["name"];
 	$phone = $_POST["phone"];
 	$address = $_POST["address"];
+	$province = $_POST['province'];
+	$city = $_POST['city'];
+	$ongkir = $_POST['shipping_cost'];
 	$pmode = $_POST["pmode"];
 	$products = $_POST["products"];
 	$grand_total = $_POST["grand_total"];
@@ -158,6 +161,9 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$insert_stmt = $db->prepare("INSERT INTO orders(username,
 											  phone, 
 											  address,
+											  province,
+											  city,
+											  ongkir,
 											  payment_mode,
 											  products,
 											  paid_amount)
@@ -165,12 +171,18 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 											 (:uname,
 											  :phone,
 										      :address,
+											  :province, 
+											  :city,
+											  :shipping_cost,
 											  :pmode,
 											  :products,
 											  :pamount)");
 	$insert_stmt->bindParam(":uname", $name);
 	$insert_stmt->bindParam(":phone", $phone);
 	$insert_stmt->bindParam(":address", $address);
+	$insert_stmt->bindParam(':province', $province);
+	$insert_stmt->bindParam(':city', $city);
+	$insert_stmt->bindParam(':shipping_cost', $ongkir);
 	$insert_stmt->bindParam(":pmode", $pmode);
 	$insert_stmt->bindParam(":products", $products);
 	$insert_stmt->bindParam(":pamount", $grand_total_with_ppn); // Menggunakan grand_total_with_ppn
@@ -188,8 +200,10 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h4>Total Amount Paid : Rp' . number_format($grand_total_with_ppn, 2) . ' </h4>			
 			<h4>Payment Mode : ' . $pmode . ' </h4>
 			<br>
+			<br>
 			<a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
 		</div>';
+	// <button id="btnResi">Check Resi</button>
 
 	echo $data;
 }

@@ -74,7 +74,6 @@ $allItems = implode(", <br>", $items);
                 </div>
 
                 <form method="post" id="placeOrder">
-
                     <input type="hidden" name="products" value="<?php echo $allItems ?>">
                     <input type="hidden" name="grand_total" value="<?php echo $grand_total ?>">
                     <div class="form-group">
@@ -85,6 +84,31 @@ $allItems = implode(", <br>", $items);
                     </div>
                     <div class="form-group">
                         <textarea name="address" class="form-control" rows="3" cols="10" placeholder="enter address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="province">Province:</label>
+                        <select name="province" id="province" class="form-control" required>
+                            <option value="">-- Select Province --</option>
+                            <!-- Populate the provinces from RajaOngkir API -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <select name="city" id="city" class="form-control" required>
+                            <option value="">-- Select City --</option>
+                            <!-- Populate the cities based on selected province using RajaOngkir API -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Shipping Service:</label>
+                        <select name="service" id="service" class="form-control" required>
+                            <option value="">-- Select Shipping Service --</option>
+                            <!-- Populate the shipping services based on selected city using RajaOngkir API -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="shipping_cost">Shipping Cost:</label>
+                        <input type="text" name="shipping_cost" id="shipping_cost" class="form-control" readonly>
                     </div>
                     <h6 class="text-center lead">Select Payment Mode</h6>
                     <div class="form-group">
@@ -109,10 +133,89 @@ $allItems = implode(", <br>", $items);
         <?php require_once('php/footer.php') ?>
     </footer>
 
-    <script type="text/javascript">
+    <!-- jQuery and RajaOngkir API JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
         $(document).ready(function() {
-            $("#placeOrder").submit(function(e) {
+            // Populate provinces using RajaOngkir API
+            $.ajax({
+                url: "php/rajaongkir_api.php",
+                method: "GET",
+                data: {
+                    type: "province"
+                },
+                success: function(response) {
+                    $("#province").html(response);
+                }
+            });
 
+            // Get cities based on selected province using RajaOngkir API
+            $("#province").on("change", function() {
+                var provinceId = $(this).val();
+                $.ajax({
+                    url: "php/rajaongkir_api.php",
+                    method: "GET",
+                    data: {
+                        type: "city",
+                        province_id: provinceId
+                    },
+                    success: function(response) {
+                        $("#city").html(response);
+                    }
+                });
+            });
+
+            // Get shipping services based on selected city using RajaOngkir API
+            $("#city").on("change", function() {
+                var cityId = $(this).val();
+                $.ajax({
+                    url: "php/rajaongkir_api.php",
+                    method: "GET",
+                    data: {
+                        type: "shipping",
+                        city_id: cityId
+                    },
+                    success: function(response) {
+                        $("#service").html(response);
+                    }
+                });
+            });
+
+            // Get shipping cost based on selected service using RajaOngkir API
+            $("#service").on("change", function() {
+                var serviceId = $(this).val();
+                $.ajax({
+                    url: "php/rajaongkir_api.php",
+                    method: "GET",
+                    data: {
+                        type: "cost",
+                        service_id: serviceId
+                    },
+                    success: function(response) {
+                        $("#shipping_cost").val(response);
+                    }
+                });
+            });
+
+            // Mengirim permintaan resi ke server saat tombol "Check Resi" diklik
+            // $("#btnResi").on("click", function() {
+            //     var waybillNumber = "nomor_resi_yang_diperoleh_dari_form_input"; // Ganti dengan nomor resi yang sesuai, misalnya dari input form
+            //     $.ajax({
+            //         url: "php/rajaongkir_api.php",
+            //         method: "GET",
+            //         data: {
+            //             type: "resi",
+            //             waybill_number: waybillNumber
+            //         },
+            //         success: function(response) {
+            //             $("#resi_result").html(response);
+            //         }
+            //     });
+            // });
+
+
+            // Handle form submission
+            $("#placeOrder").submit(function(e) {
                 e.preventDefault();
 
                 $.ajax({
