@@ -141,7 +141,7 @@ if (isset($_POST["pqty"])) {
 	));
 }
 
-
+// --------------- INSERT DATA CHECKOUT KE TABEL ORDERS ---------------
 if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$name = $_POST["name"];
 	$phone = $_POST["phone"];
@@ -156,27 +156,29 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$data = "";
 
 	$ppn_percentage = 0.1;
-	$grand_total_with_ppn = $grand_total + ($grand_total * $ppn_percentage);
+	$ongkir = 16000;
+	// Tambahkan parameter total amount payable
+	$total_amount_payable = $grand_total + ($grand_total * $ppn_percentage) + $ongkir;
 
 	$insert_stmt = $db->prepare("INSERT INTO orders(username,
-											  phone, 
-											  address,
-											  province,
-											  city,
-											  ongkir,
-											  payment_mode,
-											  products,
-											  paid_amount)
-										VALUES
-											 (:uname,
-											  :phone,
-										      :address,
-											  :province, 
-											  :city,
-											  :shipping_cost,
-											  :pmode,
-											  :products,
-											  :pamount)");
+                                              phone, 
+                                              address,
+                                              province,
+                                              city,
+                                              ongkir,
+                                              payment_mode,
+                                              products,
+                                              paid_amount)
+                            VALUES
+                                              (:uname,
+                                              :phone,
+                                              :address,
+                                              :province, 
+                                              :city,
+                                              :shipping_cost,
+                                              :pmode,
+                                              :products,
+                                              :pamount)");
 	$insert_stmt->bindParam(":uname", $name);
 	$insert_stmt->bindParam(":phone", $phone);
 	$insert_stmt->bindParam(":address", $address);
@@ -185,8 +187,9 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$insert_stmt->bindParam(':shipping_cost', $ongkir);
 	$insert_stmt->bindParam(":pmode", $pmode);
 	$insert_stmt->bindParam(":products", $products);
-	$insert_stmt->bindParam(":pamount", $grand_total_with_ppn); // Menggunakan grand_total_with_ppn
+	$insert_stmt->bindParam(":pamount", $total_amount_payable);
 	$insert_stmt->execute();
+
 
 	$delete_cart_stmt = $db->prepare("DELETE FROM cart");
 	$delete_cart_stmt->execute();
@@ -197,7 +200,7 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h4 class="bg-danger text-light rounded p-2">Items Purchased : <br><br>' . $products . '</h4>
 			<h4>Your Name : ' . $name . ' </h4>			
 			<h4>Your Phone : ' . $phone . '  </h4>			
-			<h4>Total Amount Paid : Rp' . number_format($grand_total_with_ppn, 2) . ' </h4>			
+			<h4 id="total-amount-paid">Total Amount Paid: Rp ' . number_format($total_amount_payable, 2) . '</h4>
 			<h4>Payment Mode : ' . $pmode . ' </h4>
 			<br>
 			<br>

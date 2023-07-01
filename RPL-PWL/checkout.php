@@ -69,8 +69,8 @@ $allItems = implode(", <br>", $items);
                     }
                     ?>
                     <h6 class="lead"><b>PPN 10%: </b><?php echo number_format($grand_total * 0.1, 2); ?></h6>
-                    <h6 class="lead"><b>Delivery Charge: </b>Free</h6>
-                    <h5><b>Total Amount Payable : </b><?php echo number_format($grand_total + ($grand_total * 0.1), 2) ?>/- </h5>
+                    <h6 class="lead delivery-charge"><b>Delivery Charge: </b>Free</h6>
+                    <h5 id="total-amount-payable"><b>Total Amount Payable : </b><?php echo number_format($grand_total + ($grand_total * 0.1), 2) ?>/- </h5>
                 </div>
 
                 <form method="post" id="placeOrder">
@@ -192,26 +192,33 @@ $allItems = implode(", <br>", $items);
                         service_id: serviceId
                     },
                     success: function(response) {
-                        $("#shipping_cost").val(response);
+
+                        if (response === "Free") {
+                            $("h6.delivery-charge").text("Delivery Charge: Free");
+                        } else {
+                            $("#shipping_cost").val(response);
+                            $("h6.delivery-charge").text("Delivery Charge: Rp " + response);
+                        }
+                        updateTotalAmountPayable();
                     }
                 });
             });
 
-            // Mengirim permintaan resi ke server saat tombol "Check Resi" diklik
-            // $("#btnResi").on("click", function() {
-            //     var waybillNumber = "nomor_resi_yang_diperoleh_dari_form_input"; // Ganti dengan nomor resi yang sesuai, misalnya dari input form
-            //     $.ajax({
-            //         url: "php/rajaongkir_api.php",
-            //         method: "GET",
-            //         data: {
-            //             type: "resi",
-            //             waybill_number: waybillNumber
-            //         },
-            //         success: function(response) {
-            //             $("#resi_result").html(response);
-            //         }
-            //     });
-            // });
+            // Fungsi untuk memperbarui total amount payable
+            function updateTotalAmountPayable() {
+                var grandTotal = <?php echo $grand_total; ?>;
+                var shippingCost = parseFloat($("#shipping_cost").val());
+
+                var totalAmountPayable = grandTotal + (grandTotal * 0.1) + shippingCost;
+                $("#total-amount-payable").text("Total Amount Payable: Rp " + totalAmountPayable.toFixed(2) + "/-");
+                updateTotalAmountPaid(); // Panggil fungsi untuk memperbarui total amount paid saat total amount payable diperbarui
+            }
+
+            // Fungsi untuk memperbarui total amount paid
+            function updateTotalAmountPaid() {
+                var totalAmountPayable = parseFloat($("#total-amount-payable").text().replace("Total Amount Payable: Rp ", "").replace("/-", ""));
+                $("#total-amount-paid").text("Total Amount Paid: Rp " + totalAmountPayable.toFixed(2));
+            }
 
 
             // Handle form submission
