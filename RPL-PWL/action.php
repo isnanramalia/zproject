@@ -193,6 +193,7 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$delete_cart_stmt = $db->prepare("DELETE FROM cart");
 	$delete_cart_stmt->execute();
 
+	// ! UNTUK MENCETAK ALAMAT DI $DATA/$DATA2
 	// Menggantikan $city dan $province dengan kode kota dan provinsi yang diperoleh dari RajaOngkir
 	$cityCode = $_POST['city'];
 	$provinceCode = $_POST['province'];
@@ -235,6 +236,24 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$cityName = getCityName($cityCode);
 	$provinceName = getProvinceName($provinceCode);
 
+	// ! -------- NOMOR RESI (harusnya resi ya, tp aku akalin dlu pake random code) --------
+	function generateRandomCode($length)
+	{
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$randomCode = '';
+
+		$charactersLength = strlen($characters);
+		for ($i = 0; $i < $length; $i++) {
+			$randomCode .= $characters[rand(0, $charactersLength - 1)];
+		}
+
+		return $randomCode;
+	}
+	$randomCombination = generateRandomCode(12);
+
+
+
+	// ! -------- IF ELSE DI PAYMENT MODE --------
 	if ($pmode == "bca") {
 		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
 			<br>
@@ -242,11 +261,14 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
 			<h6>Please make the payment to the following bank account!</h6>
 			<h4>Bank: BCA</h4>
-			<h4>Account Number: 8715546414 </h4>
+			<div class="tracking-container">
+			<h4 id="accountNumber">Account Number: 08715546414 </h4>
+			<h5 id="accountNumber2" onclick="copyAccountNumber()"><i class="bi bi-clipboard"></i></h5>
+			</div>
 			<h4>Account Holder: Your Name</h4>
 			</div>
 			<br>
-			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<p class="text-center">After making the payment, please click the button below to confirm your payment.</p>
 			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
 	} else if ($pmode == "bni") {
 		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
@@ -255,11 +277,14 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
 			<h6>Please make the payment to the following bank account!</h6>
 			<h4>Bank: BNI</h4>
-			<h4>Account Number: 0831237060</h4>
+			<div class="tracking-container">
+			<h4 id="accountNumber">Account Number: 0831237060 </h4>
+			<h5 id="accountNumber2" onclick="copyAccountNumber()"><i class="bi bi-clipboard"></i></h5>
+			</div>
 			<h4>Account Holder: SKINKER</h4>
 			</div>
 			<br>
-			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<p class="text-center">After making the payment, please click the button below to confirm your payment.</p>
 			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
 	} else if ($pmode == "linebank") {
 		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
@@ -268,11 +293,14 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
 			<h6>Please make the payment to the following bank account!</h6>
 			<h4>Bank: LINE BANK</h4>
-			<h4>Account Number: 11715702490</h4>
+			<div class="tracking-container">
+			<h4 id="accountNumber">Account Number: 11715702490 </h4>
+			<h5 id="accountNumber2" onclick="copyAccountNumber()"><i class="bi bi-clipboard"></i></h5>
+			</div>
 			<h4>Account Holder: SKINKER</h4>
 			</div>
 			<br>
-			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<p class="text-center">After making the payment, please click the button below to confirm your payment.</p>
 			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
 	} else if ($pmode == "dana") {
 		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
@@ -281,11 +309,14 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
 			<h6>Please make the payment to the following e-wallet account!</h6>
 			<h4>Bank: DANA</h4>
-			<h4>Account Number: 083109191936</h4>
+			<div class="tracking-container">
+			<h4 id="accountNumber">Account Number: 083109191936 </h4>
+			<h5 id="accountNumber2" onclick="copyAccountNumber()"><i class="bi bi-clipboard"></i></h5>
+			</div>
 			<h4>Account Holder: SKINKER</h4>
 			</div>
 			<br>
-			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<p class="text-center">After making the payment, please click the button below to confirm your payment.</p>
 			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
 	} else if ($pmode == "ovo") {
 		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
@@ -294,11 +325,14 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
 			<h6>Please make the payment to the following e-wallet account!</h6>
 			<h4>Bank: OVO</h4>
-			<h4>Account Number: 083109191936</h4>
+			<div class="tracking-container">
+			<h4 id="accountNumber">Account Number: 083109191936 </h4>
+			<h5 id="accountNumber2" onclick="copyAccountNumber()"><i class="bi bi-clipboard"></i></h5>
+			</div>
 			<h4>Account Holder: SKINKER</h4>
 			</div>
 			<br>
-			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<p class="text-center">After making the payment, please click the button below to confirm your payment.</p>
 			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
 	} else if ($pmode == "gopay") {
 		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
@@ -307,11 +341,14 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
 			<h6>Please make the payment to the following e-wallet account!</h6>
 			<h4>Bank: GOPAY</h4>
-			<h4>Account Number: 083109191936</h4>
+			<div class="tracking-container">
+			<h4 id="accountNumber">Account Number: 083109191936 </h4>
+			<h5 id="accountNumber2" onclick="copyAccountNumber()"><i class="bi bi-clipboard"></i></h5>
+			</div>
 			<h4>Account Holder: SKINKER</h4>
 			</div>
 			<br>
-			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<p class="text-center">After making the payment, please click the button below to confirm your payment.</p>
 			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
 	} else if ($pmode == "shopeepay") {
 		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
@@ -320,11 +357,14 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
 			<h6>Please make the payment to the following e-wallet account!</h6>
 			<h4>Bank: SHOPEEPAY</h4>
-			<h4>Account Number: 083109191936</h4>
+			<div class="tracking-container">
+			<h4 id="accountNumber">Account Number: 083109191936 </h4>
+			<h5 id="accountNumber2" onclick="copyAccountNumber()"><i class="bi bi-clipboard"></i></h5>
+			</div>
 			<h4>Account Holder: SKINKER</h4>
 			</div>
 			<br>
-			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<p class="text-center">After making the payment, please click the button below to confirm your payment.</p>
 			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
 	} else {
 		$data .= '<div class="text-center">
@@ -337,6 +377,10 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h4>Payment Mode : ' . $pmode . ' </h4>			
 			<h4 id="total-amount-paid">Total Amount Paid: IDR ' . number_format($total_amount_payable, 2) . '</h4>
 			<br>
+			<div class="tracking-container">
+				<h6 id="trackingNumber">Tracking Number : ' . $randomCombination . '    </h6>
+				<h6 id="trackingButton" onclick="copyTrackingNumber()"><i class="bi bi-clipboard"></i></i></h6>
+			</div>
 			<br>
 			<a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
 		</div>';
@@ -354,9 +398,14 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 			<h4>Payment Mode : ' . $pmode . ' </h4>			
 			<h4 id="total-amount-paid">Total Amount Paid: IDR ' . number_format($total_amount_payable, 2) . '</h4>
 			<br>
+			<div class="tracking-container">
+				<h6 id="trackingNumber">Tracking Number : ' . $randomCombination . '    </h6>
+				<h6 id="trackingButton" onclick="copyTrackingNumber()"><i class="bi bi-clipboard"></i></i></h6>
+			</div>
 			<br>
 			<a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
 		</div>';
+
 
 	echo '<script>
 	function confirmPayment(button) {
@@ -367,3 +416,42 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 
 	echo $data;
 }
+?>
+
+<!-- SCRIPT DAN STYLE UNTUK COPY -->
+<script>
+	function copyTrackingNumber() {
+		var trackingNumberElement = document.getElementById("trackingNumber");
+		var range = document.createRange();
+		range.selectNode(trackingNumberElement);
+		window.getSelection().removeAllRanges();
+		window.getSelection().addRange(range);
+		document.execCommand("copy");
+		window.getSelection().removeAllRanges();
+		alert("Tracking number copied!");
+	}
+
+	function copyAccountNumber() {
+		var accountNumberElement = document.getElementById("accountNumber");
+		var range = document.createRange();
+		range.selectNode(accountNumberElement);
+		window.getSelection().removeAllRanges();
+		window.getSelection().addRange(range);
+		document.execCommand("copy");
+		window.getSelection().removeAllRanges();
+		alert("Account number copied!");
+	}
+</script>
+
+<style>
+	.tracking-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		/* Menambahkan properti justify-content: center; */
+	}
+
+	#trackingButton #accountNumber2 {
+		margin-right: 30px;
+	}
+</style>

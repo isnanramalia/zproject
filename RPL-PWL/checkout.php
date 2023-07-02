@@ -100,7 +100,7 @@ $allItems = implode(", <br>", $items);
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="service">Shipping Service:</label>
+                        <label for="service" id="data2">Shipping Service:</label>
                         <select name="service" id="service" class="form-control" required>
                             <option value="">-- Select Shipping Service --</option>
                             <!-- Populate the shipping services based on selected city using RajaOngkir API -->
@@ -112,7 +112,7 @@ $allItems = implode(", <br>", $items);
                     </div>
                     <h6 class="text-center lead">Select Payment Mode</h6>
                     <div class="form-group">
-                        <select name="pmode" class="form-control">
+                        <select name="pmode" class="form-control" required>
                             <option value="" selected disabled>-- Select Payment Mode --</option>
                             <option value="cod">Cash On Delivery</option>
                             <option value="netbanking" disabled>-- Bank Tranfer --</option>
