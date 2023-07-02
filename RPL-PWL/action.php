@@ -10,7 +10,6 @@ if (isset($_POST["pid"]) && isset($_POST["pname"]) && isset($_POST["pprice"]) &&
 	$price 	= $_POST["pprice"];
 	$image 	= $_POST["pimage"];
 	$code 	= $_POST["pcode"];
-	// $user_id 	= $_POST["puser_id"];
 	$qty = 1;
 
 	$select_stmt = $db->prepare("SELECT product_code FROM cart WHERE product_code=:code");
@@ -236,20 +235,135 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$cityName = getCityName($cityCode);
 	$provinceName = getProvinceName($provinceCode);
 
-	// Tampilkan nama kota dan provinsi dalam output
-	$data .= '<div class="text-center">
-  <h1 class="display-4 mt-2 text-danger">Thank You!</h1>
-  <h2>Your Order Placed Successfully!</h2>
-  <h4 class="bg-danger text-light rounded p-2">Items Purchased : <br><br>' . $products . '</h4>
-  <h4>Your Name : ' . $name . ' </h4>			
-  <h4>Your Phone : ' . $phone . '  </h4>
-  <h4>Shipping Address: ' . $address . ', ' . $cityName . ', ' . $provinceName . ' </h4>
-  <h4>Payment Mode : ' . $pmode . ' </h4>			
-  <h4 id="total-amount-paid">Total Amount Paid: Rp ' . number_format($total_amount_payable, 2) . '</h4>
-  <br>
-  <br>
-  <a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
-</div>';
+	if ($pmode == "bca") {
+		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
+			<br>
+			<div class="jumbotron p-3 mb-2 text-center">
+			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
+			<h6>Please make the payment to the following bank account!</h6>
+			<h4>Bank: BCA</h4>
+			<h4>Account Number: 8715546414 </h4>
+			<h4>Account Holder: Your Name</h4>
+			</div>
+			<br>
+			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
+	} else if ($pmode == "bni") {
+		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
+			<br>
+			<div class="jumbotron p-3 mb-2 text-center">
+			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
+			<h6>Please make the payment to the following bank account!</h6>
+			<h4>Bank: BNI</h4>
+			<h4>Account Number: 0831237060</h4>
+			<h4>Account Holder: SKINKER</h4>
+			</div>
+			<br>
+			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
+	} else if ($pmode == "linebank") {
+		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
+			<br>
+			<div class="jumbotron p-3 mb-2 text-center">
+			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
+			<h6>Please make the payment to the following bank account!</h6>
+			<h4>Bank: LINE BANK</h4>
+			<h4>Account Number: 11715702490</h4>
+			<h4>Account Holder: SKINKER</h4>
+			</div>
+			<br>
+			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
+	} else if ($pmode == "dana") {
+		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
+			<br>
+			<div class="jumbotron p-3 mb-2 text-center">
+			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
+			<h6>Please make the payment to the following e-wallet account!</h6>
+			<h4>Bank: DANA</h4>
+			<h4>Account Number: 083109191936</h4>
+			<h4>Account Holder: SKINKER</h4>
+			</div>
+			<br>
+			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
+	} else if ($pmode == "ovo") {
+		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
+			<br>
+			<div class="jumbotron p-3 mb-2 text-center">
+			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
+			<h6>Please make the payment to the following e-wallet account!</h6>
+			<h4>Bank: OVO</h4>
+			<h4>Account Number: 083109191936</h4>
+			<h4>Account Holder: SKINKER</h4>
+			</div>
+			<br>
+			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
+	} else if ($pmode == "gopay") {
+		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
+			<br>
+			<div class="jumbotron p-3 mb-2 text-center">
+			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
+			<h6>Please make the payment to the following e-wallet account!</h6>
+			<h4>Bank: GOPAY</h4>
+			<h4>Account Number: 083109191936</h4>
+			<h4>Account Holder: SKINKER</h4>
+			</div>
+			<br>
+			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
+	} else if ($pmode == "shopeepay") {
+		$data .= '<h1 class="display-4 mt-2 text-danger text-center">Payment Instructions</h1>
+			<br>
+			<div class="jumbotron p-3 mb-2 text-center">
+			<h2>Payment Amount: IDR ' . number_format($total_amount_payable, 2) . '</h2>
+			<h6>Please make the payment to the following e-wallet account!</h6>
+			<h4>Bank: SHOPEEPAY</h4>
+			<h4>Account Number: 083109191936</h4>
+			<h4>Account Holder: SKINKER</h4>
+			</div>
+			<br>
+			<p text-center>After making the payment, please click the button below to confirm your payment.</p>
+			<button class="btn btn-block btn-light" onclick="confirmPayment(this)">Confirm Payment</button>';
+	} else {
+		$data .= '<div class="text-center">
+			<h1 class="display-4 mt-2 text-danger">Thank You!</h1>
+			<h2>Your Order Placed Successfully!</h2>
+			<h4 class="bg-danger text-light rounded p-2">Items Purchased : <br><br>' . $products . '</h4>
+			<h4>Your Name : ' . $name . ' </h4>			
+			<h4>Your Phone : ' . $phone . '  </h4>
+			<h4>Shipping Address: ' . $address . ', ' . $cityName . ', ' . $provinceName . ' </h4>
+			<h4>Payment Mode : ' . $pmode . ' </h4>			
+			<h4 id="total-amount-paid">Total Amount Paid: IDR ' . number_format($total_amount_payable, 2) . '</h4>
+			<br>
+			<br>
+			<a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
+		</div>';
+	}
+
+	// ini utk setelah konfirmasi pembayaran (selain COD)
+	$data2 = '';
+	$data2 .= '<div class="text-center">
+			<h1 class="display-4 mt-2 text-danger">Thank You!</h1>
+			<h2>Your Order Placed Successfully!</h2>
+			<h4 class="bg-danger text-light rounded p-2">Items Purchased : <br><br>' . $products . '</h4>
+			<h4>Your Name : ' . $name . ' </h4>			
+			<h4>Your Phone : ' . $phone . '  </h4>
+			<h4>Shipping Address: ' . $address . ', ' . $cityName . ', ' . $provinceName . ' </h4>
+			<h4>Payment Mode : ' . $pmode . ' </h4>			
+			<h4 id="total-amount-paid">Total Amount Paid: IDR ' . number_format($total_amount_payable, 2) . '</h4>
+			<br>
+			<br>
+			<a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
+		</div>';
+
+	echo '<script>
+	function confirmPayment(button) {
+		// ! Display $data2
+		button.parentNode.innerHTML = `' . addslashes($data2) . '`;
+	}
+	</script>';
 
 	echo $data;
 }

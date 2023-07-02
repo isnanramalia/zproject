@@ -14,7 +14,7 @@ while ($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
 
     // Menambahkan informasi harga per produk
     $itemPrice = $row["product_price"]; // Harga per produk
-    $items[] = "Price/item: Rp." . number_format($itemPrice, 2); // Menambahkan informasi harga ke array $items
+    $items[] = "Price/item: IDR " . number_format($itemPrice, 2); // Menambahkan informasi harga ke array $items
 }
 $allItems = implode(", <br>", $items);
 ?>
@@ -65,7 +65,7 @@ $allItems = implode(", <br>", $items);
                         $itemPrice = $row["product_price"];
                         $quantity = $row["quantity"];
                         $totalPrice = $row["total_price"];
-                        echo "<p><b>{$row["ItemQty"]}</b> - Price per item: Rp" . number_format($itemPrice, 2) . ", Total Price: Rp." . number_format($totalPrice) . "</p>";
+                        echo "<p><b>{$row["ItemQty"]}</b> - Price per item: IDR " . number_format($itemPrice, 2) . ", Total Price: IDR " . number_format($totalPrice) . "</p>";
                     }
                     ?>
                     <h6 class="lead"><b>PPN 10%: </b><?php echo number_format($grand_total * 0.1, 2); ?></h6>
@@ -113,12 +113,21 @@ $allItems = implode(", <br>", $items);
                     <h6 class="text-center lead">Select Payment Mode</h6>
                     <div class="form-group">
                         <select name="pmode" class="form-control">
-                            <option value="">-- select payment --</option>
+                            <option value="" selected disabled>-- Select Payment Mode --</option>
                             <option value="cod">Cash On Delivery</option>
-                            <option value="netbanking">Bank Transfer</option>
-                            <option value="card">E-Wallet</option>
+                            <option value="netbanking" disabled>-- Bank Tranfer --</option>
+                            <option value="bca">BCA</option>
+                            <option value="bni">BNI</option>
+                            <option value="linebank">Line Bank</option>
+                            <option value="card" disabled>-- E-Wallet --</option>
+                            <option value="dana">DANA</option>
+                            <option value="ovo">OVO</option>
+                            <option value="gopay">GoPay</option>
+                            <option value="shopeepay">ShopeePay</option>
                         </select>
                     </div>
+
+
                     <div class="form-group">
                         <input type="submit" name="submit" class="btn btn-danger btn-block" value="Place Order">
                     </div>
@@ -197,7 +206,7 @@ $allItems = implode(", <br>", $items);
                             $("h6.delivery-charge").text("Delivery Charge: Free");
                         } else {
                             $("#shipping_cost").val(response);
-                            $("h6.delivery-charge").text("Delivery Charge: Rp " + response);
+                            $("h6.delivery-charge").text("Delivery Charge: IDR  " + response);
                         }
                         updateTotalAmountPayable();
                     }
@@ -210,14 +219,14 @@ $allItems = implode(", <br>", $items);
                 var shippingCost = parseFloat($("#shipping_cost").val());
 
                 var totalAmountPayable = grandTotal + (grandTotal * 0.1) + shippingCost;
-                $("#total-amount-payable").text("Total Amount Payable: Rp " + totalAmountPayable.toFixed(2) + "/-");
+                $("#total-amount-payable").text("Total Amount Payable: IDR  " + totalAmountPayable.toFixed(2) + "/-");
                 updateTotalAmountPaid(); // Panggil fungsi untuk memperbarui total amount paid saat total amount payable diperbarui
             }
 
             // Fungsi untuk memperbarui total amount paid
             function updateTotalAmountPaid() {
-                var totalAmountPayable = parseFloat($("#total-amount-payable").text().replace("Total Amount Payable: Rp ", "").replace("/-", ""));
-                $("#total-amount-paid").text("Total Amount Paid: Rp " + totalAmountPayable.toFixed(2));
+                var totalAmountPayable = parseFloat($("#total-amount-payable").text().replace("Total Amount Payable: IDR  ", "").replace("/-", ""));
+                $("#total-amount-paid").text("Total Amount Paid: IDR  " + totalAmountPayable.toFixed(2));
             }
 
 
