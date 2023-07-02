@@ -194,19 +194,62 @@ if (isset($_POST["action"]) && isset($_POST["action"]) == "orders") {
 	$delete_cart_stmt = $db->prepare("DELETE FROM cart");
 	$delete_cart_stmt->execute();
 
+	// Menggantikan $city dan $province dengan kode kota dan provinsi yang diperoleh dari RajaOngkir
+	$cityCode = $_POST['city'];
+	$provinceCode = $_POST['province'];
+
+	// Fungsi untuk mengambil detail kota dari kode kota
+	function getCityName($cityCode)
+	{
+		// Lakukan permintaan API ke RajaOngkir untuk mendapatkan detail kota berdasarkan kode
+		$apiUrl = "https://api.rajaongkir.com/starter/city?id=" . $cityCode;
+		$apiKey = "aa2dc37907d6b7692e797459a79db68d"; // Ganti dengan kunci API RajaOngkir Anda
+		$response = file_get_contents($apiUrl . "&key=" . $apiKey);
+
+		// Proses data JSON yang diterima
+		$data = json_decode($response, true);
+		if ($data['rajaongkir']['status']['code'] == 200) {
+			// Ambil nama kota dari data yang diterima
+			return $data['rajaongkir']['results']['city_name'];
+		}
+		return null;
+	}
+
+	// Fungsi untuk mengambil detail provinsi dari kode provinsi
+	function getProvinceName($provinceCode)
+	{
+		// Lakukan permintaan API ke RajaOngkir untuk mendapatkan detail provinsi berdasarkan kode
+		$apiUrl = "https://api.rajaongkir.com/starter/province?id=" . $provinceCode;
+		$apiKey = "aa2dc37907d6b7692e797459a79db68d"; // Ganti dengan kunci API RajaOngkir Anda
+		$response = file_get_contents($apiUrl . "&key=" . $apiKey);
+
+		// Proses data JSON yang diterima
+		$data = json_decode($response, true);
+		if ($data['rajaongkir']['status']['code'] == 200) {
+			// Ambil nama provinsi dari data yang diterima
+			return $data['rajaongkir']['results']['province'];
+		}
+		return null;
+	}
+
+	// Panggil fungsi-fungsi tersebut untuk mendapatkan nama kota dan provinsi
+	$cityName = getCityName($cityCode);
+	$provinceName = getProvinceName($provinceCode);
+
+	// Tampilkan nama kota dan provinsi dalam output
 	$data .= '<div class="text-center">
-			<h1 class="display-4 mt-2 text-danger">Thank You!</h1>
-			<h2>Your Order Placed Successfully!</h2>
-			<h4 class="bg-danger text-light rounded p-2">Items Purchased : <br><br>' . $products . '</h4>
-			<h4>Your Name : ' . $name . ' </h4>			
-			<h4>Your Phone : ' . $phone . '  </h4>			
-			<h4 id="total-amount-paid">Total Amount Paid: Rp ' . number_format($total_amount_payable, 2) . '</h4>
-			<h4>Payment Mode : ' . $pmode . ' </h4>
-			<br>
-			<br>
-			<a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
-		</div>';
-	// <button id="btnResi">Check Resi</button>
+  <h1 class="display-4 mt-2 text-danger">Thank You!</h1>
+  <h2>Your Order Placed Successfully!</h2>
+  <h4 class="bg-danger text-light rounded p-2">Items Purchased : <br><br>' . $products . '</h4>
+  <h4>Your Name : ' . $name . ' </h4>			
+  <h4>Your Phone : ' . $phone . '  </h4>
+  <h4>Shipping Address: ' . $address . ', ' . $cityName . ', ' . $provinceName . ' </h4>
+  <h4>Payment Mode : ' . $pmode . ' </h4>			
+  <h4 id="total-amount-paid">Total Amount Paid: Rp ' . number_format($total_amount_payable, 2) . '</h4>
+  <br>
+  <br>
+  <a href="index.php" class="btn btn-block btn-light"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
+</div>';
 
 	echo $data;
 }
