@@ -8,3 +8,6 @@ next-project-pwl smt 2
   folder RPL-PWL tu karena ini project bareng, collab. ngga jg deng, tp pokonya folder ini tujuannya utk UAS PWL sm UAS RPL, yg dimana->
   <br> - RPL: realisasi SKPL
 <br> - PWL: nambah framework (aku pakenya CodeIgniter)
+
+<br>
+gr2 CI susah, aku dah nyerah. Jd nyoba laravel, akhirnya bisa tp lom bisa hubung ke database haha
